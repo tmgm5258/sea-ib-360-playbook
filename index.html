@@ -624,8 +624,8 @@ var NODES=[
   owner:'Sales (Aaron\'s team); Partner Marketing (website, deck)',
   where:'Partners website, partner deck, talks with Sales or Support',
   time:'Not known yet',
-  cnote:{lead:'Rate to confirm:',text:'SEA rates are USD1 to 7 a lot on Forex and up to USD10 on gold and silver. The website\'s USD10 and the deck\'s USD8 match the STD account, which the SEA sheet doesn\'t list.'},
-  src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (9 Nov); Sales Zendesk rate sheets (Oct 2025); partners website and deck',
+  cnote:{lead:'Rate to confirm:',text:'Classic, Edge and Prime accounts pay USD1 to 7 a lot on Forex in SEA. Sales Ops says SEA clients can also open STD accounts, which pay USD8 to 10, the figures on our website and deck. BO is confirming.'},
+  src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (9 and 10 Nov); Sales Zendesk rate sheets (Oct 2025); partners website and deck',
   /* fuller version for the click-through card */
   pop:{
    what:'Before signing up, a future IB checks what we offer and asks about the rate. Here\'s where they usually go:',
@@ -636,7 +636,7 @@ var NODES=[
     {h:'A chat with Sales',t:'Sales explains the IB rebate, current promotions and account details. This quarter, for example, IBs can earn a bonus when their clients hit deposit and trading targets.'},
     {h:'Our Support team',t:'Some ask Support about becoming an IB. Support passes them to Sales Ops, who get them to an AM (step 2.2).'}
    ],
-   note:{lead:'To confirm',t:'Sales Ops\' SEA rate sheet pays USD1 to 7 a lot on Forex and up to USD10 on gold and silver. The website\'s USD10 and the deck\'s USD8 match the STD account, which that sheet doesn\'t list, so we\'re checking with Sales Ops.'},
+   note:{lead:'To confirm',t:'Sales Ops\' SEA rate sheet pays USD1 to 7 a lot on Forex (Classic, Edge and Prime). Sales Ops says SEA clients can also open STD, PRO, PM and ECN accounts, and STD pays USD8 to 10, which matches our website and deck. Joy in BO is confirming.'},
    owner:'Sales (Aaron\'s team) talks to them. Partner Marketing looks after the partners website and the partner deck.',
    where:'Our partners website (tmgmpartners.com), the partner deck, and conversations with Sales or our Support team.',
    time:'Not known yet. How long it takes from a first chat with Sales to agreeing terms is one of our questions for Aaron.',
@@ -686,9 +686,9 @@ var NODES=[
   what:'The system routes the sign-up to a team lead using set rules, such as region, campaign and language. For enquiries that come through Support, Sales Ops picks the team lead instead. The team lead then passes it to an AM, who owns the lead from before KYC. If the person hasn\'t signed up yet, the AM helps them register.',owner:'Team lead, then the AM',where:'CRM system',time:'Usually within the day',src:'Sales Ops (3 Jul, 9 Nov)'},
  {k:'n23',id:'2.3',st:'manual',shape:'box',x:C[3],y:Y1,w:152,h:96,name:'Agrees terms',sub:'Rate and plan, one to one',
   what:'Agrees the program and rate with their AM, one to one. There\'s no minimum KYC, deposit or trading to become an IB, and Sales usually recommends IB. Rates above the normal IB rebate need Tom\'s approval (step 2.5).',
-  owner:'AM in the regional sales team',where:'To confirm with BO',time:'Not known yet',
-  cnote:{lead:'Rate to confirm:',text:'SEA rates are USD1 to 7 a lot on Forex and up to USD10 on gold and silver. The website\'s USD10 and the deck\'s USD8 match the STD account, which the SEA sheet doesn\'t list.'},
-  src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (9 Nov); Sales Zendesk rate sheets (Oct 2025)',
+  owner:'AM in the regional sales team',where:'AM\'s Zendesk ticket to BO',time:'Not known yet',
+  cnote:{lead:'Rate to confirm:',text:'Classic, Edge and Prime accounts pay USD1 to 7 a lot on Forex in SEA. Sales Ops says SEA clients can also open STD accounts, which pay USD8 to 10, the figures on our website and deck. BO is confirming.'},
+  src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (9 and 10 Nov); BO (10 Nov); Sales Zendesk rate sheets (Oct 2025)',
   /* fuller version for the click-through card */
   pop:{
    what:'The future IB and their AM agree, one to one, which program fits and what rate they\'ll get. Three things shape the deal:',
@@ -697,11 +697,11 @@ var NODES=[
     {h:'The rate',t:'Agreed one to one with the AM. Sales Ops\' rate sheet for SEA pays USD1 to 7 a lot on Forex and up to USD10 on gold and silver, depending on the account type and the IB\'s volume. Anything above it is a special request that needs Tom\'s approval (step 2.5).'},
     {h:'Who can join',t:'Anyone: there\'s no minimum KYC, deposit or trading.'}
    ],
-   note:{lead:'To confirm',t:'Our website\'s "up to USD10" and the deck\'s USD8 match the STD account in the general rate sheet, which the SEA sheet doesn\'t list. We\'re checking with Sales Ops whether SEA IBs get STD accounts.'},
+   note:{lead:'To confirm',t:'Sales Ops says SEA clients can also open STD, PRO, PM and ECN accounts, which use the general rate sheet. STD pays USD8 to 10 a lot on Forex, where our website and deck figures come from. Joy in BO is confirming.'},
    owner:'Their AM, in the regional sales team.',
-   where:'Not known yet. It could be Salesforce, the Zendesk request or just chat, so we\'re asking BO whether the AM\'s ticket carries it.',
+   where:'In the AM\'s Zendesk ticket to BO, which has to include the account group and the agreed rate.',
    time:'Not known yet. Also one of our questions for Aaron.',
-   src:'IB onboarding flow doc (30 Oct); Aaron (Nov); partner deck; Sales Ops (9 and 10 Nov); Sales Zendesk rate sheets (Oct 2025)'
+   src:'IB onboarding flow doc (30 Oct); Aaron (Nov); partner deck; Sales Ops (9 and 10 Nov); BO (10 Nov); Sales Zendesk rate sheets (Oct 2025)'
   }},
  {k:'n24',id:'2.4',st:'manual',shape:'box',x:C[4],y:Y1,w:152,h:96,name:'AM applies for them',sub:'Via Zendesk',
   what:'Only the AM can submit an IB application. Clients can\'t apply themselves, so anyone interested is given to an AM first. The AM sends the request to BO as a Zendesk ticket.',owner:'AM',where:'Zendesk',time:'Not known yet',src:'Sales Ops (23 Jun, 3 Nov); BO (24 Jun)',
@@ -710,7 +710,7 @@ var NODES=[
    what:'Clients can\'t make themselves an IB, so their AM applies for them. Here\'s what the AM does:',
    ways:[
     {h:'Spots who wants to be an IB',t:'A partnership code on the sign-up, such as MKT-Partnership_IB from the IB page, tells Sales the person wants to become an IB.'},
-    {h:'Raises a Zendesk ticket',t:'Once terms are agreed (step 2.3), the AM asks BO in a Zendesk ticket to upgrade the client account to an IB.'},
+    {h:'Raises a Zendesk ticket',t:'Once terms are agreed (step 2.3), the AM asks BO in a Zendesk ticket to upgrade the client account to an IB, giving the account group and the agreed rate.'},
     {h:'Waits for approval if it\'s special',t:'Rates above the normal IB rebate, Special Groups and Max+ (an extra rebate on top of the standard one) need Tom\'s approval by email before BO sets them up. That usually takes 2 to 4 days (step 2.5).'}
    ],
    note:{lead:'Good to know',t:'Every TMGM sign-up goes through the same system and opens a normal client account. Only BO can change it to an IB, and only when an AM asks.'},
@@ -724,11 +724,11 @@ var NODES=[
  {k:'hTom',st:'manual',shape:'help',x:C[5],y:YH,w:184,h:76,name:'Tom approves',sub:'By email, 2 to 4 days',rel:'Part of step 2.5',stage:2,num:'2.5',
   what:'Every special request, including Special Groups and Max+ (an extra rebate on top of the standard one), needs approval from Tom, our CEO, by email before setup. It usually takes 2 to 4 days, depending on how complex the case is. All Sales report directly to him.',owner:'Tom, our CEO',where:'Email',time:'About 2 to 4 days, depending on the case',src:'Sales Ops (3 Nov, 9 Nov) and their Max+ SOP'},
  {k:'n25',id:'2.5',st:'manual',shape:'box',x:C[6],y:Y1,w:152,h:96,name:'BO sets up the IB',sub:'About 1 hour',
-  what:'BO switches the account to IB, uploads the agreement, and sets permissions, the commission account and rebates in CRM. They do it once the request, and any approval, is in, before the IB accepts the agreement.',owner:'BO',where:'Zendesk and CRM',time:'Agreement uploaded within about 1 hour, depending on ticket volume',src:'BO (24 Jun); Sales Ops (3 Nov)',
+  what:'BO switches the account to IB, uploads the agreement, and sets permissions, the commission account and rebates in our in-house CRM. They do it once the request, and any approval, is in, before the IB accepts the agreement.',owner:'BO',where:'Zendesk and our in-house CRM',time:'Agreement uploaded within about 1 hour, depending on ticket volume',src:'BO (24 Jun, 10 Nov); Sales Ops (3 Nov)',
   /* fuller version for the click-through card */
   pop:{
    what:'Once the AM\'s request, and any approval, is in, BO turns the client account into an IB account. They don\'t wait for the IB to accept the agreement, and the IB welcome emails can start as soon as the account type changes (step 3.1).',
-   waysH:'What BO does in the CRM',
+   waysH:'What BO does in our in-house CRM',
    ways:[
     {h:'Sets up the IB profile',t:'Switches the account type from client to IB, uploads the standard IB agreement and turns on IB permissions.'},
     {h:'Sets up the commission account',t:'The account their rebates are paid into, with the right account group and status.'},
@@ -736,9 +736,9 @@ var NODES=[
    ],
    note:{lead:'Special requests',t:'Rates above the normal IB rebate, Special Groups and Max+ (an extra rebate on top of the standard one, such as Max+0.5) need Tom\'s approval by email before BO starts. That usually adds 2 to 4 days.'},
    owner:'BO, our back office team.',
-   where:'The request comes in as a Zendesk ticket. The setup itself happens in the CRM.',
+   where:'The request comes in as a Zendesk ticket. The setup itself happens in our in-house CRM, a separate system from Salesforce.',
    time:'About 1 hour from the request to the agreement being uploaded, depending on how many tickets BO has.',
-   src:'BO (24 Jun, 9 Nov); Sales Ops (3 Nov, 9 Nov) and their Max+ SOP; EDM team (Nov)'
+   src:'BO (24 Jun, 9 and 10 Nov); Sales Ops (3 Nov, 9 Nov) and their Max+ SOP; EDM team (Nov)'
   }},
  {k:'n26',id:'2.6',st:'auto',shape:'box',x:C[7],y:Y1,w:152,h:96,name:'Accepts the agreement',sub:'Portal goes live',
   what:'Accepts the IB agreement in the client portal. That opens their IB portal at once, with their link and rates.',owner:'The IB',where:'Client portal',time:'Live at once',src:'BO (24 Jun); Sales Ops (23 Jun); IB Welcome email',
@@ -828,7 +828,7 @@ var NODES=[
  {k:'lk',st:'none',shape:'leak',x:R[3],y:YL,w:196,h:72,name:'IB goes quiet',sub:'Nothing flags it today',rel:'Branch of step 3.4',stage:3,num:'3.4',
   what:'If no client deposits, nothing triggers a nudge today. Time to first client isn\'t owned or measured.',owner:'No set owner',where:'Not tracked',time:'Not tracked',src:'Flow doc (30 Oct); Growth Strategy (Jun)'},
  {k:'n41',id:'4.1',st:'manual',shape:'box',x:R[4],y:Y2,w:172,h:96,name:'Adds more clients',sub:'May add sub-⁠IBs',
-  what:'Brings more clients and may add sub-IBs, with AM support. Marketing posters for IB and client promotions come from their AM.',owner:'The IB, supported by their AM',where:'Not known yet',time:'Ongoing',src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (3 Jul); Q4 IB promotions (Nov)',
+  what:'Brings more clients and may add sub-IBs, with AM support. Marketing posters for IB and client promotions come from their AM.',owner:'The IB, supported by their AM',where:'IB links; sub-IBs via their AM and BO',time:'Ongoing',src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (3 Jul); BO (10 Nov); Q4 IB promotions (Nov)',
   /* fuller version for the click-through card */
   pop:{
    what:'Once they have their first client, the IB keeps bringing in more, and some build a team of sub-IBs under them.',
@@ -838,30 +838,30 @@ var NODES=[
     {h:'IB promotions',t:'In Q4 2026, IBs can earn a bonus when their direct clients hit deposit and trading targets. They need at least 5 enabled and 3 active direct clients, and their AM applies for the bonus.'},
     {h:'Sub-IBs',t:'An IB can bring in partners under them and earn on those partners\' clients too.'}
    ],
-   note:{lead:'To confirm',t:'How a sub-IB gets added: in the IB portal, or by the AM asking BO. We\'re asking BO.'},
+   note:{lead:'Good to know',t:'For now, a sub-IB can\'t be added from the IB portal. Every new IB, sub-IBs included, is raised by their AM to BO for setup.'},
    owner:'The IB, with support from their AM, who stays with them and applies for their promotion bonuses.',
-   where:'Not known yet. How a sub-IB is added is one of our questions for BO.',
+   where:'They share their IB links (step 3.3). A new sub-IB is raised by their AM to BO for setup, like any new IB.',
    time:'Ongoing, for as long as they\'re an IB.',
-   src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (3 Jul); Q4 IB promotions (Nov); partner deck'
+   src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (3 Jul); BO (10 Nov); Q4 IB promotions (Nov); partner deck'
   }},
  {k:'n51',id:'5.1',st:'partly',shape:'box',x:R[5],y:Y2,w:172,h:96,name:'Paid daily',sub:'BO starts it, CRM pays',
-  what:'Rebates are worked out and paid every day, and the IB can withdraw any time. Each day BO clicks the payment button to start the payout run, then the CRM system processes the payouts automatically.',owner:'BO starts it each day; the CRM system pays out',where:'CRM system; the IB sees it in the IB portal',time:'Daily',src:'IB onboarding flow doc (30 Oct); BO (Nov)',
+  what:'Rebates are worked out and paid every day, and the IB can withdraw any time. Each day BO clicks the payment button to start the payout run, then our in-house CRM processes the payouts automatically.',owner:'BO starts it each day; our in-house CRM pays out',where:'Our in-house CRM; the IB sees it in the IB portal',time:'Daily',src:'IB onboarding flow doc (30 Oct); BO (Nov)',
   /* fuller version for the click-through card */
   pop:{
    what:'The IB\'s rebates are worked out and paid every day, and they can withdraw any time. It\'s mostly automatic, but BO has to start it each\u00a0day.',
    flFirst:1,
    fl:{h:'How the daily payout works',
-    a:['Their clients trade during the day','BO clicks the payment button to start the day\'s run','The CRM system pays the rebates out automatically']},
+    a:['Their clients trade during the day','BO clicks the payment button to start the day\'s run','Our in-house CRM pays the rebates out automatically']},
    waysH:'What else to know',
    ways:[
     {h:'Where it shows',t:'Rebates go into their commission account, and they can follow them in their IB portal.'},
     {h:'Withdrawing',t:'They can withdraw any time. Like any withdrawal, it needs their ID verified (KYC) first.'},
     {h:'Promotion bonuses are separate',t:'The AM applies by the 7th of the next month, and bonuses are paid within 14 working days.'}
    ],
-   owner:'BO starts it each day, then the CRM system pays out.',
-   where:'The CRM system. The IB sees their rebates in the IB portal.',
+   owner:'BO starts it each day, then our in-house CRM pays out.',
+   where:'Our in-house CRM. The IB sees their rebates in the IB portal.',
    time:'Every day.',
-   src:'BO (9 Nov); partner deck; Sales Ops (3 Jul); Q4 IB promotions (Nov)'
+   src:'BO (9 and 10 Nov); partner deck; Sales Ops (3 Jul); Q4 IB promotions (Nov)'
   }},
  {k:'n52',id:'5.2',st:'none',shape:'term',x:R[6],y:Y2,w:172,h:96,name:'Stays with us',sub:'Not tracked today',flag:'No set owner',
   what:'Keeps bringing clients. Reward tiers are proposed, not live, and nobody tracks who stays. As a starting point, Sales Ops counts a client as active with at least one activity, such as a trade, deposit or withdrawal, in the last 90 days.',owner:'No set owner',where:'Not built yet',time:'Not tracked',src:'Flow doc (30 Oct); Sales Ops (3 Jul); Data team (10 Nov)',
