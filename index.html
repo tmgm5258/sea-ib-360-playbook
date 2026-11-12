@@ -67,6 +67,9 @@ button{font:inherit}
 .ui-item.is-active .ui-item-role{color:#A7B8CE}
 .ui-item.is-pending{cursor:default;opacity:.46}
 .ui-item.is-pending:hover{background:transparent}
+.ui-item.is-ping{opacity:1;background:var(--rail-active);box-shadow:inset 0 0 0 1px var(--blue-hi);animation:uiPing .9s ease-in-out 3}
+@keyframes uiPing{50%{background:var(--rail-hover);box-shadow:inset 0 0 0 2px var(--blue-hi)}}
+@media (prefers-reduced-motion:reduce){.ui-item.is-ping{animation:none}}
 .ui-chip{display:inline-block;flex:0 0 auto;background:var(--blue-soft);border-radius:3px;font-size:10px;font-weight:700;letter-spacing:.04em;color:var(--blue);padding:2px 7px;font-variant-numeric:tabular-nums}
 .ui-chip.is-plan{background:transparent;border:1px solid #2C3D57;color:var(--rail-muted)}
 .ui-chip.is-muted{background:transparent;border:1px solid var(--rail-line-2);color:#63758E}
@@ -273,6 +276,12 @@ button{font:inherit}
 .fl-c{display:flex;align-items:center;font-size:11.5px;font-weight:700;letter-spacing:.08em;line-height:1.2;text-transform:uppercase;color:#93A6CF}
 .pop .pop-note{margin:14px 0 0;padding:10px 13px;border-radius:12px;border:1px dashed rgba(200,215,255,.3);background:rgba(255,255,255,.035);font-size:14.5px;line-height:1.5;color:#C9D4EE}
 .pop-note b{font-weight:700;color:#FFFFFF}
+.pop dd.pop-more{display:flex;flex-wrap:wrap;gap:8px}
+.pop-tab{display:inline-flex;align-items:center;gap:7px;margin:0;padding:4px 10px 4px 12px;border-radius:999px;border:1px solid rgba(143,184,255,.45);background:rgba(143,184,255,.1);color:#DCE7FF;font:inherit;font-size:13.5px;font-weight:600;line-height:1.25;cursor:pointer;transition:background-color .15s,border-color .15s,color .15s}
+.pop-tab:hover{background:rgba(143,184,255,.2);border-color:rgba(143,184,255,.75);color:#FFFFFF}
+.pop-tab:focus-visible{outline:2px solid #8FB8FF;outline-offset:2px}
+.pop-tab.is-next{border-style:dashed;background:transparent;color:#BFCDEB}
+.pop-tab svg{width:11px;height:11px;flex:none;opacity:.85}
 /* words with a hover note (Max+): dotted underline, note on hover, focus or tap */
 .term{cursor:help;color:#F3F6FF;font-weight:600;text-decoration:underline dotted;text-decoration-thickness:1.5px;text-underline-offset:3px;text-decoration-color:rgba(243,246,255,.8);border-radius:3px}
 .term:hover,.term:focus-visible{text-decoration-style:solid;text-decoration-color:var(--g1,#BEF264);outline:none}
@@ -417,7 +426,98 @@ button{font:inherit}
 .fsn button svg{width:14px;height:14px}
 .fsn span{min-width:170px;padding:0 6px;text-align:center;font-size:12.5px;font-weight:700;letter-spacing:.04em;color:#C9D4EE;white-space:nowrap}
 
+/* ---- tab 05: the IB agreement. A reading page in the slides' colours, so it works on any screen ---- */
+.ag-sb{max-width:1180px}
+.ag-jn button i{background:#A3E635}
+.ag-wrap{container-type:inline-size;max-width:1180px;margin:6px auto 0;display:grid;gap:18px;font-family:var(--f)}
+.ag-card{position:relative;min-width:0;border-radius:20px;padding:30px 34px;color:var(--s-text);background:linear-gradient(170deg,#0D1A42 0%,#081232 60%,#060D26 100%);border:1px solid rgba(255,255,255,.08);box-shadow:0 18px 50px rgba(5,10,24,.22),0 2px 8px rgba(5,10,24,.12);scroll-margin-top:72px}
+.ag-hero{overflow:hidden;padding:34px 36px 32px;background:radial-gradient(760px 420px at 4% -10%,rgba(56,118,255,.30),transparent 62%),radial-gradient(620px 380px at 104% 112%,rgba(163,230,53,.10),transparent 60%),linear-gradient(165deg,#081437 0%,#060E2A 48%,#040917 100%)}
+.ag-hero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1.3px);background-size:26px 26px;-webkit-mask-image:radial-gradient(ellipse 80% 75% at 50% 40%,#000 30%,transparent 100%);mask-image:radial-gradient(ellipse 80% 75% at 50% 40%,#000 30%,transparent 100%)}
+.ag-hero > *{position:relative}
+.ag-eb{padding-right:160px;font-size:12.5px;font-weight:700;letter-spacing:.2em;line-height:1.6;text-transform:uppercase;color:var(--s-label)}
+.ag-eb b{color:#8FB8FF;font-weight:700}
+.ag-logo{position:absolute;top:30px;right:36px;width:132px;height:auto}
+.ag-stage{display:inline-flex;align-items:center;gap:9px;margin-top:22px;padding:4px 14px 4px 4px;border-radius:999px;background:rgba(190,242,100,.10);border:1px solid rgba(190,242,100,.30);color:#D9F99D;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.ag-stage b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#A3E635;color:#0B1A05;font-size:12px;letter-spacing:0}
+.ag-title{margin:14px 0 0;font-size:clamp(28px,3.4vw,44px);line-height:1.12;font-weight:800;letter-spacing:-.015em;color:var(--s-ink);text-wrap:balance}
+.ag-lead{margin:12px 0 0;max-width:64ch;font-size:17px;line-height:1.6;color:var(--s-text)}
+.ag-glance{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:26px 0 0}
+.ag-glance div{min-width:0;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10)}
+.ag-glance dt{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--s-label)}
+.ag-glance dd{margin:6px 0 0}
+.ag-glance dd b{display:block;font-size:16px;line-height:1.35;font-weight:700;color:var(--s-ink)}
+.ag-glance dd span{display:block;margin-top:4px;font-size:13px;line-height:1.45;color:var(--s-muted)}
+.ag-h{display:grid;gap:6px;margin-bottom:18px}
+.ag-h h2{margin:0;font-size:22px;line-height:1.25;font-weight:800;color:var(--s-ink);text-wrap:balance}
+.ag-h p{margin:0;max-width:72ch;font-size:15px;line-height:1.55;color:var(--s-muted)}
+.ag-docs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ag-doc{display:flex;gap:18px;align-items:flex-start;min-width:0;padding:18px 20px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10)}
+.ag-doc-ic{position:relative;flex:0 0 auto;width:52px;height:64px;color:#AFC0E2}
+.ag-doc-ic svg{display:block;width:52px;height:64px}
+.ag-doc-ic span{position:absolute;left:-6px;bottom:9px;padding:2px 6px;border-radius:5px;background:#E5484D;color:#FFFFFF;font-size:10.5px;font-weight:800;letter-spacing:.06em}
+.ag-doc-b{min-width:0}
+.ag-doc h3{margin:2px 0 0;font-size:17px;line-height:1.4;font-weight:700;color:var(--s-ink)}
+.ag-lang{display:inline-block;margin-left:4px;padding:2px 9px;border-radius:999px;background:rgba(143,184,255,.14);color:#CFE0FF;font-size:12px;font-weight:700;line-height:1.5;vertical-align:1px;white-space:nowrap}
+.ag-doc p{margin:5px 0 0;font-size:13.5px;line-height:1.5;color:var(--s-muted)}
+.ag-doc-act{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
+.ag-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:36px;padding:0 15px;border-radius:9px;border:1px solid rgba(143,184,255,.45);background:rgba(143,184,255,.08);color:#DCE7FF;font:inherit;font-size:13.5px;font-weight:700;line-height:1.2;text-decoration:none;cursor:pointer;transition:background-color .15s,border-color .15s,color .15s}
+.ag-btn:hover{background:rgba(143,184,255,.18);border-color:rgba(143,184,255,.75);color:#FFFFFF}
+.ag-btn:focus-visible{outline:2px solid #8FB8FF;outline-offset:2px}
+.ag-btn.is-main{background:#4D9BFF;border-color:#4D9BFF;color:#05112B}
+.ag-btn.is-main:hover{background:#7DB5FF;border-color:#7DB5FF;color:#05112B}
+.ag-note{margin:16px 0 0;padding:12px 15px;border-radius:12px;border:1px dashed rgba(200,215,255,.3);background:rgba(255,255,255,.035);font-size:14.5px;line-height:1.55;color:#C9D4EE}
+.ag-note b{color:#FFFFFF}
+.ag-flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px}
+.ag-flow li{position:relative;display:flex;flex-direction:column;gap:9px;min-width:0;padding:14px 15px 15px;border-radius:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);font-size:14.5px;line-height:1.45;color:var(--s-text)}
+.ag-flow li b{align-self:flex-start;padding:3px 9px;border-radius:999px;background:rgba(190,242,100,.12);color:#D9F99D;font-size:12px;font-weight:800;letter-spacing:.04em}
+.ag-flow li.is-key{border-color:rgba(190,242,100,.55);background:rgba(163,230,53,.08);color:#F3F6FF}
+.ag-flow li:not(:last-child)::after{content:"";position:absolute;right:-21px;top:50%;width:10px;height:10px;border-top:2px solid rgba(200,215,255,.55);border-right:2px solid rgba(200,215,255,.55);transform:translateY(-50%) rotate(45deg)}
+.ag-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin-top:16px}
+.ag-row .ag-note{flex:1 1 420px;margin:0}
+.ag-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ag-grp{display:flex;flex-direction:column;min-width:0;padding:20px 22px 18px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10)}
+.ag-grp h3{display:flex;align-items:center;gap:11px;margin:0;font-size:17px;line-height:1.3;font-weight:800;color:var(--s-ink)}
+.ag-gi{display:grid;place-items:center;flex:0 0 auto;width:32px;height:32px;border-radius:9px;background:rgba(77,155,255,.14);color:#9CC3FF}
+.ag-gi svg{width:18px;height:18px}
+.ag-grp ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:9px}
+.ag-grp li{position:relative;padding-left:18px;font-size:14.5px;line-height:1.55;color:var(--s-text)}
+.ag-grp li::before{content:"";position:absolute;left:2px;top:.6em;width:6px;height:6px;border-radius:50%;background:#7C93C7}
+.ag-grp ul.is-no li::before{background:#F87171}
+.ag-grp ul.is-yes li::before{background:#4ADE80}
+.ag-sub{margin:14px 0 0;font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.ag-sub.is-no{color:#FCA5A5}
+.ag-sub.is-yes{color:#86EFAC}
+.ag-cl{display:inline-block;padding:0 7px;border-radius:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:#9FB0D6;font-size:11.5px;font-weight:700;line-height:1.6;letter-spacing:.02em;white-space:nowrap;vertical-align:1px}
+.ag-tip{margin:14px 0 0;padding:10px 13px;border-radius:12px;border:1px dashed rgba(200,215,255,.3);background:rgba(255,255,255,.035);font-size:13.5px;line-height:1.5;color:#C9D4EE}
+.ag-tip b{color:#FFFFFF}
+.ag-more{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:auto;padding-top:16px}
+.ag-more:empty{display:none}
+.ag-more > span{margin-right:4px;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7083AE}
+.ag-end{display:grid;gap:12px;padding:22px 28px}
+.ag-end .ag-note{margin:0}
+.ag-src{margin:0;font-size:13px;line-height:1.55;color:var(--s-muted)}
+@container (max-width:980px){
+  .ag-glance{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@container (max-width:760px){
+  .ag-docs,.ag-grid{grid-template-columns:minmax(0,1fr)}
+  .ag-flow{grid-template-columns:minmax(0,1fr);gap:20px}
+  .ag-flow li:not(:last-child)::after{right:auto;left:24px;top:auto;bottom:-16px;transform:rotate(135deg)}
+}
+@container (max-width:520px){
+  .ag-card{padding:22px 18px;border-radius:16px}
+  .ag-hero{padding:22px 18px 22px}
+  .ag-logo{position:static;display:block;width:104px;margin:0 0 12px}
+  .ag-eb{padding-right:0;font-size:11.5px;letter-spacing:.16em}
+  .ag-glance{grid-template-columns:minmax(0,1fr)}
+  .ag-lead{font-size:16px}
+  .ag-doc{padding:16px}
+  .ag-grp{padding:18px 16px 16px}
+  .ag-end{padding:18px}
+}
+
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--rail);color:#E8EFF9;border:1px solid var(--rail-line-2);border-radius:8px;padding:10px 16px;font-size:13px;z-index:80;box-shadow:0 10px 30px rgba(5,10,24,.32);max-width:calc(100vw - 32px)}
+.is-fs .toast{bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 
 @media only screen and (max-width:900px){
   .ui-shell{display:block}
@@ -460,7 +560,7 @@ button{font:inherit}
       <div class="ui-group">Bring them in</div>
       <button type="button" class="ui-item is-pending" id="tab-p03" aria-disabled="true"><span class="ui-item-top"><span class="ui-item-name">03 IB journey</span><span class="ui-chip is-red">1</span></span><span class="ui-item-role">All 15 steps, owners, automation</span></button>
       <button type="button" class="ui-item is-pending" id="tab-p04" aria-disabled="true"><span class="ui-item-top"><span class="ui-item-name">04 Joining and setup</span><span class="ui-chip is-red">4</span></span><span class="ui-item-role">Sign-up to live IB, step by step</span></button>
-      <button type="button" class="ui-item is-pending" id="tab-p05" aria-disabled="true"><span class="ui-item-top"><span class="ui-item-name">05 IB agreement</span><span class="ui-chip is-red">1</span></span><span class="ui-item-role">The contract every IB accepts</span></button>
+      <button type="button" class="ui-item" id="tab-p05"><span class="ui-item-top"><span class="ui-item-name">05 IB agreement</span><span class="ui-chip">2 PDFs</span></span><span class="ui-item-role">The contract every IB accepts</span></button>
       <div class="ui-group">Pay and credit them</div>
       <button type="button" class="ui-item is-pending" id="tab-p06" aria-disabled="true"><span class="ui-item-top"><span class="ui-item-name">06 Rebates and payouts</span><span class="ui-chip is-red">2</span></span><span class="ui-item-role">Rate card, sign-off, daily pay</span></button>
       <button type="button" class="ui-item is-pending" id="tab-p07" aria-disabled="true"><span class="ui-item-top"><span class="ui-item-name">07 Tracking</span><span class="ui-chip is-muted">Facts</span></span><span class="ui-item-role">IB links and which code wins</span></button>
@@ -498,12 +598,12 @@ button{font:inherit}
                 <g id="gEdges"></g>
                 <g id="gComet"><path class="fc1" id="comet1" filter="url(#fGlow)" d="M0 0"/><path class="fc2" id="comet2" d="M0 0"/></g>
               </svg>
-              <div class="sl-eb">SEA IB 360 Playbook · <b>Executive summary</b> · Updated 10 Nov 2026</div>
+              <div class="sl-eb">SEA IB 360 Playbook · <b>Executive summary</b> · Updated 12 Nov 2026</div>
               <h1 class="sl-title">How a new IB joins TMGM, step by step</h1>
               <p class="sl-sub">15 steps from first visit to staying with us. <em>The dashed yellow branches</em> are where we lose IBs.</p>
               <img class="sl-logo" src="data:image/png;base64,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" alt="TMGM" width="132" height="33">
               <div class="sl-legend" id="slLegend" aria-label="Key"></div>
-              <div class="sl-foot"><span><b>Click any step</b> for details. Arrows follow the step order, though some steps overlap.</span><span>Sources: Sales Ops, BO, Aaron, the EDM and Data teams (Jun to Nov 2026), OP tracking guide (Jul), Growth Strategy (Jun), IB onboarding flow doc (Oct)</span></div>
+              <div class="sl-foot"><span><b>Click any step</b> for details. Arrows follow the step order, though some steps overlap.</span><span>Sources: Sales Ops, BO, OP, Aaron, EDM and Data teams (Jun to Nov 2026), IB agreement (Apr), Growth Strategy (Jun), IB flow doc (Oct)</span></div>
               <div class="pop" id="pop" role="region" aria-labelledby="popName" aria-live="polite" hidden>
                 <button type="button" class="pop-x" id="popX" aria-label="Close"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
                 <div class="pop-top"><span class="pop-num" id="popNum"></span><span class="pop-chip" id="popChip"></span></div>
@@ -520,6 +620,7 @@ button{font:inherit}
                   <div><dt>Where</dt><dd id="popWhere"></dd></div>
                   <div><dt>How long</dt><dd id="popTime"></dd></div>
                   <div><dt>Source</dt><dd class="src" id="popSrc"></dd></div>
+                  <div id="popMoreRow" hidden><dt>More in</dt><dd class="pop-more" id="popMore"></dd></div>
                 </dl>
               </div>
             </div>
@@ -531,6 +632,139 @@ button{font:inherit}
           <span id="fsPos" aria-live="polite"></span>
           <button type="button" id="fsNext" aria-label="Next slide"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M5.2 2.5L9.7 7l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
+        </div>
+      </section>
+      <section class="ui-panel ag" id="panel-p05" aria-labelledby="tab-p05" hidden>
+        <div class="sb ag-sb">
+          <nav class="jn ag-jn" aria-label="Jump to a section">
+            <button type="button" data-to="ag-top"><i></i>At a glance</button>
+            <button type="button" data-to="ag-copies"><i></i>The two copies</button>
+            <button type="button" data-to="ag-fit"><i></i>Where it fits</button>
+            <button type="button" data-to="ag-says"><i></i>What it says</button>
+          </nav>
+          <span class="sb-gap"></span>
+        </div>
+        <div class="ag-wrap">
+          <header class="ag-card ag-hero" id="ag-top">
+            <div class="ag-eb">SEA IB 360 Playbook · <b>05 IB agreement</b> · Updated 12 Nov 2026</div>
+            <img class="ag-logo" src="data:image/png;base64,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" alt="TMGM" width="132" height="33">
+            <span class="ag-stage"><b>2</b>Convert · steps 2.5 and 2.6</span>
+            <h1 class="ag-title">The contract every IB accepts</h1>
+            <p class="ag-lead">Every new IB accepts the same standard agreement in their client portal before their IB portal opens. Here's what it says in plain words, with both copies to open.</p>
+            <dl class="ag-glance">
+              <div><dt>Who it's with</dt><dd><b>Trademax Global Limited</b><span>Registered in Vanuatu, VFSC 40356</span></dd></div>
+              <div><dt>Version</dt><dd><b>2.0</b><span>File dated 1 Apr 2026</span></dd></div>
+              <div><dt>Languages</dt><dd><b>English, and English with Chinese</b><span>If they differ, the English wording counts</span></dd></div>
+              <div><dt>Used for</dt><dd><b>Every SEA market</b><span>One standard agreement, provided by Compliance</span></dd></div>
+            </dl>
+          </header>
+
+          <section class="ag-card" id="ag-copies" aria-labelledby="agCopiesH">
+            <div class="ag-h"><h2 id="agCopiesH">The two copies</h2><p>Read or save the full agreement in either version.</p></div>
+            <div class="ag-docs">
+              <article class="ag-doc">
+                <div class="ag-doc-ic" aria-hidden="true"><svg viewBox="0 0 52 64"><path d="M8 2h25l17 17v39a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4z" fill="rgba(255,255,255,.06)" stroke="currentColor" stroke-width="2"/><path d="M33 2v13a4 4 0 0 0 4 4h13" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 32h22M13 39h26M13 46h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".55"/></svg><span>PDF</span></div>
+                <div class="ag-doc-b">
+                  <h3>IB agreement <span class="ag-lang">English</span></h3>
+                  <p>Version 2.0 · 10 pages · 415 KB</p>
+                  <div class="ag-doc-act">
+                    <a class="ag-btn is-main" href="TradeMax-Global-IB-Agreement-EN.pdf" target="_blank" rel="noopener" data-open>Open</a>
+                    <a class="ag-btn" href="TradeMax-Global-IB-Agreement-EN.pdf" download="TradeMax-Global-IB-Agreement-EN.pdf" data-dl>Download</a>
+                  </div>
+                </div>
+              </article>
+              <article class="ag-doc">
+                <div class="ag-doc-ic" aria-hidden="true"><svg viewBox="0 0 52 64"><path d="M8 2h25l17 17v39a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4z" fill="rgba(255,255,255,.06)" stroke="currentColor" stroke-width="2"/><path d="M33 2v13a4 4 0 0 0 4 4h13" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 32h22M13 39h26M13 46h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".55"/></svg><span>PDF</span></div>
+                <div class="ag-doc-b">
+                  <h3>IB agreement <span class="ag-lang" lang="zh-Hans">English + 中文</span></h3>
+                  <p>Version 2.0 · 17 pages · 762 KB · Chinese under each clause</p>
+                  <div class="ag-doc-act">
+                    <a class="ag-btn is-main" href="TradeMax-Global-IB-Agreement-EN-ZH.pdf" target="_blank" rel="noopener" data-open>Open</a>
+                    <a class="ag-btn" href="TradeMax-Global-IB-Agreement-EN-ZH.pdf" download="TradeMax-Global-IB-Agreement-EN-ZH.pdf" data-dl>Download</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <p class="ag-note"><b>Good to know.</b> These are the standard copies. BO uploads the agreement to each new IB's client portal during setup, and our Compliance team provides it (BO, 9 Nov). The Chinese is a translation for convenience: if the two ever differ, the English wording is the one that counts (clause 8).</p>
+          </section>
+
+          <section class="ag-card" id="ag-fit" aria-labelledby="agFitH">
+            <div class="ag-h"><h2 id="agFitH">Where it fits in the journey</h2><p>The agreement comes near the end of Convert, once the AM has applied and BO has set the IB up.</p></div>
+            <ol class="ag-flow">
+              <li><b>2.4</b><span>The AM applies for them, in a Zendesk ticket to BO</span></li>
+              <li><b>2.5</b><span>BO sets up the IB and uploads the agreement, in about 1 hour</span></li>
+              <li class="is-key"><b>2.6</b><span>The IB accepts it in their client portal</span></li>
+              <li><b>Live</b><span>Their IB portal opens, with their links and rate</span></li>
+            </ol>
+            <div class="ag-row">
+              <p class="ag-note"><b>KYC, not a deposit.</b> An IB must pass KYC before bringing in clients, so we know they're a real person. They don't need to make a deposit (OP, 11 Nov).</p>
+              <button type="button" class="ag-btn" data-step="n26">See step 2.6 on the flowchart</button>
+            </div>
+          </section>
+
+          <section class="ag-card" id="ag-says" aria-labelledby="agSaysH">
+            <div class="ag-h"><h2 id="agSaysH">What it says, in plain words</h2><p>The small tag after each point is the clause number, so you can check the exact wording.</p></div>
+            <div class="ag-grid">
+              <article class="ag-grp">
+                <h3><i class="ag-gi" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="7.5" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 16.5c.6-2.8 2.6-4.3 5-4.3s4.4 1.5 5 4.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="14" cy="7.5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14.2 12.2c1.9.2 3.1 1.5 3.5 3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></i>Who they are to us</h3>
+                <ul>
+                  <li>A referrer, nothing more. They bring clients to us, but they're not our employee, agent or partner, and they pay their own taxes. <span class="ag-cl">2c, 3b</span></li>
+                  <li>They sign as a person, with their ID or passport number, or as a company, with its registration number. <span class="ag-cl">Parties</span></li>
+                  <li>We decide whether to accept each client they bring in. <span class="ag-cl">2e</span></li>
+                  <li>They only earn on clients they introduced before the client opened an account with us. <span class="ag-cl">3e</span></li>
+                  <li>A client of theirs with no trades for over 12 months may stop counting as theirs. <span class="ag-cl">2f</span></li>
+                </ul>
+                <p class="ag-tip"><b>Person to company.</b> To move an IB from a person to a company later, the AM opens a case with BO on the Operations Service Desk, as an Onboarding Request with the type "KYC related" (OP, 11 Nov).</p>
+              </article>
+              <article class="ag-grp">
+                <h3><i class="ag-gi" aria-hidden="true"><svg viewBox="0 0 20 20"><rect x="2.5" y="5" width="15" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="10" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 8v4M14.5 8v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></i>How they get paid</h3>
+                <ul>
+                  <li>Their rate is the one in their IB portal, under IB Profile, Rebate Rate Setting. We can change it with 10 days' notice. <span class="ag-cl">6c</span></li>
+                  <li>Rebates go into their IB account the next business day after the trade. Friday's arrive on Monday, and a holiday pushes it to the next business day. <span class="ag-cl">6a</span></li>
+                  <li>Amounts are rounded to 2 decimal places, and anything under 0.005 isn't paid. <span class="ag-cl">6b</span></li>
+                  <li>The smallest withdrawal from the IB account is 100, in the account's currency, unless they're closing the account. <span class="ag-cl">4j</span></li>
+                  <li>It's up to them to check their client links and rates. We only correct rebates for the last 30 days of trading. <span class="ag-cl">4c</span></li>
+                  <li>We can hold rebates during a client complaint or dispute, and hold back pay or close accounts if we suspect abuse, such as opening and closing trades just to earn rebates. <span class="ag-cl">6d to 6f</span></li>
+                </ul>
+                <div class="ag-more" data-more="p06"></div>
+              </article>
+              <article class="ag-grp">
+                <h3><i class="ag-gi" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 2.5l6 2.3v4.6c0 3.9-2.5 6.7-6 8.1-3.5-1.4-6-4.2-6-8.1V4.8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7.2 10l2 2 3.7-3.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i>What they must and mustn't do</h3>
+                <p class="ag-sub is-no">They mustn't</p>
+                <ul class="is-no">
+                  <li>Publish any ad or marketing that mentions TMGM without our OK, and they stop if we take our OK back. <span class="ag-cl">4f</span></li>
+                  <li>Say or suggest they're more than a referrer, such as our authorised representative. <span class="ag-cl">2c</span></li>
+                  <li>Use TMGM, Trademax or Trademax Global in a business or website name. <span class="ag-cl">2d</span></li>
+                  <li>Give financial advice or manage clients' money. <span class="ag-cl">3d</span></li>
+                  <li>Speak to the press for us. <span class="ag-cl">4g</span></li>
+                  <li>Do or say anything that harms our name, even after the agreement ends. <span class="ag-cl">2b</span></li>
+                </ul>
+                <p class="ag-sub is-yes">They must</p>
+                <ul class="is-yes">
+                  <li>Tell their clients about any fees or benefits they get from us. <span class="ag-cl">3f</span></li>
+                  <li>Follow our policies, let us check their activity, and tell us at once about any complaint or investigation against them. <span class="ag-cl">4b, 4e, 4h</span></li>
+                  <li>Keep our information confidential, even after the agreement ends. <span class="ag-cl">10</span></li>
+                  <li>Pay for any marketing they run on their own. In turn, we give them any materials we want them to use. <span class="ag-cl">2g, 5a</span></li>
+                </ul>
+                <div class="ag-more" data-more="p12 p10"></div>
+              </article>
+              <article class="ag-grp">
+                <h3><i class="ag-gi" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M4 10a6 6 0 0 1 10.3-4.2L16 7.5M16 3.5v4h-4M16 10a6 6 0 0 1-10.3 4.2L4 12.5M4 16.5v-4h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Changing or ending it</h3>
+                <ul>
+                  <li>We can change the agreement with 5 business days' notice. If they disagree, they can end it. <span class="ag-cl">7a</span></li>
+                  <li>Either side can end it with 7 days' written notice. <span class="ag-cl">7c</span></li>
+                  <li>We can end it at once, for example if they break the law, abuse the program, seriously break the agreement, or claim to be more than a referrer. <span class="ag-cl">7b</span></li>
+                  <li>When it ends, they stop promoting us, hand back our materials and information, settle anything they owe us, and ask for any rebates still owed. <span class="ag-cl">7e, 10d</span></li>
+                  <li>The law of Vanuatu applies. <span class="ag-cl">9</span></li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="ag-card ag-end" aria-label="Still to confirm and sources">
+            <p class="ag-note"><b>To confirm.</b> Where an IB can find their accepted agreement later. OP thinks it's also in the IB portal, and we'll check when we log in.</p>
+            <p class="ag-src">Sources: TradeMax Global IB Agreement, version 2.0, file dated 1 Apr 2026 (English, and English with Chinese); BO (9 Nov); OP (11 Nov). This tab explains the agreement in plain words. If anything here differs from the agreement itself, the agreement applies.</p>
+          </section>
         </div>
       </section>
     </div>
@@ -596,7 +830,7 @@ var R=[145.5,363.7,581.8,800,1018.2,1236.3,1454.5];           /* row 2 positions
 var YH=278,Y1=410,Y2=650,YL=800,YS=508,XL=30;
 
 var NODES=[
- {k:'n11',id:'1.1',st:'partly',shape:'term',x:C[0],y:YH,w:164,h:90,name:'Finds TMGM',sub:'Website, ads, emails or Sales',
+ {k:'n11',more:['p10'],id:'1.1',st:'partly',shape:'term',x:C[0],y:YH,w:164,h:90,name:'Finds TMGM',sub:'Website, ads, emails or Sales',
   what:'A future IB first hears about our IB program in one of 4 ways: our partners website, an IB ad, our become-an-IB emails (for existing clients) or Sales.',
   owner:'Partner Marketing (website and ads), EDM team (emails), Sales (outreach)',
   where:'Partners website, online ads, HubSpot emails, talks with Sales',
@@ -619,13 +853,13 @@ var NODES=[
    time:'No fixed time, except for the emails above.',
    src:'IB onboarding flow doc (30 Oct); EDM team (Jun, Nov)'
   }},
- {k:'n12',id:'1.2',st:'manual',shape:'box',x:C[0],y:Y1,w:152,h:96,name:'Checks the offer',sub:'Asks about rates',
+ {k:'n12',more:['p01','p06'],id:'1.2',st:'manual',shape:'box',x:C[0],y:Y1,w:152,h:96,name:'Checks the offer',sub:'Asks about rates',
   what:'Reads about the IB program on our partners website or in our partner deck, then talks to Sales. Sales explains the IB rebate, current promotions and account details. Some ask our Support team, who pass them to Sales Ops.',
   owner:'Sales (Aaron\'s team); Partner Marketing (website, deck)',
   where:'Partners website, partner deck, talks with Sales or Support',
   time:'Not known yet',
-  cnote:{lead:'Rate to confirm:',text:'Classic, Edge and Prime accounts pay USD1 to 7 a lot on Forex in SEA. Sales Ops says SEA clients can also open STD accounts, which pay USD8 to 10, the figures on our website and deck. BO is confirming.'},
-  src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (9 and 10 Nov); Sales Zendesk rate sheets (Oct 2025); partners website and deck',
+  cnote:{lead:'Rates:',text:'Classic, Edge and Prime accounts pay USD1 to 7 a lot on Forex in SEA. SEA clients can also open STD accounts, which pay USD8 to 10, the figures on our website and deck (BO confirmed, 10 Nov).'},
+  src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (9 and 10 Nov); BO (10 Nov); Sales Zendesk rate sheets (Oct 2025); partners website and deck',
   /* fuller version for the click-through card */
   pop:{
    what:'Before signing up, a future IB checks what we offer and asks about the rate. Here\'s where they usually go:',
@@ -636,19 +870,19 @@ var NODES=[
     {h:'A chat with Sales',t:'Sales explains the IB rebate, current promotions and account details. This quarter, for example, IBs can earn a bonus when their clients hit deposit and trading targets.'},
     {h:'Our Support team',t:'Some ask Support about becoming an IB. Support passes them to Sales Ops, who get them to an AM (step 2.2).'}
    ],
-   note:{lead:'To confirm',t:'Sales Ops\' SEA rate sheet pays USD1 to 7 a lot on Forex (Classic, Edge and Prime). Sales Ops says SEA clients can also open STD, PRO, PM and ECN accounts, and STD pays USD8 to 10, which matches our website and deck. Joy in BO is confirming.'},
+   note:{lead:'Good to know',t:'Sales Ops\' SEA rate sheet pays USD1 to 7 a lot on Forex (Classic, Edge and Prime). SEA clients can also open STD, PRO, PM and ECN accounts (BO confirmed, 10 Nov), and STD pays USD8 to 10, which matches our website and deck.'},
    owner:'Sales (Aaron\'s team) talks to them. Partner Marketing looks after the partners website and the partner deck.',
    where:'Our partners website (tmgmpartners.com), the partner deck, and conversations with Sales or our Support team.',
    time:'Not known yet. How long it takes from a first chat with Sales to agreeing terms is one of our questions for Aaron.',
-   src:'IB onboarding flow doc (30 Oct); partners website (Jun); partner deck; Aaron (Nov); Sales Ops (9 and 10 Nov); Sales Zendesk rate sheets (Oct 2025); Q4 IB promotions (Nov)'
+   src:'IB onboarding flow doc (30 Oct); partners website (Jun); partner deck; Aaron (Nov); Sales Ops (9 and 10 Nov); BO (10 Nov); Sales Zendesk rate sheets (Oct 2025); Q4 IB promotions (Nov)'
   }},
- {k:'n21',id:'2.1',st:'auto',shape:'box',x:C[1],y:Y1,w:152,h:96,name:'Registers',sub:'Opens a client account first',
+ {k:'n21',more:['p04','p07'],id:'2.1',st:'auto',shape:'box',x:C[1],y:Y1,w:152,h:96,name:'Registers',sub:'Opens a client account first',
   what:'Fills in TMGM\'s one sign-up form and opens a client account, tagged with the code from their link (or the IB page\'s own code). Like every new client, they get our onboarding emails, including reminders to verify their ID. Signing up doesn\'t make them an IB yet.',
   owner:'OP, for links and codes',where:'Client portal, Salesforce, HubSpot',time:'About 5 minutes',
   src:'Flow doc (30 Oct); Sales Ops (3 Nov); OP tracking guide (Jul); EDM team (Nov)',
   /* fuller version for the click-through card */
   pop:{
-   what:'They fill in TMGM\'s one sign-up form and open a normal client account. Like every new client, they then get our onboarding emails, including reminders to verify their ID (KYC). Signing up doesn\'t make them an IB yet: their AM applies for that later (step 2.4).',
+   what:'They fill in TMGM\'s one sign-up form and open a normal client account. Like every new client, they then get our onboarding emails, including reminders to verify their ID (KYC). Signing up doesn\'t make them an IB yet: their AM applies for that later (step 2.4). Another team is planning a direct IB sign-up, but there\'s no date yet.',
    waysH:'How their sign-up gets its code',
    ways:[
     {h:'A link',t:'If they came through a link from Sales, an IB or one of our campaigns, they\'re tagged with that link\'s code.'},
@@ -659,9 +893,9 @@ var NODES=[
    owner:'It runs on its own. OP sets up the links and codes behind it.',
    where:'The sign-up form, which opens their client portal account. Their code is saved in Salesforce, and HubSpot sends the emails.',
    time:'About 5 minutes to sign up.',
-   src:'IB onboarding flow doc (30 Oct); OP tracking guide (Jul); Sales Ops (3 Nov); EDM team (Nov)'
+   src:'IB onboarding flow doc (30 Oct); OP tracking guide (Jul); Sales Ops (3 Nov); EDM team (Nov); OP (11 Nov)'
   }},
- {k:'d22',id:'2.2',st:'partly',shape:'dia',x:C[2],y:Y1,w:140,h:110,name:'Linked to an AM?',title:'Lead assigned',
+ {k:'d22',more:['p04','p13'],id:'2.2',st:'partly',shape:'dia',x:C[2],y:Y1,w:140,h:110,name:'Linked to an AM?',title:'Lead assigned',
   what:'Sign-ups through a salesperson\'s link, or a campaign tied to a named office or rep, usually go straight to that owner. In SEA, other sign-ups are assigned instantly to a team lead, who passes them to an AM. Enquiries through our Support team go to Sales Ops, who route them the same day.',owner:'The system or Sales Ops, then a team lead',where:'CRM system',time:'Instant for website sign-ups in SEA; same day for Support enquiries',src:'Sales Ops (3 Jul, 3 Nov, 9 Nov)',
   /* fuller version for the click-through card */
   pop:{
@@ -684,26 +918,27 @@ var NODES=[
   }},
  {k:'hTL',st:'partly',shape:'help',x:C[2],y:YH,w:184,h:76,name:'Team lead assigns an AM',sub:'Usually within the day',rel:'Branch of step 2.2',stage:2,num:'2.2',
   what:'The system routes the sign-up to a team lead using set rules, such as region, campaign and language. For enquiries that come through Support, Sales Ops picks the team lead instead. The team lead then passes it to an AM, who owns the lead from before KYC. If the person hasn\'t signed up yet, the AM helps them register.',owner:'Team lead, then the AM',where:'CRM system',time:'Usually within the day',src:'Sales Ops (3 Jul, 9 Nov)'},
- {k:'n23',id:'2.3',st:'manual',shape:'box',x:C[3],y:Y1,w:152,h:96,name:'Agrees terms',sub:'Rate and plan, one to one',
-  what:'Agrees the program and rate with their AM, one to one. There\'s no minimum KYC, deposit or trading to become an IB, and Sales usually recommends IB. Rates above the normal IB rebate need Tom\'s approval (step 2.5).',
+ {k:'n23',more:['p06','p04'],id:'2.3',st:'manual',shape:'box',x:C[3],y:Y1,w:152,h:96,name:'Agrees terms',sub:'Rate and plan, one to one',
+  what:'Agrees the program and rate with their AM, one to one. There\'s no minimum deposit or trading to become an IB, but they must pass KYC before bringing in clients. Sales usually recommends IB, and rates above the normal IB rebate need Tom\'s approval (step 2.5).',
   owner:'AM in the regional sales team',where:'AM\'s Zendesk ticket to BO',time:'Not known yet',
-  cnote:{lead:'Rate to confirm:',text:'Classic, Edge and Prime accounts pay USD1 to 7 a lot on Forex in SEA. Sales Ops says SEA clients can also open STD accounts, which pay USD8 to 10, the figures on our website and deck. BO is confirming.'},
-  src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (9 and 10 Nov); BO (10 Nov); Sales Zendesk rate sheets (Oct 2025)',
+  cnote:{lead:'Rates:',text:'Classic, Edge and Prime accounts pay USD1 to 7 a lot on Forex in SEA. SEA clients can also open STD accounts, which pay USD8 to 10, the figures on our website and deck (BO confirmed, 10 Nov).'},
+  src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (9 and 10 Nov); BO (10 Nov); OP (11 Nov); Sales Zendesk rate sheets (Oct 2025)',
   /* fuller version for the click-through card */
   pop:{
+   w:680,
    what:'The future IB and their AM agree, one to one, which program fits and what rate they\'ll get. Three things shape the deal:',
    ways:[
     {h:'Which program',t:'Sales recommends what suits the partner, and that\'s usually IB. Partners can switch later or join more than one program. In SEA we can\'t offer CPA (a fixed payment per new client), so the CPA deals on our website don\'t apply here.'},
-    {h:'The rate',t:'Agreed one to one with the AM. Sales Ops\' rate sheet for SEA pays USD1 to 7 a lot on Forex and up to USD10 on gold and silver, depending on the account type and the IB\'s volume. Anything above it is a special request that needs Tom\'s approval (step 2.5).'},
-    {h:'Who can join',t:'Anyone: there\'s no minimum KYC, deposit or trading.'}
+    {h:'The rate',t:'Agreed one to one with the AM, from Sales Ops\' rate sheets. In SEA, Classic, Edge and Prime accounts pay USD1 to 7 a lot on Forex and up to USD10 on gold and silver, and STD accounts pay USD8 to 10, depending on the IB\'s volume. Anything above the sheets is a special request that needs Tom\'s approval (step 2.5).'},
+    {h:'Who can join',t:'Anyone. There\'s no minimum deposit or trading, but they must pass KYC before bringing in clients, so we know they\'re a real person.'}
    ],
-   note:{lead:'To confirm',t:'Sales Ops says SEA clients can also open STD, PRO, PM and ECN accounts, which use the general rate sheet. STD pays USD8 to 10 a lot on Forex, where our website and deck figures come from. Joy in BO is confirming.'},
+   note:{lead:'Good to know',t:'STD, PRO, PM and ECN are normal account groups in every region, so SEA clients can ask for them too (BO confirmed, 10 Nov). STD is where our website\'s USD10 and the deck\'s USD8 come from.'},
    owner:'Their AM, in the regional sales team.',
    where:'In the AM\'s Zendesk ticket to BO, which has to include the account group and the agreed rate.',
    time:'Not known yet. Also one of our questions for Aaron.',
-   src:'IB onboarding flow doc (30 Oct); Aaron (Nov); partner deck; Sales Ops (9 and 10 Nov); BO (10 Nov); Sales Zendesk rate sheets (Oct 2025)'
+   src:'IB onboarding flow doc (30 Oct); Aaron (Nov); partner deck; Sales Ops (9 and 10 Nov); BO (10 Nov); OP (11 Nov); Sales Zendesk rate sheets (Oct 2025)'
   }},
- {k:'n24',id:'2.4',st:'manual',shape:'box',x:C[4],y:Y1,w:152,h:96,name:'AM applies for them',sub:'Via Zendesk',
+ {k:'n24',more:['p04'],id:'2.4',st:'manual',shape:'box',x:C[4],y:Y1,w:152,h:96,name:'AM applies for them',sub:'Via Zendesk',
   what:'Only the AM can submit an IB application. Clients can\'t apply themselves, so anyone interested is given to an AM first. The AM sends the request to BO as a Zendesk ticket.',owner:'AM',where:'Zendesk',time:'Not known yet',src:'Sales Ops (23 Jun, 3 Nov); BO (24 Jun)',
   /* fuller version for the click-through card */
   pop:{
@@ -723,7 +958,7 @@ var NODES=[
   what:'Special rebate requests are handled case by case, mainly for non-standard account groups or rates above the normal IB rebate. They include Special Groups and Max+. Max+ is an extra rebate on top of the standard rebate for the IB\'s trading group, such as Max+0.5 or Max+1, where the number is the extra amount. Every one needs Tom\'s approval by email.',owner:'Approved by Tom, our CEO',where:'Email',time:'About 2 to 4 days, depending on the case',src:'Sales Ops (3 Nov, 9 Nov) and their Max+ SOP; BO (24 Jun)'},
  {k:'hTom',st:'manual',shape:'help',x:C[5],y:YH,w:184,h:76,name:'Tom approves',sub:'By email, 2 to 4 days',rel:'Part of step 2.5',stage:2,num:'2.5',
   what:'Every special request, including Special Groups and Max+ (an extra rebate on top of the standard one), needs approval from Tom, our CEO, by email before setup. It usually takes 2 to 4 days, depending on how complex the case is. All Sales report directly to him.',owner:'Tom, our CEO',where:'Email',time:'About 2 to 4 days, depending on the case',src:'Sales Ops (3 Nov, 9 Nov) and their Max+ SOP'},
- {k:'n25',id:'2.5',st:'manual',shape:'box',x:C[6],y:Y1,w:152,h:96,name:'BO sets up the IB',sub:'About 1 hour',
+ {k:'n25',more:['p04','p06'],id:'2.5',st:'manual',shape:'box',x:C[6],y:Y1,w:152,h:96,name:'BO sets up the IB',sub:'About 1 hour',
   what:'BO switches the account to IB, uploads the agreement, and sets permissions, the commission account and rebates in our in-house CRM. They do it once the request, and any approval, is in, before the IB accepts the agreement.',owner:'BO',where:'Zendesk and our in-house CRM',time:'Agreement uploaded within about 1 hour, depending on ticket volume',src:'BO (24 Jun, 10 Nov); Sales Ops (3 Nov)',
   /* fuller version for the click-through card */
   pop:{
@@ -740,7 +975,7 @@ var NODES=[
    time:'About 1 hour from the request to the agreement being uploaded, depending on how many tickets BO has.',
    src:'BO (24 Jun, 9 and 10 Nov); Sales Ops (3 Nov, 9 Nov) and their Max+ SOP; EDM team (Nov)'
   }},
- {k:'n26',id:'2.6',st:'auto',shape:'box',x:C[7],y:Y1,w:152,h:96,name:'Accepts the agreement',sub:'Portal goes live',
+ {k:'n26',more:['p05','p08'],id:'2.6',st:'auto',shape:'box',x:C[7],y:Y1,w:152,h:96,name:'Accepts the agreement',sub:'Portal goes live',
   what:'Accepts the IB agreement in the client portal. That opens their IB portal at once, with their link and rates.',owner:'The IB',where:'Client portal',time:'Live at once',src:'BO (24 Jun); Sales Ops (23 Jun); IB Welcome email',
   /* fuller version for the click-through card */
   pop:{
@@ -760,7 +995,7 @@ var NODES=[
    time:'Live at once: the IB portal opens as soon as they accept.',
    src:'BO (24 Jun, 9 Nov); Sales Ops (23 Jun); IB Welcome email; OP tracking guide (Jul)'
   }},
- {k:'n31',id:'3.1',st:'auto',shape:'box',x:R[0],y:Y2,w:172,h:96,name:'Welcome emails',sub:'3 emails, from HubSpot',
+ {k:'n31',more:['p09'],id:'3.1',st:'auto',shape:'box',x:R[0],y:Y2,w:172,h:96,name:'Welcome emails',sub:'3 emails, from HubSpot',
   what:'3 emails: IB Welcome (approval and how to reach the IB dashboard), Scale Your Earnings (partner benefits) and QR Code Feature (promo materials). They start when BO changes the account type to IB at setup, so they can arrive before the IB accepts the agreement.',owner:'Marketing Automation',where:'HubSpot',time:'Day 0, 2 and 4 (Vietnamese version)',
   cnote:{lead:'Gaps:',text:'No emails for clients who joined before 29 Jun 2026 and became IBs through their AM. IBs without KYC get them only after KYC.'},
   src:'EDM team (Nov); BO (24 Jun); flow doc (30 Oct)',
@@ -779,7 +1014,7 @@ var NODES=[
    time:'Day 0, 2 and 4, from the day BO switches the account to IB (timing from the Vietnamese version).',
    src:'EDM team (Nov); EDM email plan (Vietnamese version); BO (24 Jun)'
   }},
- {k:'n32',id:'3.2',st:'none',shape:'box',x:R[1],y:Y2,w:172,h:96,name:'First follow-up',sub:'AMs follow up their own way',flag:'No set owner',
+ {k:'n32',more:['p09','p11'],id:'3.2',st:'none',shape:'box',x:R[1],y:Y2,w:172,h:96,name:'First follow-up',sub:'AMs follow up their own way',flag:'No set owner',
   what:'After setup there\'s no set owner or routine for following up with a new IB. AMs follow up in their own way, and nobody tracks it.',owner:'No set owner (AMs follow up their own way)',where:'Varies by sales team',time:'Not tracked',src:'Sales Ops (3 Jul); flow doc (30 Oct)',
   /* fuller version for the click-through card */
   pop:{
@@ -793,7 +1028,7 @@ var NODES=[
    time:'Not tracked. Nobody measures when, or whether, the first follow-up happens.',
    src:'Sales Ops (3 Jul); IB onboarding flow doc (30 Oct); EDM team (Nov)'
   }},
- {k:'n33',id:'3.3',st:'auto',shape:'box',x:R[2],y:Y2,w:172,h:96,name:'Shares their link',sub:'Link or QR code',
+ {k:'n33',more:['p07','p08'],id:'3.3',st:'auto',shape:'box',x:R[2],y:Y2,w:172,h:96,name:'Shares their link',sub:'Link or QR code',
   what:'The IB shares their link or QR code. Clients who sign up through it are linked to the IB.',owner:'The IB; OP for campaign links',where:'IB portal',time:'Not tracked',src:'OP tracking guide (2 Jul); flow doc (30 Oct)',
   /* fuller version for the click-through card */
   pop:{
@@ -810,45 +1045,47 @@ var NODES=[
    time:'Not tracked. Nobody measures when a new IB first shares their link.',
    src:'OP tracking guide and session (2 Jul); EDM email plan (QR codes); IB onboarding flow doc (30 Oct)'
   }},
- {k:'d34',id:'3.4',st:'none',shape:'dia',x:R[3],y:Y2,w:164,h:120,name:'First client deposits?',title:'First client deposits',
-  what:'The first referred client deposits and the first rebate is paid. Nobody owns this step or tracks how long it takes.',owner:'No set owner',where:'IB portal reports (to confirm)',time:'Not tracked',src:'IB onboarding flow doc (30 Oct)',
+ {k:'d34',more:['p08','p09'],id:'3.4',st:'none',shape:'dia',x:R[3],y:Y2,w:164,h:120,name:'First client deposits?',title:'First client deposits',
+  what:'The first referred client deposits and the first rebate is paid. Nobody owns this step or tracks how long it takes.',owner:'No set owner',where:'IB portal',time:'Not tracked',src:'IB onboarding flow doc (30 Oct); OP (11 Nov)',
   /* fuller version for the click-through card */
   pop:{
+   w:680,
    what:'The IB\'s first referred client puts money in and trades, and the IB earns their first rebate. This is what turns a signed IB into an active one, yet nobody owns this step or tracks how long it takes.',
    fl:{h:'What has to happen',
     a:['A client signs up through the IB\'s link','They verify their ID (KYC)','They make a first deposit and trade'],
     b:[{lab:'Deposits',steps:['The IB earns their first rebate','Rebates are then paid daily (step 5.1)']},
        {lab:'No deposit',leak:1,steps:['The IB goes quiet','Nothing flags it today']}]},
-   note:{lead:'To confirm',t:'Whether the IB portal shows when a referred client first deposits, and whether Sales or AMs can see which new IBs have no funded client yet. We\'ve asked Anna in OP.'},
+   note:{lead:'To confirm',t:'Whether Sales or AMs can see which new IBs have no funded client yet. We\'ll also check the IB\'s first deposit view in the portal ourselves.'},
    owner:'No set owner.',
-   where:'To confirm: possibly the IB portal\'s reports.',
+   where:'Their IB portal shows a yes or no for each referred client\'s first deposit. They can\'t sort clients by it, but they can filter by most active client, most deposits or deposits in a date range, and download the list to Excel.',
    time:'Not tracked. Our growth strategy aims for a first funded client within 60 days of signing, but nobody measures it yet.',
-   src:'IB onboarding flow doc (30 Oct); Growth Strategy (Jun); Sales Ops (3 Jul)'
+   src:'IB onboarding flow doc (30 Oct); Growth Strategy (Jun); Sales Ops (3 Jul); OP (11 Nov)'
   }},
  {k:'lk',st:'none',shape:'leak',x:R[3],y:YL,w:196,h:72,name:'IB goes quiet',sub:'Nothing flags it today',rel:'Branch of step 3.4',stage:3,num:'3.4',
   what:'If no client deposits, nothing triggers a nudge today. Time to first client isn\'t owned or measured.',owner:'No set owner',where:'Not tracked',time:'Not tracked',src:'Flow doc (30 Oct); Growth Strategy (Jun)'},
- {k:'n41',id:'4.1',st:'manual',shape:'box',x:R[4],y:Y2,w:172,h:96,name:'Adds more clients',sub:'May add sub-⁠IBs',
-  what:'Brings more clients and may add sub-IBs, with AM support. Marketing posters for IB and client promotions come from their AM.',owner:'The IB, supported by their AM',where:'IB links; sub-IBs via their AM and BO',time:'Ongoing',src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (3 Jul); BO (10 Nov); Q4 IB promotions (Nov)',
+ {k:'n41',more:['p10','p12'],id:'4.1',st:'manual',shape:'box',x:R[4],y:Y2,w:172,h:96,name:'Adds more clients',sub:'May add sub-⁠IBs',
+  what:'Brings more clients and may add sub-IBs, with AM support. Promotion posters come from their AM, or from the IB portal.',owner:'The IB, supported by their AM',where:'IB links; sub-IBs via their AM and BO',time:'Ongoing',src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (3 Jul); BO (10 Nov); OP (11 Nov); Q4 IB promotions (Nov)',
   /* fuller version for the click-through card */
   pop:{
+   w:680,
    what:'Once they have their first client, the IB keeps bringing in more, and some build a team of sub-IBs under them.',
    waysH:'What helps them grow today',
    ways:[
-    {h:'Promotion posters',t:'Their AM shares posters for IB and client promotions. Marketing makes them, and Sales sometimes makes its own.'},
-    {h:'IB promotions',t:'In Q4 2026, IBs can earn a bonus when their direct clients hit deposit and trading targets. They need at least 5 enabled and 3 active direct clients, and their AM applies for the bonus.'},
+    {h:'Promotion posters',t:'Their AM shares posters for IB and client promotions. Marketing makes them, and Sales sometimes makes its own. Marketing OP also puts posters in the old IB portal, where IBs can download them any time.'},
+    {h:'IB promotions',t:'In Q4 2026, IBs can earn a bonus when their direct clients hit deposit and trading targets. They need at least 5 enabled and 3 active direct clients, and their AM applies for the bonus. OP renews the promotions each month or quarter, but nobody reviews how they\'re doing, and ACQ is taking them over.'},
     {h:'Sub-IBs',t:'An IB can bring in partners under them and earn on those partners\' clients too.'}
    ],
    note:{lead:'Good to know',t:'For now, a sub-IB can\'t be added from the IB portal. Every new IB, sub-IBs included, is raised by their AM to BO for setup.'},
    owner:'The IB, with support from their AM, who stays with them and applies for their promotion bonuses.',
    where:'They share their IB links (step 3.3). A new sub-IB is raised by their AM to BO for setup, like any new IB.',
    time:'Ongoing, for as long as they\'re an IB.',
-   src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (3 Jul); BO (10 Nov); Q4 IB promotions (Nov); partner deck'
+   src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (3 Jul); BO (10 Nov); OP (11 Nov); Q4 IB promotions (Nov); partner deck'
   }},
- {k:'n51',id:'5.1',st:'partly',shape:'box',x:R[5],y:Y2,w:172,h:96,name:'Paid daily',sub:'BO starts it, CRM pays',
-  what:'Rebates are worked out and paid every day, and the IB can withdraw any time. Each day BO clicks the payment button to start the payout run, then our in-house CRM processes the payouts automatically.',owner:'BO starts it each day; our in-house CRM pays out',where:'Our in-house CRM; the IB sees it in the IB portal',time:'Daily',src:'IB onboarding flow doc (30 Oct); BO (Nov)',
+ {k:'n51',more:['p06'],id:'5.1',st:'partly',shape:'box',x:R[5],y:Y2,w:172,h:96,name:'Paid daily',sub:'BO starts it, CRM pays',
+  what:'Rebates are paid the next business day after the trade, and the IB can withdraw any time. Each day BO clicks the payment button to start the payout run, then our in-house CRM processes the payouts automatically.',owner:'BO starts it each day; our in-house CRM pays out',where:'Our in-house CRM; the IB sees it in the IB portal',time:'Next business day',src:'IB onboarding flow doc (30 Oct); BO (Nov); IB agreement (Apr 2026)',
   /* fuller version for the click-through card */
   pop:{
-   what:'The IB\'s rebates are worked out and paid every day, and they can withdraw any time. It\'s mostly automatic, but BO has to start it each\u00a0day.',
+   what:'The IB\'s rebates are paid the next business day after the trade, so Friday\'s arrive on Monday, and they can withdraw any time. It\'s mostly automatic, but BO has to start it each\u00a0day.',
    flFirst:1,
    fl:{h:'How the daily payout works',
     a:['Their clients trade during the day','BO clicks the payment button to start the day\'s run','Our in-house CRM pays the rebates out automatically']},
@@ -860,10 +1097,10 @@ var NODES=[
    ],
    owner:'BO starts it each day, then our in-house CRM pays out.',
    where:'Our in-house CRM. The IB sees their rebates in the IB portal.',
-   time:'Every day.',
-   src:'BO (9 and 10 Nov); partner deck; Sales Ops (3 Jul); Q4 IB promotions (Nov)'
+   time:'The next business day after the trade. A holiday pushes it to the following business day.',
+   src:'BO (9 and 10 Nov); IB agreement (Apr 2026); partner deck; Sales Ops (3 Jul); Q4 IB promotions (Nov)'
   }},
- {k:'n52',id:'5.2',st:'none',shape:'term',x:R[6],y:Y2,w:172,h:96,name:'Stays with us',sub:'Not tracked today',flag:'No set owner',
+ {k:'n52',more:['p07','p05'],id:'5.2',st:'none',shape:'term',x:R[6],y:Y2,w:172,h:96,name:'Stays with us',sub:'Not tracked today',flag:'No set owner',
   what:'Keeps bringing clients. Reward tiers are proposed, not live, and nobody tracks who stays. As a starting point, Sales Ops counts a client as active with at least one activity, such as a trade, deposit or withdrawal, in the last 90 days.',owner:'No set owner',where:'Not built yet',time:'Not tracked',src:'Flow doc (30 Oct); Sales Ops (3 Jul); Data team (10 Nov)',
   /* fuller version for the click-through card */
   pop:{
@@ -1083,7 +1320,10 @@ function nb(t){ return String(t).replace(/(\d) (?=(Jan|Feb|Mar|Apr|May|Jun|Jul|A
 var GLOSS={
  'Max+':{t:'An extra rebate on top of the standard rebate for the IB\'s trading group. The number after the plus is how much extra, so Max+0.5 adds 0.5 and Max+1 adds 1.',
   p:'It falls under the special request check in step 2.5, so Tom approves it by email before BO sets it up, usually in 2 to 4 days.',
-  src:'Sales Ops Max+ SOP (9 Nov)'}
+  src:'Sales Ops Max+ SOP (9 Nov)'},
+ 'Special Groups':{t:'A non-standard trading group set up for a particular client or IB. Its settings can be customised, such as the spread, commission, rebate, leverage, volume limit, currency or server.',
+  p:'Like Max+, it falls under the special request check in step 2.5, so Tom approves it by email before BO sets it up, usually in 2 to 4 days.',
+  src:'Sales Ops SOP (Zoey, 10 Nov)'}
 };
 function terms(h){
   Object.keys(GLOSS).forEach(function(k){
@@ -1137,6 +1377,16 @@ function fillPop(n){
   $('popWhere').textContent=nb(P.where||n.where);
   $('popTime').textContent=nb(P.time||n.time);
   $('popSrc').textContent=nb(P.src||n.src);
+  var more=$('popMore'), M=n.more||[];
+  more.innerHTML=M.map(tabLink).join('');
+  $('popMoreRow').hidden=!M.length;
+}
+/* a link from a step card to the tab that explains more */
+function tabLink(id){
+  var b=$('tab-'+id); if(!b) return '';
+  var nm=b.querySelector('.ui-item-name').textContent, next=b.classList.contains('is-pending');
+  return '<button type="button" class="pop-tab'+(next?' is-next':'')+'" data-tab="'+id+'"'+(next?' title="This tab comes next" aria-label="'+esc(nm)+', comes next"':'')+'>'+esc(nm)
+    +'<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5L8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>';
 }
 function placePop(n){
   var pw=pop.offsetWidth, ph=pop.offsetHeight, M=28;
@@ -1179,7 +1429,7 @@ document.addEventListener('keydown',function(ev){
   if(ev.key==='Escape'&&popFor){ var n=popFor; closePop(); n.el.focus(); }
 });
 
-/* ---------- hover note for underlined words (Max+) ---------- */
+/* ---------- hover note for underlined words (Max+, Special Groups) ---------- */
 var tip=document.createElement('div'), tipFor=null;
 tip.className='term-tip'; tip.id='termTip'; tip.setAttribute('role','tooltip'); tip.hidden=true;
 document.body.appendChild(tip);
@@ -1233,12 +1483,33 @@ function entrance(){
 
 /* tabs that come next */
 var toast=$('toast'), toastT=null;
+function showToast(msg,ms){
+  var host=fsEl()||document.body; if(toast.parentNode!==host) host.appendChild(toast);
+  toast.textContent=msg; toast.hidden=false; clearTimeout(toastT);
+  toastT=setTimeout(function(){ toast.hidden=true; },ms||2400);
+}
 Array.prototype.forEach.call(document.querySelectorAll('.ui-item.is-pending'),function(b){
-  b.addEventListener('click',function(){
-    toast.textContent='This tab comes next, once tab 1 is signed off.';
-    toast.hidden=false; clearTimeout(toastT);
-    toastT=setTimeout(function(){ toast.hidden=true; },2400);
-  });
+  b.addEventListener('click',function(){ showToast('This tab comes next.'); });
+});
+/* a step card's "More in" link opens its tab, or, while the tab isn't built yet, points at it in the tab list */
+function pingTab(b){
+  if(fsEl()||shell.classList.contains('is-collapsed')) return;
+  var rail=$('rail'), list=b.parentNode, ir=b.getBoundingClientRect(), how=reduce?'auto':'smooth';
+  if(list.scrollWidth>list.clientWidth+1){ var lr=list.getBoundingClientRect(); list.scrollBy({left:(ir.left+ir.width/2)-(lr.left+lr.width/2),behavior:how}); }
+  else if(rail&&rail.scrollHeight>rail.clientHeight+1){ var rr=rail.getBoundingClientRect(); rail.scrollBy({top:(ir.top+ir.height/2)-(rr.top+rr.height/2),behavior:how}); }
+  b.classList.remove('is-ping'); void b.offsetWidth; b.classList.add('is-ping');
+  clearTimeout(b.pingT); b.pingT=setTimeout(function(){ b.classList.remove('is-ping'); },2700);
+}
+function openTabLink(id){
+  var b=$('tab-'+id); if(!b) return;
+  if(TABS[id]){ showTab(id); return; }
+  if(!b.classList.contains('is-pending')){ closePop(); b.click(); return; }
+  showToast(b.querySelector('.ui-item-name').textContent+' comes next. It will explain this in more detail.',3600);
+  pingTab(b);
+}
+document.addEventListener('click',function(ev){
+  var t=ev.target.closest?ev.target.closest('.pop-tab'):null; if(!t) return;
+  openTabLink(t.getAttribute('data-tab'));
 });
 
 /* ---------- one slide per stage, under the full journey ---------- */
@@ -1248,7 +1519,7 @@ var STG=[
  {n:2,part:2,parts:2,cards:['n24','n25','n26'],t:'From application to a live IB account',s:'Only the AM can apply for them. BO sets them up, and they go live once they accept the agreement.',prev:'n23',next:'n31'},
  {n:3,cards:['n31','n32','n33','d34'],t:'From a live account to their first client',s:'They get welcome emails and share their link. If no client deposits, they go quiet, and that\'s where we lose IBs.',prev:'n26',next:'n41'},
  {n:4,cards:['n41'],t:'Bringing in more clients',s:'They bring more clients and may add sub-IBs, with AM support.',prev:'d34',next:'n51'},
- {n:5,cards:['n51','n52'],t:'Getting paid and staying with us',s:'Rebates are paid every day. Nobody tracks who stays, so an IB can drift away and nobody notices.',prev:'n41',next:null}
+ {n:5,cards:['n51','n52'],t:'Getting paid and staying with us',s:'Rebates are paid the next business day. Nobody tracks who stays, so an IB can drift away and nobody notices.',prev:'n41',next:null}
 ];
 /* the branches on the flowchart, folded into the step they belong to */
 var BR={
@@ -1441,9 +1712,95 @@ if(!reduce&&'IntersectionObserver' in window){
   WRAPS.slice(1).forEach(function(w){ w.classList.add('pre'); io.observe(w); });
 }
 
+/* ---------- tabs: the summary, plus the parts built so far (05 IB agreement) ---------- */
+var TABS={summary:{btn:$('tab-summary'),panel:$('panel-summary'),hash:'summary'},
+          p05:{btn:$('tab-p05'),panel:$('panel-p05'),hash:'ib-agreement'}};
+var curTab='summary';
+function showTab(id,o){
+  var T=TABS[id]; if(!T) return;
+  o=o||{};
+  if(popFor) closePop();
+  hideTip();
+  Object.keys(TABS).forEach(function(k){
+    var X=TABS[k], on=k===id;
+    X.panel.hidden=!on;
+    X.btn.classList.toggle('is-active',on);
+    if(on) X.btn.setAttribute('aria-current','page'); else X.btn.removeAttribute('aria-current');
+  });
+  /* the "Show tabs" button lives in the bar of whichever tab is open */
+  var sb=T.panel.querySelector('.sb');
+  if(sb&&showBtn.parentNode!==sb) sb.insertBefore(showBtn,sb.firstChild);
+  var was=curTab; curTab=id;
+  if(id==='summary'){ fit(); onJ=-1; markJump(); }
+  if(o.hash!==false&&location.hash.slice(1)!==T.hash){ try{ location.hash=T.hash; }catch(e){} }
+  if(was!==id&&o.top!==false){ try{ window.scrollTo(0,0); }catch(e){} }
+  if(id==='p05'){ agOn=-1; markAg(); }
+}
+Object.keys(TABS).forEach(function(k){ TABS[k].btn.addEventListener('click',function(){ showTab(k); }); });
+function tabFromHash(){ var h=location.hash.slice(1); for(var k in TABS){ if(TABS[k].hash===h) return k; } return null; }
+window.addEventListener('hashchange',function(){ var k=tabFromHash(); if(k&&k!==curTab) showTab(k,{hash:false}); });
+
+/* ---------- tab 05: section jumps, a link back to the flowchart, "More in" links and the two copies ---------- */
+var agBar=document.querySelector('.ag-sb'), agJn=document.querySelector('.ag-jn');
+var AGB=agJn?[].slice.call(agJn.querySelectorAll('button')):[], agOn=-1, agT=0;
+function agTop(){ return (agBar?agBar.getBoundingClientRect().height:0)+12; }
+if(agJn) agJn.addEventListener('click',function(ev){
+  var b=ev.target.closest?ev.target.closest('button'):null; if(!b) return;
+  var el=$(b.getAttribute('data-to')); if(!el) return;
+  var y=el.id==='ag-top'?0:el.getBoundingClientRect().top+window.pageYOffset-agTop();
+  try{ window.scrollTo({top:Math.max(0,y),behavior:reduce?'auto':'smooth'}); }catch(e){ window.scrollTo(0,Math.max(0,y)); }
+});
+function markAg(){
+  if(curTab!=='p05'||!AGB.length) return;
+  var line=agTop()+80, best=0;
+  AGB.forEach(function(b,i){ var el=$(b.getAttribute('data-to')); if(el&&el.getBoundingClientRect().top<=line) best=i; });
+  if(window.innerHeight+window.pageYOffset>=document.documentElement.scrollHeight-4) best=AGB.length-1;
+  if(best===agOn) return;
+  agOn=best;
+  AGB.forEach(function(b,i){ b.classList.toggle('is-on',i===best); if(i===best) b.setAttribute('aria-current','true'); else b.removeAttribute('aria-current'); });
+}
+window.addEventListener('scroll',function(){ if(curTab==='p05'&&!agT) agT=requestAnimationFrame(function(){ agT=0; markAg(); }); },{passive:true});
+Array.prototype.forEach.call(document.querySelectorAll('[data-more]'),function(el){
+  el.innerHTML='<span>More in</span>'+el.getAttribute('data-more').split(/\s+/).map(tabLink).join('');
+});
+Array.prototype.forEach.call(document.querySelectorAll('[data-step]'),function(b){
+  b.addEventListener('click',function(){
+    var n=NM[b.getAttribute('data-step')]; if(!n) return;
+    showTab('summary');
+    setTimeout(function(){ openPop(n); },80);
+  });
+});
+/* inside Claude, Download goes through the viewer's own download prompt and becomes the main button, because the
+   viewer can't open a file in a new tab; anywhere else (the GitHub copy) Open and Download are plain links */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('a[data-dl]')), opens=[].slice.call(document.querySelectorAll('a[data-open]'));
+  if(!links.length||!(window.claude&&typeof window.claude.use==='function')) return;
+  var ns=null, ready=false;
+  function off(){ links.forEach(function(a){ a.hidden=true; }); }
+  function on(){ opens.forEach(function(a){ a.hidden=true; }); links.forEach(function(a){ a.classList.add('is-main'); }); }
+  links.forEach(function(a){
+    a.addEventListener('click',function(ev){
+      ev.preventDefault();
+      if(!ready){ showToast('The download is still getting ready. Try again in a moment.'); return; }
+      if(!ns){ showToast('Download isn\'t available here. Use Open instead.'); return; }
+      fetch(a.getAttribute('href')).then(function(r){ if(!r.ok) throw {code:'fetch'}; return r.blob(); })
+        .then(function(blob){ return ns.save({filename:a.getAttribute('download'),data:blob}); })
+        .catch(function(e){
+          var c=e&&e.code;
+          if(c==='declined') return;
+          if(c==='rate_limited'){ showToast('A download prompt is already open.'); return; }
+          showToast('Download isn\'t available here. Use Open instead.');
+        });
+    });
+  });
+  try{ window.claude.use('downloads').then(function(d){ ns=d; ready=true; if(d) on(); else off(); },function(){ ready=true; off(); }); }
+  catch(e){ ready=true; off(); }
+})();
+
 fit();
 markJump();
 entrance();
+var k0=tabFromHash(); if(k0&&k0!=='summary') showTab(k0,{hash:false,top:false});
 })();
 </script>
 </body>
