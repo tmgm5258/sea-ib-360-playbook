@@ -15,7 +15,7 @@
    Tab 1 is a stack of 16:9 slides (the full journey, then one per stage) drawn on a fixed 1600 x 900 canvas and scaled
    to fit, so they present well on a big screen. A light page with dark slides, on purpose.
    Status is an icon on a coloured token: a bolt on soft green for automatic, a person and a bolt on soft blue for
-   partly automatic, a person on red (#CC1042) for manual, and a dashed amber ring for no set owner. */
+   partly automatic, a person on red (#CC1042) for manual, and a dashed amber ring for no set routine. */
 :root{
   --rail:#050A18; --rail-hover:#0B1428; --rail-active:#101A2E; --rail-line:#141C30; --rail-line-2:#1F2B41;
   --rail-text:#C2D0E2; --rail-muted:#8296B0; --rail-role:#75879F; --rail-faint:#55677F;
@@ -516,6 +516,99 @@ button{font:inherit}
   .ag-end{padding:18px}
 }
 
+/* ---- Checklists (Aaron, Anna, Sichen): one card per open question. Our suggestion or what we know on the left, pick one on the right ---- */
+.ac-sb{max-width:1180px}
+.ac-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin-top:20px}
+.ac-prog{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--s-muted)}
+.ac-prog b{color:var(--s-ink);font-weight:800}
+.ac-bar{position:relative;display:inline-block;width:140px;height:5px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden}
+.ac-bar i{position:absolute;top:0;bottom:0;left:0;width:0;border-radius:inherit;background:#4D9BFF;transition:width .3s}
+.ac-asked{font-size:13px;color:var(--s-muted)}
+.ac-list{display:grid;gap:18px}
+.ag-card.ac-q{padding:0;overflow:hidden}
+.ac-q::before{content:"";display:block;height:3px;background:linear-gradient(90deg,var(--c1),var(--c2))}
+.ac-qh{display:flex;align-items:center;gap:14px;padding:22px 26px 0}
+.ac-num{display:grid;place-items:center;flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--c1);color:#0A1330;font-size:15px;font-weight:800;box-shadow:0 0 0 4px rgba(255,255,255,.06)}
+.ac-qh h2{flex:1 1 auto;min-width:0;margin:0;font-size:21px;line-height:1.3;font-weight:800;color:var(--s-ink);text-wrap:balance}
+.ac-st{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;padding:4px 11px;border-radius:999px;border:1px dashed rgba(251,191,36,.55);background:rgba(251,191,36,.08);color:#FCD34D;font-size:12px;font-weight:700;white-space:nowrap}
+.ac-st::before{content:"";width:8px;height:8px;border-radius:50%;border:1.5px dashed #FCD34D}
+.ac-st.is-done{border:1px solid rgba(74,222,128,.5);background:rgba(74,222,128,.10);color:#86EFAC}
+.ac-st.is-done::before{border:0;background:#4ADE80}
+.ac-body{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:18px 26px 24px}
+.ac-left,.ac-right{min-width:0;padding:18px 20px;border-radius:16px;border:1px solid rgba(255,255,255,.10)}
+.ac-left{display:flex;flex-direction:column;background:rgba(77,155,255,.07);border-color:rgba(143,184,255,.22)}
+.ac-right{background:rgba(255,255,255,.035)}
+.ac-lab{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8FB8FF}
+.ac-right > .ac-lab{color:#7083AE}
+.ac-sug{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:18px;line-height:1.3;font-weight:800;color:var(--s-ink)}
+.ac-let{display:grid;place-items:center;flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:rgba(143,184,255,.18);color:#DCE7FF;font-size:13px;font-weight:800}
+.ac-sug .ac-let{background:#DCE7FF;color:#0A1330}
+.ac-pts{list-style:none;margin:12px 0 18px;padding:0;display:grid;gap:8px}
+.ac-pts li{position:relative;padding-left:16px;font-size:14.5px;line-height:1.55;color:var(--s-text)}
+.ac-pts li::before{content:"";position:absolute;left:1px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--c1)}
+.ac-foot{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)}
+.ac-foot .ac-lab{margin-right:4px;color:#7083AE}
+.ac-chip{margin:0;padding:3px 10px;border:0;border-radius:999px;background:var(--cc,#BEF264);color:#0A1330;font:inherit;font-size:12.5px;font-weight:800;line-height:1.4;cursor:pointer}
+.ac-chip:hover{filter:brightness(1.08)}
+.ac-chip:focus-visible{outline:2px solid #FFFFFF;outline-offset:2px}
+.ac-why{flex:1 1 auto;text-align:right}
+.ac-why[open]{flex-basis:100%}
+.ac-why summary{display:inline-flex;align-items:center;gap:7px;list-style:none;cursor:pointer;font-size:13px;font-weight:700;color:#8FB8FF}
+.ac-why summary::-webkit-details-marker{display:none}
+.ac-why summary::after{content:"";width:6px;height:6px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+.ac-why[open] summary::after{transform:translateY(1px) rotate(-135deg)}
+.ac-why summary:focus-visible{outline:2px solid #8FB8FF;outline-offset:3px;border-radius:4px}
+.ac-why p{margin:10px 0 0;text-align:left;font-size:13.5px;line-height:1.55;color:var(--s-text)}
+.ac-why .ac-src{font-size:12.5px;color:var(--s-muted)}
+.ac-opts{display:grid;gap:10px;margin-top:12px}
+.ac-opt{position:relative;display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);cursor:pointer;transition:border-color .15s,background-color .15s}
+.ac-opt:hover{border-color:rgba(143,184,255,.5);background:rgba(143,184,255,.06)}
+.ac-opt input{position:absolute;width:1px;height:1px;margin:0;opacity:0;pointer-events:none}
+.ac-opt.is-focus{outline:2px solid #8FB8FF;outline-offset:2px}
+.ac-opt .ac-let{margin-top:1px}
+.ac-ot{flex:1 1 auto;min-width:0;display:grid;gap:3px}
+.ac-ot b{font-size:15px;line-height:1.35;font-weight:700;color:var(--s-ink)}
+.ac-ot span{font-size:13px;line-height:1.45;color:var(--s-muted)}
+.ac-tag{flex:0 0 auto;align-self:center;padding:3px 9px;border-radius:999px;background:rgba(143,184,255,.16);color:#CFE0FF;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.ac-opt.is-picked{border-color:#4D9BFF;background:rgba(77,155,255,.14);box-shadow:inset 0 0 0 1px #4D9BFF}
+.ac-opt.is-picked .ac-let{background:#4D9BFF;color:#05112B}
+.ac-other{margin-top:10px}
+.ac-other label{display:block;margin-bottom:6px;font-size:12.5px;font-weight:700;color:var(--s-muted)}
+.ac-other textarea{display:block;width:100%;box-sizing:border-box;min-height:64px;padding:10px 12px;border-radius:10px;border:1px solid rgba(143,184,255,.35);background:rgba(4,9,23,.5);color:var(--s-ink);font:inherit;font-size:14px;line-height:1.5;resize:vertical}
+.ac-other textarea:focus{outline:2px solid #4D9BFF;outline-offset:1px}
+.ac-sum{margin:0;padding:0;list-style:none;display:grid;gap:10px;counter-reset:acs}
+.ac-sum li{display:grid;grid-template-columns:26px minmax(0,1fr);gap:3px 12px;align-items:start;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);font-size:14px;line-height:1.5;color:var(--s-text)}
+.ac-sum li::before{counter-increment:acs;content:counter(acs);grid-row:span 2;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:rgba(143,184,255,.16);color:#DCE7FF;font-size:12.5px;font-weight:800}
+.ac-sum b{color:var(--s-ink)}
+.ac-sum .is-none{color:var(--s-muted);font-style:italic}
+.ac-out-act{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.ac-copybox{display:block;width:100%;box-sizing:border-box;min-height:170px;margin-top:12px;padding:12px;border-radius:10px;border:1px solid rgba(143,184,255,.35);background:rgba(4,9,23,.5);color:var(--s-ink);font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;resize:vertical}
+.ac-extra .ag-h,.ac-done .ag-h{margin-bottom:14px}
+.ac-ex-list,.ac-done-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.ac-ex-list li{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.ac-ex-t{flex:1 1 260px;min-width:0;font-size:14.5px;line-height:1.5;color:var(--s-text)}
+.ac-exs{flex:0 0 auto;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
+.ac-exs.is-wait{border:1px dashed rgba(251,191,36,.55);background:rgba(251,191,36,.08);color:#FCD34D}
+.ac-exs.is-done{border:1px solid rgba(74,222,128,.5);background:rgba(74,222,128,.10);color:#86EFAC}
+.ac-exs.is-owe{border:1px dashed rgba(248,113,113,.6);background:rgba(248,113,113,.08);color:#FCA5A5}
+.ac-done-list li{padding:14px 16px;border-radius:12px;background:rgba(74,222,128,.04);border:1px solid rgba(74,222,128,.22)}
+.ac-dq{margin:0;font-size:14.5px;line-height:1.5;font-weight:700;color:var(--s-ink)}
+.ac-da{margin:6px 0 0;font-size:14px;line-height:1.55;color:var(--s-text)}
+.ac-dm{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px;font-size:12.5px;color:var(--s-muted)}
+.ac-dm > span{margin-right:4px}
+.ui-prog-s{text-align:right}
+@container (max-width:760px){
+  .ac-body{grid-template-columns:minmax(0,1fr)}
+}
+@container (max-width:520px){
+  .ac-qh{flex-wrap:wrap;padding:18px 16px 0}
+  .ac-qh h2{flex-basis:calc(100% - 48px);font-size:18px}
+  .ac-st{margin-left:48px}
+  .ac-body{padding:14px 16px 18px}
+  .ac-left,.ac-right{padding:16px 14px}
+  .ac-tag{display:none}
+}
+
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--rail);color:#E8EFF9;border:1px solid var(--rail-line-2);border-radius:8px;padding:10px 16px;font-size:13px;z-index:80;box-shadow:0 10px 30px rgba(5,10,24,.32);max-width:calc(100vw - 32px)}
 .is-fs .toast{bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 
@@ -547,13 +640,16 @@ button{font:inherit}
       <button type="button" class="ui-hide" id="railHide" aria-controls="rail" aria-expanded="true" aria-label="Hide tabs" title="Hide tabs"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8.5 3.5L4 8l4.5 4.5M12.5 3.5L8 8l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <div class="ui-rail-region">Southeast Asia</div>
       <div class="ui-rail-sub">IB 360 Playbook · IB onboarding,<br>end to end</div>
-      <div class="ui-prog-label">Aaron to confirm</div>
-      <div class="ui-prog"><div class="ui-prog-top"><span class="ui-prog-n">0 / 21</span><span class="ui-prog-s">confirmed</span></div><div class="ui-prog-bar"><i></i></div></div>
+      <div class="ui-prog-label">Still waiting on</div>
+      <div class="ui-prog"><div class="ui-prog-top"><span class="ui-prog-n">3 open</span><span class="ui-prog-s">Anna 1 · Sichen 2</span></div><div class="ui-prog-bar" hidden><i></i></div></div>
     </div>
     <nav class="ui-list" aria-label="Playbook tabs">
       <button type="button" class="ui-item is-active" id="tab-summary" aria-current="page"><span class="ui-item-top"><span class="ui-item-name">Executive summary</span><span class="ui-chip">1 min</span></span><span class="ui-item-role">The IB flow at a glance</span></button>
       <button type="button" class="ui-item is-pending" id="tab-overview" aria-disabled="true"><span class="ui-item-top"><span class="ui-item-name">Overview</span><span class="ui-chip is-plan">Plan</span></span><span class="ui-item-role">How to read this playbook</span></button>
-      <button type="button" class="ui-item is-pending" id="tab-checklist" aria-disabled="true"><span class="ui-item-top"><span class="ui-item-name">Aaron's checklist</span><span class="ui-chip is-red">21</span></span><span class="ui-item-role">All items to confirm</span></button>
+      <div class="ui-group">Open questions</div>
+      <button type="button" class="ui-item" id="tab-checklist"><span class="ui-item-top"><span class="ui-item-name">Aaron's checklist</span><span class="ui-chip">Done</span></span><span class="ui-item-role">Answered by Aaron, Sales</span></button>
+      <button type="button" class="ui-item" id="tab-anna"><span class="ui-item-top"><span class="ui-item-name">Anna's checklist</span><span class="ui-chip is-red">1</span></span><span class="ui-item-role">Waiting on Anna, OP</span></button>
+      <button type="button" class="ui-item" id="tab-sichen"><span class="ui-item-top"><span class="ui-item-name">Sichen's checklist</span><span class="ui-chip is-red">2</span></span><span class="ui-item-role">Waiting on Sichen, EDM</span></button>
       <div class="ui-group">Start here</div>
       <button type="button" class="ui-item is-pending" id="tab-p01" aria-disabled="true"><span class="ui-item-top"><span class="ui-item-name">01 The IB offer</span><span class="ui-chip is-red">1</span></span><span class="ui-item-role">What we offer IBs, and who it's for</span></button>
       <button type="button" class="ui-item is-pending" id="tab-p02" aria-disabled="true"><span class="ui-item-top"><span class="ui-item-name">02 Markets</span><span class="ui-chip is-red">1</span></span><span class="ui-item-role">Five markets, languages, sales contacts</span></button>
@@ -598,7 +694,7 @@ button{font:inherit}
                 <g id="gEdges"></g>
                 <g id="gComet"><path class="fc1" id="comet1" filter="url(#fGlow)" d="M0 0"/><path class="fc2" id="comet2" d="M0 0"/></g>
               </svg>
-              <div class="sl-eb">SEA IB 360 Playbook · <b>Executive summary</b> · Updated 12 Nov 2026</div>
+              <div class="sl-eb">SEA IB 360 Playbook · <b>Executive summary</b> · Updated 18 Nov 2026</div>
               <h1 class="sl-title">How a new IB joins TMGM, step by step</h1>
               <p class="sl-sub">15 steps from first visit to staying with us. <em>The dashed yellow branches</em> are where we lose IBs.</p>
               <img class="sl-logo" src="data:image/png;base64,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" alt="TMGM" width="132" height="33">
@@ -634,6 +730,10 @@ button{font:inherit}
         </div>
         </div>
       </section>
+      <!-- the three checklists are built by the script from CL (Aaron, Anna, Sichen) -->
+      <section class="ui-panel ac" id="panel-checklist" aria-labelledby="tab-checklist" hidden></section>
+      <section class="ui-panel ac" id="panel-anna" aria-labelledby="tab-anna" hidden></section>
+      <section class="ui-panel ac" id="panel-sichen" aria-labelledby="tab-sichen" hidden></section>
       <section class="ui-panel ag" id="panel-p05" aria-labelledby="tab-p05" hidden>
         <div class="sb ag-sb">
           <nav class="jn ag-jn" aria-label="Jump to a section">
@@ -646,7 +746,7 @@ button{font:inherit}
         </div>
         <div class="ag-wrap">
           <header class="ag-card ag-hero" id="ag-top">
-            <div class="ag-eb">SEA IB 360 Playbook · <b>05 IB agreement</b> · Updated 12 Nov 2026</div>
+            <div class="ag-eb">SEA IB 360 Playbook · <b>05 IB agreement</b> · Updated 16 Nov 2026</div>
             <img class="ag-logo" src="data:image/png;base64,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" alt="TMGM" width="132" height="33">
             <span class="ag-stage"><b>2</b>Convert · steps 2.5 and 2.6</span>
             <h1 class="ag-title">The contract every IB accepts</h1>
@@ -697,7 +797,7 @@ button{font:inherit}
               <li><b>Live</b><span>Their IB portal opens, with their links and rate</span></li>
             </ol>
             <div class="ag-row">
-              <p class="ag-note"><b>KYC, not a deposit.</b> An IB must pass KYC before bringing in clients, so we know they're a real person. They don't need to make a deposit (OP, 11 Nov).</p>
+              <p class="ag-note"><b>KYC, not a deposit.</b> A client must finish KYC before they can become an IB, so we know they're a real person. They don't need to make a deposit (OP, 11 Nov; BO, 16 Nov).</p>
               <button type="button" class="ag-btn" data-step="n26">See step 2.6 on the flowchart</button>
             </div>
           </section>
@@ -822,7 +922,7 @@ window.addEventListener('resize',fit);
 
 /* ---------- the journey: 15 steps, plus the branches ---------- */
 var STAGE={1:'Attract',2:'Convert',3:'Activate',4:'Grow',5:'Retain'};
-var LABEL={auto:'Automatic',partly:'Partly automatic',manual:'Manual',none:'No set owner',dec:'Decision'};
+var LABEL={auto:'Automatic',partly:'Partly automatic',manual:'Manual',none:'No set routine',dec:'Decision'};
 /* status: an icon on a coloured token (bolt on green, person and bolt on blue, person on red); text stays white */
 var COLOR={auto:'#F3F6FF',partly:'#F3F6FF',manual:'#F3F6FF',none:'#FBBF24',dec:'#C9D5F0'};
 var C=[145.5,332.5,519.5,706.5,893.5,1080.5,1267.5,1454.5];   /* row 1 columns */
@@ -857,7 +957,7 @@ var NODES=[
   what:'Reads about the IB program on our partners website or in our partner deck, then talks to Sales. Sales explains the IB rebate, current promotions and account details. Some ask our Support team, who pass them to Sales Ops.',
   owner:'Sales (Aaron\'s team); Partner Marketing (website, deck)',
   where:'Partners website, partner deck, talks with Sales or Support',
-  time:'Not known yet',
+  time:'It varies',
   cnote:{lead:'Rates:',text:'Classic, Edge and Prime accounts pay USD1 to 7 a lot on Forex in SEA. SEA clients can also open STD accounts, which pay USD8 to 10, the figures on our website and deck (BO confirmed, 10 Nov).'},
   src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (9 and 10 Nov); BO (10 Nov); Sales Zendesk rate sheets (Oct 2025); partners website and deck',
   /* fuller version for the click-through card */
@@ -873,7 +973,7 @@ var NODES=[
    note:{lead:'Good to know',t:'Sales Ops\' SEA rate sheet pays USD1 to 7 a lot on Forex (Classic, Edge and Prime). SEA clients can also open STD, PRO, PM and ECN accounts (BO confirmed, 10 Nov), and STD pays USD8 to 10, which matches our website and deck.'},
    owner:'Sales (Aaron\'s team) talks to them. Partner Marketing looks after the partners website and the partner deck.',
    where:'Our partners website (tmgmpartners.com), the partner deck, and conversations with Sales or our Support team.',
-   time:'Not known yet. How long it takes from a first chat with Sales to agreeing terms is one of our questions for Aaron.',
+   time:'It varies, from a first chat with Sales to agreeing terms (Aaron, 17 Nov).',
    src:'IB onboarding flow doc (30 Oct); partners website (Jun); partner deck; Aaron (Nov); Sales Ops (9 and 10 Nov); BO (10 Nov); Sales Zendesk rate sheets (Oct 2025); Q4 IB promotions (Nov)'
   }},
  {k:'n21',more:['p04','p07'],id:'2.1',st:'auto',shape:'box',x:C[1],y:Y1,w:152,h:96,name:'Registers',sub:'Opens a client account first',
@@ -919,10 +1019,10 @@ var NODES=[
  {k:'hTL',st:'partly',shape:'help',x:C[2],y:YH,w:184,h:76,name:'Team lead assigns an AM',sub:'Usually within the day',rel:'Branch of step 2.2',stage:2,num:'2.2',
   what:'The system routes the sign-up to a team lead using set rules, such as region, campaign and language. For enquiries that come through Support, Sales Ops picks the team lead instead. The team lead then passes it to an AM, who owns the lead from before KYC. If the person hasn\'t signed up yet, the AM helps them register.',owner:'Team lead, then the AM',where:'CRM system',time:'Usually within the day',src:'Sales Ops (3 Jul, 9 Nov)'},
  {k:'n23',more:['p06','p04'],id:'2.3',st:'manual',shape:'box',x:C[3],y:Y1,w:152,h:96,name:'Agrees terms',sub:'Rate and plan, one to one',
-  what:'Agrees the program and rate with their AM, one to one. There\'s no minimum deposit or trading to become an IB, but they must pass KYC before bringing in clients. Sales usually recommends IB, and rates above the normal IB rebate need Tom\'s approval (step 2.5).',
-  owner:'AM in the regional sales team',where:'AM\'s Zendesk ticket to BO',time:'Not known yet',
+  what:'Agrees the program and rate with their AM, one to one. There\'s no minimum deposit or trading, but they must finish KYC before they can become an IB. Sales usually recommends IB, and rates above the normal IB rebate need Tom\'s approval (step 2.5).',
+  owner:'AM in the regional sales team',where:'AM\'s Zendesk ticket to BO',time:'It varies',
   cnote:{lead:'Rates:',text:'Classic, Edge and Prime accounts pay USD1 to 7 a lot on Forex in SEA. SEA clients can also open STD accounts, which pay USD8 to 10, the figures on our website and deck (BO confirmed, 10 Nov).'},
-  src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (9 and 10 Nov); BO (10 Nov); OP (11 Nov); Sales Zendesk rate sheets (Oct 2025)',
+  src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (9 and 10 Nov); BO (10 and 16 Nov); OP (11 Nov); Sales Zendesk rate sheets (Oct 2025)',
   /* fuller version for the click-through card */
   pop:{
    w:680,
@@ -930,16 +1030,16 @@ var NODES=[
    ways:[
     {h:'Which program',t:'Sales recommends what suits the partner, and that\'s usually IB. Partners can switch later or join more than one program. In SEA we can\'t offer CPA (a fixed payment per new client), so the CPA deals on our website don\'t apply here.'},
     {h:'The rate',t:'Agreed one to one with the AM, from Sales Ops\' rate sheets. In SEA, Classic, Edge and Prime accounts pay USD1 to 7 a lot on Forex and up to USD10 on gold and silver, and STD accounts pay USD8 to 10, depending on the IB\'s volume. Anything above the sheets is a special request that needs Tom\'s approval (step 2.5).'},
-    {h:'Who can join',t:'Anyone. There\'s no minimum deposit or trading, but they must pass KYC before bringing in clients, so we know they\'re a real person.'}
+    {h:'Who can join',t:'Anyone. There\'s no minimum deposit or trading, but they must finish KYC before they can become an IB, so we know they\'re a real person.'}
    ],
    note:{lead:'Good to know',t:'STD, PRO, PM and ECN are normal account groups in every region, so SEA clients can ask for them too (BO confirmed, 10 Nov). STD is where our website\'s USD10 and the deck\'s USD8 come from.'},
    owner:'Their AM, in the regional sales team.',
    where:'In the AM\'s Zendesk ticket to BO, which has to include the account group and the agreed rate.',
-   time:'Not known yet. Also one of our questions for Aaron.',
-   src:'IB onboarding flow doc (30 Oct); Aaron (Nov); partner deck; Sales Ops (9 and 10 Nov); BO (10 Nov); OP (11 Nov); Sales Zendesk rate sheets (Oct 2025)'
+   time:'It varies, from a first chat with Sales to agreed terms (Aaron, 17 Nov).',
+   src:'IB onboarding flow doc (30 Oct); Aaron (Nov); partner deck; Sales Ops (9 and 10 Nov); BO (10 and 16 Nov); OP (11 Nov); Sales Zendesk rate sheets (Oct 2025)'
   }},
  {k:'n24',more:['p04'],id:'2.4',st:'manual',shape:'box',x:C[4],y:Y1,w:152,h:96,name:'AM applies for them',sub:'Via Zendesk',
-  what:'Only the AM can submit an IB application. Clients can\'t apply themselves, so anyone interested is given to an AM first. The AM sends the request to BO as a Zendesk ticket.',owner:'AM',where:'Zendesk',time:'Not known yet',src:'Sales Ops (23 Jun, 3 Nov); BO (24 Jun)',
+  what:'Only the AM can submit an IB application. Clients can\'t apply themselves, so anyone interested is given to an AM first. The AM sends the request to BO as a Zendesk ticket.',owner:'AM',where:'Zendesk',time:'Straight away',src:'Sales Ops (23 Jun, 3 Nov); BO (24 Jun); Aaron (17 Nov)',
   /* fuller version for the click-through card */
   pop:{
    what:'Clients can\'t make themselves an IB, so their AM applies for them. Here\'s what the AM does:',
@@ -951,8 +1051,8 @@ var NODES=[
    note:{lead:'Good to know',t:'Every TMGM sign-up goes through the same system and opens a normal client account. Only BO can change it to an IB, and only when an AM asks.'},
    owner:'The AM. Only AMs can submit an IB application.',
    where:'Zendesk, as a ticket to BO.',
-   time:'Not known yet. How soon the AM usually applies is one of our questions for Aaron.',
-   src:'Sales Ops (23 Jun, 3 Nov, 9 Nov) and their Max+ SOP; BO (24 Jun); OP (2 Jul)'
+   time:'Straight away. Once the IB is ready, they sign up and the AM submits the application (Aaron, 17 Nov).',
+   src:'Sales Ops (23 Jun, 3 Nov, 9 Nov) and their Max+ SOP; BO (24 Jun); OP (2 Jul); Aaron (17 Nov)'
   }},
  {k:'dSp',st:'dec',shape:'dia',x:C[5],y:Y1,w:140,h:110,name:'Special request?',title:'Special request check',rel:'Part of step 2.5',stage:2,num:'2.5',
   what:'Special rebate requests are handled case by case, mainly for non-standard account groups or rates above the normal IB rebate. They include Special Groups and Max+. Max+ is an extra rebate on top of the standard rebate for the IB\'s trading group, such as Max+0.5 or Max+1, where the number is the extra amount. Every one needs Tom\'s approval by email.',owner:'Approved by Tom, our CEO',where:'Email',time:'About 2 to 4 days, depending on the case',src:'Sales Ops (3 Nov, 9 Nov) and their Max+ SOP; BO (24 Jun)'},
@@ -997,7 +1097,7 @@ var NODES=[
   }},
  {k:'n31',more:['p09'],id:'3.1',st:'auto',shape:'box',x:R[0],y:Y2,w:172,h:96,name:'Welcome emails',sub:'3 emails, from HubSpot',
   what:'3 emails: IB Welcome (approval and how to reach the IB dashboard), Scale Your Earnings (partner benefits) and QR Code Feature (promo materials). They start when BO changes the account type to IB at setup, so they can arrive before the IB accepts the agreement.',owner:'Marketing Automation',where:'HubSpot',time:'Day 0, 2 and 4 (Vietnamese version)',
-  cnote:{lead:'Gaps:',text:'No emails for clients who joined before 29 Jun 2026 and became IBs through their AM. IBs without KYC get them only after KYC.'},
+  cnote:{lead:'Gap:',text:'No emails for clients who joined before 29 Jun 2026 and became IBs through their AM.'},
   src:'EDM team (Nov); BO (24 Jun); flow doc (30 Oct)',
   /* fuller version for the click-through card */
   pop:{
@@ -1008,25 +1108,25 @@ var NODES=[
     {h:'Day 2: Scale Your Earnings',t:'The benefits of growing as an IB, like higher rebates for steady performance and our marketing materials.'},
     {h:'Day 4: QR Code Feature',t:'How to find their QR code images in the IB Portal (Rebate Node, then IB LINK) and download them to share.'}
    ],
-   note:{lead:'Gaps',t:'Clients who joined before 29 Jun 2026 and became IBs through their AM get no welcome emails. IBs without KYC get them only after KYC. And someone who signs up with an IB partnership code can get the "approved" email before BO sets them up. The EDM team has offered fixes.'},
+   note:{lead:'Gaps',t:'Clients who joined before 29 Jun 2026 and became IBs through their AM get no welcome emails. And someone who signs up with an IB partnership code can get the "approved" email before BO sets them up. The EDM team has offered fixes.'},
    owner:'Marketing Automation (the EDM team).',
    where:'HubSpot.',
    time:'Day 0, 2 and 4, from the day BO switches the account to IB (timing from the Vietnamese version).',
    src:'EDM team (Nov); EDM email plan (Vietnamese version); BO (24 Jun)'
   }},
- {k:'n32',more:['p09','p11'],id:'3.2',st:'none',shape:'box',x:R[1],y:Y2,w:172,h:96,name:'First follow-up',sub:'AMs follow up their own way',flag:'No set owner',
-  what:'After setup there\'s no set owner or routine for following up with a new IB. AMs follow up in their own way, and nobody tracks it.',owner:'No set owner (AMs follow up their own way)',where:'Varies by sales team',time:'Not tracked',src:'Sales Ops (3 Jul); flow doc (30 Oct)',
+ {k:'n32',more:['p09','p11'],id:'3.2',st:'none',shape:'box',x:R[1],y:Y2,w:172,h:96,name:'First follow-up',sub:'AMs follow up their own way',flag:'No set routine',
+  what:'After setup, their AM follows up with the new IB, but there\'s no set routine. Each AM does it their own way, and nobody tracks it.',owner:'Their AM (no set routine)',where:'Varies by sales team',time:'Not tracked',src:'Sales Ops (3 Jul); flow doc (30 Oct); Aaron (17 Nov)',
   /* fuller version for the click-through card */
   pop:{
    what:'After BO sets them up, there\'s no set routine for following up with a new IB. Their AM follows up in their own way, and nobody tracks whether or when it happens.',
    tl:{h:'A new IB\'s first days today',
     items:[{d:'Day 0',t:'IB Welcome email'},{d:'Day 2',t:'Scale Your Earnings email'},{d:'Day 4',t:'QR Code Feature email'},{d:'No set day',t:'AM follow-up',none:1,gap:1}],
     n:'Only the 3 emails are set. The AM\'s follow-up has no checklist, reminder or time limit.'},
-   note:{lead:'To confirm',t:'Who should own a new IB\'s first 60 days. It\'s one of our questions for Aaron.'},
-   owner:'No set owner. Each AM follows up in their own way.',
+   note:{lead:'Good to know',t:'Aaron (Sales, 17 Nov): the AM takes care of the IB from the very beginning to the very end.'},
+   owner:'Their AM, who looks after the IB from start to end (Aaron, 17 Nov). Each AM follows up in their own way.',
    where:'No set channel. Each sales team follows up in its own way, depending on the client.',
    time:'Not tracked. Nobody measures when, or whether, the first follow-up happens.',
-   src:'Sales Ops (3 Jul); IB onboarding flow doc (30 Oct); EDM team (Nov)'
+   src:'Sales Ops (3 Jul); IB onboarding flow doc (30 Oct); EDM team (Nov); Aaron (17 Nov)'
   }},
  {k:'n33',more:['p07','p08'],id:'3.3',st:'auto',shape:'box',x:R[2],y:Y2,w:172,h:96,name:'Shares their link',sub:'Link or QR code',
   what:'The IB shares their link or QR code. Clients who sign up through it are linked to the IB.',owner:'The IB; OP for campaign links',where:'IB portal',time:'Not tracked',src:'OP tracking guide (2 Jul); flow doc (30 Oct)',
@@ -1046,23 +1146,23 @@ var NODES=[
    src:'OP tracking guide and session (2 Jul); EDM email plan (QR codes); IB onboarding flow doc (30 Oct)'
   }},
  {k:'d34',more:['p08','p09'],id:'3.4',st:'none',shape:'dia',x:R[3],y:Y2,w:164,h:120,name:'First client deposits?',title:'First client deposits',
-  what:'The first referred client deposits and the first rebate is paid. Nobody owns this step or tracks how long it takes.',owner:'No set owner',where:'IB portal',time:'Not tracked',src:'IB onboarding flow doc (30 Oct); OP (11 Nov)',
+  what:'The first referred client deposits and the first rebate is paid. Their AM looks after it (Aaron, 17 Nov), but there\'s no set routine and nobody tracks how long it takes.',owner:'Their AM (no set routine)',where:'IB portal',time:'Not tracked',src:'IB onboarding flow doc (30 Oct); OP (11 Nov); Aaron (17 Nov)',
   /* fuller version for the click-through card */
   pop:{
    w:680,
-   what:'The IB\'s first referred client puts money in and trades, and the IB earns their first rebate. This is what turns a signed IB into an active one, yet nobody owns this step or tracks how long it takes.',
+   what:'The IB\'s first referred client puts money in and trades, and the IB earns their first rebate. This is what turns a signed IB into an active one. Their AM looks after it (Aaron, 17 Nov), but there\'s no set routine and nobody tracks how long it takes.',
    fl:{h:'What has to happen',
     a:['A client signs up through the IB\'s link','They verify their ID (KYC)','They make a first deposit and trade'],
     b:[{lab:'Deposits',steps:['The IB earns their first rebate','Rebates are then paid daily (step 5.1)']},
        {lab:'No deposit',leak:1,steps:['The IB goes quiet','Nothing flags it today']}]},
    note:{lead:'To confirm',t:'Whether Sales or AMs can see which new IBs have no funded client yet. We\'ll also check the IB\'s first deposit view in the portal ourselves.'},
-   owner:'No set owner.',
+   owner:'Their AM, from start to end (Aaron, 17 Nov). No set routine yet.',
    where:'Their IB portal shows a yes or no for each referred client\'s first deposit. They can\'t sort clients by it, but they can filter by most active client, most deposits or deposits in a date range, and download the list to Excel.',
    time:'Not tracked. Our growth strategy aims for a first funded client within 60 days of signing, but nobody measures it yet.',
-   src:'IB onboarding flow doc (30 Oct); Growth Strategy (Jun); Sales Ops (3 Jul); OP (11 Nov)'
+   src:'IB onboarding flow doc (30 Oct); Growth Strategy (Jun); Sales Ops (3 Jul); OP (11 Nov); Aaron (17 Nov)'
   }},
  {k:'lk',st:'none',shape:'leak',x:R[3],y:YL,w:196,h:72,name:'IB goes quiet',sub:'Nothing flags it today',rel:'Branch of step 3.4',stage:3,num:'3.4',
-  what:'If no client deposits, nothing triggers a nudge today. Time to first client isn\'t owned or measured.',owner:'No set owner',where:'Not tracked',time:'Not tracked',src:'Flow doc (30 Oct); Growth Strategy (Jun)'},
+  what:'If no client deposits, nothing triggers a nudge today. Their AM looks after the IB, but time to first client isn\'t measured.',owner:'Their AM',where:'Not tracked',time:'Not tracked',src:'Flow doc (30 Oct); Growth Strategy (Jun); Aaron (17 Nov)'},
  {k:'n41',more:['p10','p12'],id:'4.1',st:'manual',shape:'box',x:R[4],y:Y2,w:172,h:96,name:'Adds more clients',sub:'May add sub-⁠IBs',
   what:'Brings more clients and may add sub-IBs, with AM support. Promotion posters come from their AM, or from the IB portal.',owner:'The IB, supported by their AM',where:'IB links; sub-IBs via their AM and BO',time:'Ongoing',src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (3 Jul); BO (10 Nov); OP (11 Nov); Q4 IB promotions (Nov)',
   /* fuller version for the click-through card */
@@ -1100,11 +1200,11 @@ var NODES=[
    time:'The next business day after the trade. A holiday pushes it to the following business day.',
    src:'BO (9 and 10 Nov); IB agreement (Apr 2026); partner deck; Sales Ops (3 Jul); Q4 IB promotions (Nov)'
   }},
- {k:'n52',more:['p07','p05'],id:'5.2',st:'none',shape:'term',x:R[6],y:Y2,w:172,h:96,name:'Stays with us',sub:'Not tracked today',flag:'No set owner',
-  what:'Keeps bringing clients. Reward tiers are proposed, not live, and nobody tracks who stays. As a starting point, Sales Ops counts a client as active with at least one activity, such as a trade, deposit or withdrawal, in the last 90 days.',owner:'No set owner',where:'Not built yet',time:'Not tracked',src:'Flow doc (30 Oct); Sales Ops (3 Jul); Data team (10 Nov)',
+ {k:'n52',more:['p07','p05'],id:'5.2',st:'none',shape:'term',x:R[6],y:Y2,w:172,h:96,name:'Stays with us',sub:'Not tracked today',flag:'No set routine',
+  what:'Keeps bringing clients. Reward tiers are proposed, not live, and nobody tracks who stays. As a starting point, Sales Ops counts a client as active with at least one activity, such as a trade, deposit or withdrawal, in the last 90 days.',owner:'Their AM (no set routine)',where:'Not built yet',time:'Not tracked',src:'Flow doc (30 Oct); Sales Ops (3 Jul); Data team (10 Nov); Aaron (17 Nov)',
   /* fuller version for the click-through card */
   pop:{
-   what:'The IB keeps bringing in clients and stays with TMGM for the long run. Today nobody owns this step, and nothing tracks who stays or who goes quiet.',
+   what:'The IB keeps bringing in clients and stays with TMGM for the long run. Their AM looks after them (Aaron, 17 Nov), but nothing tracks who stays or who goes quiet.',
    w:680,
    fl:{h:'Staying, or going quiet',
     a:['They keep bringing in clients','Their clients trade, deposit or withdraw','They earn rebates every\u00a0day (5.1)'],
@@ -1114,13 +1214,13 @@ var NODES=[
     ],
     n:'90 days is Sales Ops\' rule for an active client. There\'s no rule for an active IB yet, and the Data team confirms nothing tracks it today.'},
    note:{lead:'Proposed, not live',t:'Our Growth Strategy suggests four reward tiers (Active, Growth, Premier and Elite), with better rebates and support as an IB adds active clients and volume, plus rewards for staying. Targets for each tier are still to be set.'},
-   owner:'No set owner yet. Their account normally stays with the same AM, unless it goes dormant.',
+   owner:'Their AM, from start to end (Aaron, 17 Nov). The account normally stays with the same AM unless it goes dormant. Marketing may also run promotions to keep IBs active.',
    where:'Not built yet. Nothing tracks active IBs today.',
    time:'Not tracked today.',
-   src:'IB onboarding flow doc (30 Oct); Sales Ops (3 Jul); Data team (10 Nov); Growth Strategy (Jun)'
+   src:'IB onboarding flow doc (30 Oct); Sales Ops (3 Jul); Data team (10 Nov); Growth Strategy (Jun); Aaron (17 Nov)'
   }},
  {k:'lk2',st:'none',shape:'leak',x:R[6],y:YL,w:196,h:72,name:'IB drifts away',sub:'Nothing flags it today',rel:'Branch of step 5.2',stage:5,num:'5.2',
-  what:'An IB can go quiet over time, or move their clients to another broker. Nobody tracks who stays, so nothing flags it today.',owner:'No set owner',where:'Not tracked',time:'Not tracked',src:'IB onboarding flow doc (30 Oct); Data team (10 Nov); Growth Strategy (Jun)'}
+  what:'An IB can go quiet over time, or move their clients to another broker. Nobody tracks who stays, so nothing flags it today.',owner:'Their AM',where:'Not tracked',time:'Not tracked',src:'IB onboarding flow doc (30 Oct); Data team (10 Nov); Growth Strategy (Jun); Aaron (17 Nov)'}
 ];
 var EDGES=[
  {k:'e1',f:'n11',t:'n12',fs:'bottom',ts:'top'},
@@ -1525,8 +1625,8 @@ var STG=[
 var BR={
  d22:{lead:'Not linked to an AM?',text:'The system, or Sales Ops for Support enquiries, sends them to a team lead, who assigns one.'},
  n25:{lead:'Special request?',text:'Tom, our CEO, approves it by email before setup, usually in 2 to 4 days. These include Special Groups and Max+ (an extra rebate on top of the standard one), or rates above the normal IB rebate.',src:'BO (24 Jun); Sales Ops (3 Nov, 9 Nov) and their Max+ SOP'},
- d34:{lead:'No deposit?',text:'The IB goes quiet. Nothing flags it today, and time to first client isn\'t owned or measured.',leak:true,src:'IB onboarding flow doc (30 Oct); Growth Strategy (Jun)'},
- n52:{lead:'Clients stop trading?',text:'The IB drifts away, or moves their clients to another broker. Nobody tracks who stays, so nothing flags it today.',leak:true,src:'IB onboarding flow doc (30 Oct); Sales Ops (3 Jul); Data team (10 Nov); Growth Strategy (Jun)'}
+ d34:{lead:'No deposit?',text:'The IB goes quiet. Nothing flags it today, and time to first client isn\'t measured.',leak:true,src:'IB onboarding flow doc (30 Oct); Growth Strategy (Jun); Aaron (17 Nov)'},
+ n52:{lead:'Clients stop trading?',text:'The IB drifts away, or moves their clients to another broker. Nobody tracks who stays, so nothing flags it today.',leak:true,src:'IB onboarding flow doc (30 Oct); Sales Ops (3 Jul); Data team (10 Nov); Growth Strategy (Jun); Aaron (17 Nov)'}
 };
 var logoSrc=slide.querySelector('.sl-logo').getAttribute('src');
 function stepName(n){ return (n.id||n.num)+' '+(n.title||n.name); }
@@ -1535,8 +1635,10 @@ function fmtVal(v){
   if(/^\s*(not known( yet)?|to confirm.*)\s*$/i.test(v)) return '<span class="tbc">'+esc(v)+'</span>';
   var m=v.match(/^(.*?)\s*\(([^()]*to confirm[^()]*)\)\s*$/i);
   if(m) return esc(m[1])+' <span class="tbc">'+esc(m[2].charAt(0).toUpperCase()+m[2].slice(1))+'</span>';
-  m=v.match(/^No set owner(.*)$/);
-  if(m) return '<span class="nso">No set owner</span>'+esc(m[1]);
+  m=v.match(/^(No set owner|No owner agreed yet)(.*)$/);
+  if(m) return '<span class="nso">'+m[1]+'</span>'+esc(m[2]);
+  m=v.match(/^(.*?)\s*\((no set routine)\)\s*$/i);
+  if(m) return esc(m[1])+' <span class="nso">('+esc(m[2])+')</span>';
   return esc(v);
 }
 function cardHTML(n,i){
@@ -1712,8 +1814,11 @@ if(!reduce&&'IntersectionObserver' in window){
   WRAPS.slice(1).forEach(function(w){ w.classList.add('pre'); io.observe(w); });
 }
 
-/* ---------- tabs: the summary, plus the parts built so far (05 IB agreement) ---------- */
+/* ---------- tabs: the summary, the three checklists, and the parts built so far (05 IB agreement) ---------- */
 var TABS={summary:{btn:$('tab-summary'),panel:$('panel-summary'),hash:'summary'},
+          checklist:{btn:$('tab-checklist'),panel:$('panel-checklist'),hash:'aaron-checklist'},
+          anna:{btn:$('tab-anna'),panel:$('panel-anna'),hash:'anna-checklist'},
+          sichen:{btn:$('tab-sichen'),panel:$('panel-sichen'),hash:'sichen-checklist'},
           p05:{btn:$('tab-p05'),panel:$('panel-p05'),hash:'ib-agreement'}};
 var curTab='summary';
 function showTab(id,o){
@@ -1735,6 +1840,7 @@ function showTab(id,o){
   if(o.hash!==false&&location.hash.slice(1)!==T.hash){ try{ location.hash=T.hash; }catch(e){} }
   if(was!==id&&o.top!==false){ try{ window.scrollTo(0,0); }catch(e){} }
   if(id==='p05'){ agOn=-1; markAg(); }
+  if(CLM&&CLM[id]) CLM[id].mark(true);
 }
 Object.keys(TABS).forEach(function(k){ TABS[k].btn.addEventListener('click',function(){ showTab(k); }); });
 function tabFromHash(){ var h=location.hash.slice(1); for(var k in TABS){ if(TABS[k].hash===h) return k; } return null; }
@@ -1763,12 +1869,12 @@ window.addEventListener('scroll',function(){ if(curTab==='p05'&&!agT) agT=reques
 Array.prototype.forEach.call(document.querySelectorAll('[data-more]'),function(el){
   el.innerHTML='<span>More in</span>'+el.getAttribute('data-more').split(/\s+/).map(tabLink).join('');
 });
-Array.prototype.forEach.call(document.querySelectorAll('[data-step]'),function(b){
-  b.addEventListener('click',function(){
-    var n=NM[b.getAttribute('data-step')]; if(!n) return;
-    showTab('summary');
-    setTimeout(function(){ openPop(n); },80);
-  });
+/* any [data-step] button (tab 05, the checklists' step chips) opens that step on the flowchart */
+document.addEventListener('click',function(ev){
+  var b=ev.target.closest?ev.target.closest('[data-step]'):null; if(!b) return;
+  var n=NM[b.getAttribute('data-step')]; if(!n) return;
+  showTab('summary');
+  setTimeout(function(){ openPop(n); },80);
 });
 /* inside Claude, Download goes through the viewer's own download prompt and becomes the main button, because the
    viewer can't open a file in a new tab; anywhere else (the GitHub copy) Open and Download are plain links */
@@ -1795,6 +1901,233 @@ Array.prototype.forEach.call(document.querySelectorAll('[data-step]'),function(b
   });
   try{ window.claude.use('downloads').then(function(d){ ns=d; ready=true; if(d) on(); else off(); },function(){ ready=true; off(); }); }
   catch(e){ ready=true; off(); }
+})();
+
+/* ---------- checklists: one tab per person we're waiting on (Aaron, Anna, Sichen) ----------
+   Open questions are pick-one cards. When someone answers, move that question into their answered list as
+   {q, a, by, date, steps} and every viewer sees it; the rail and tab counts follow. */
+var CL=[
+ {id:'checklist',who:'Aaron',label:'Aaron\'s checklist',updated:'18 Nov 2026',store:'ib360-aaron-v1',where:'the ACQ x Aaron group',
+  asked:'Asked in the ACQ x Aaron group on 10 Nov, answered on 17 Nov',
+  lead:'Aaron answered all 4 questions on 17 Nov. His answers are below for cross-checking, and the flowchart now uses them.',
+  open:[],
+  answered:[
+   {q:'Who looks after a new IB in their first 60 days, to help them get their first client?',
+    a:'Their AM. The AM takes care of the IB from the very beginning to the very end. Steps 3.2 and 3.4 now show their AM as the owner, though there\'s still no set routine.',
+    by:'Aaron',date:'17 Nov',steps:['n32','d34']},
+   {q:'After the first 60 days, who looks after keeping IBs active, so they don\'t go quiet?',
+    a:'Their AM, from start to end. Marketing may also run promotions to keep IBs active. Nothing tracks who stays yet (Data team, 10 Nov).',
+    by:'Aaron',date:'17 Nov',steps:['n52']},
+   {q:'Roughly how long does it take from a first chat with Sales to agreed terms?',
+    a:'It varies.',
+    by:'Aaron',date:'17 Nov',steps:['n12','n23']},
+   {q:'Roughly how long from agreed terms to the AM sending the IB application?',
+    a:'Straight away. Once the IB is ready, they sign up and the AM submits the IB application immediately.',
+    by:'Aaron',date:'17 Nov',steps:['n24']},
+   {q:'Which IB rebate rate should we show SEA IBs, and who keeps the official rate list?',
+    a:'Aaron said to check with Sales Ops or BO, who hold the rate details. They answered the same day: Classic, Edge and Prime accounts pay USD1 to 7 a lot on Forex, and STD accounts pay USD8 to 10.',
+    by:'Aaron, then Sales Ops and BO',date:'10 Nov',steps:['n12','n23']}]},
+ {id:'anna',who:'Anna',label:'Anna\'s checklist',updated:'13 Nov 2026',store:'ib360-anna-v1',where:'the ACQ + MKTOP group',
+  asked:'Asked in the ACQ + MKTOP group on 7 Nov',
+  lead:'This is the OP question still open on the flowchart. What we know so far is on the left. <b>Pick A, B, C or D on the right</b>, then copy your answer at the end and paste it to Lucas in Teams.',
+  open:[
+   {id:'a1',short:'Sales view of new IBs',steps:['d34'],
+    q:'Can Sales or AMs see which new IBs have no funded client yet?',
+    left:{kind:'know',pts:[
+     'An IB can see a yes or no for each client\'s first deposit in their own IB portal (Anna, 11 Nov)',
+     'Today nothing flags a new IB who never gets a first client',
+     'A view for Sales would let an AM step in before the IB goes quiet']},
+    opts:[['A','Yes, in a report or the CRM','Tell us which one in the box'],
+          ['B','Only through a Data team request','Sales asks the Data team for a report'],
+          ['C','No, not today','There\'s no such view yet'],
+          ['D','Something else','Tell us in the box']],
+    why:'Step 3.4 First client deposits? is the first place we lose new IBs. If Sales or AMs can see who has no funded client, they can step in before the IB goes quiet.',
+    src:'Sources: Anna (OP, 11 Nov): what the IB sees in their own portal. IB onboarding flow doc (30 Oct): nothing flags it today.'}],
+  answered:[
+   {q:'Does the IB portal show when a referred client first deposits?',
+    a:'Yes. Each client shows a yes or no for their first deposit. IBs can\'t sort by it, but they can filter by most active client, most deposits or deposits in a date range, and download the list to Excel. Anna said "probably", so we\'ll check it in the portal.',
+    by:'Anna, at the ACQ x OP sync',date:'11 Nov',steps:['d34']}],
+  extra:{title:'Things Anna said she\'d send',jump:'Things to send',sub:'From the ACQ x OP sync on 11 Nov.',items:[
+   ['A copy of the IB agreement','Received 12 Nov','done'],
+   ['A login to the new IB portal for Marketing','Waiting','wait'],
+   ['Her summary of each country\'s IB promotions','Waiting','wait'],
+   ['An invite to the next meeting on direct IB sign-up','Waiting','wait']]}},
+ {id:'sichen',who:'Sichen',label:'Sichen\'s checklist',updated:'16 Nov 2026',store:'ib360-sichen-v1',where:'the ACQ x EDM group',
+  asked:'Asked in the ACQ x EDM group on 10 Nov, followed up on 16 Nov',
+  lead:'These are the two welcome email changes we asked EDM about. What we asked for is on the left of each. <b>Pick A, B, C or D on the right</b>, then copy your answers at the end and paste them to Lucas in Teams.',
+  open:[
+   {id:'s1',short:'"Approved" email filter',steps:['n31'],
+    q:'Can EDM add the user type filter to Group 2, so only people already set up as IBs get the "approved" email?',
+    left:{kind:'asked',pts:[
+     'Group 2 only checks the sign-up code, not whether the person is an IB yet',
+     'So someone can be told "your application is approved" before BO sets them up',
+     'EDM called it a known gap and offered this fix on 9 Nov. We said yes on 10 Nov']},
+    opts:[['A','Done, it\'s live','The filter is on Group 2 now'],
+          ['B','Yes, going live soon','Tell us roughly when in the box'],
+          ['C','Needs a ticket first','Tell us where to raise it in the box'],
+          ['D','Something else','Tell us in the box']],
+    why:'Step 3.1 Welcome emails has a gap: someone who signs up with an IB partnership code can get the "approved" email before BO sets them up, which is confusing and could lead to complaints.',
+    src:'Sources: Sichen (EDM, 9 Nov): Group 2 only checks the sign-up code, a known gap, and EDM can add the user type filter. Lucas (10 Nov): yes to the fix.'},
+   {id:'s2',short:'Emails for older clients',steps:['n31'],
+    q:'Can EDM set up a separate way to send the welcome emails to clients who joined before 29 Jun 2026 and became IBs through their AM?',
+    left:{kind:'asked',pts:[
+     'These new IBs match none of the 3 groups, so they get no welcome emails today',
+     'They miss the basics, like how to log in to their IB portal and share their link',
+     'EDM offered to look at a separate way to send them on 9 Nov. We said yes on 10 Nov']},
+    opts:[['A','Yes, it\'s live','They get the 3 welcome emails now'],
+          ['B','Yes, being set up','Tell us roughly when in the box'],
+          ['C','Not for now','Tell us why in the box'],
+          ['D','Something else','Tell us in the box']],
+    why:'Step 3.1 Welcome emails: clients who joined before 29 Jun 2026 and later become IBs through their AM get none of the 3 welcome emails, so they may never get started.',
+    src:'Sources: Sichen (EDM, 9 Nov): the emails use the date the account was created, so these clients match none of the 3 groups. Lucas (10 Nov): yes, please look at it.'}],
+  answered:[
+   {q:'Does a client who joined before 29 Jun 2026 and later becomes an IB through their AM get the welcome emails?',
+    a:'No. The emails use the date the account was created, so these clients match none of the 3 groups. Covering them needs a separate way to send them, which EDM offered to look at.',
+    by:'Sichen',date:'9 Nov',steps:['n31']},
+   {q:'Can someone who signs up with an IB partnership code get the "approved" email before BO sets them up?',
+    a:'Yes. Group 2 only checks the sign-up code. EDM called it a known gap and can add a filter. Sign-ups from our IB page aren\'t affected: they get the emails once BO sets them up.',
+    by:'Sichen',date:'9 Nov',steps:['n31']},
+   {q:'If someone becomes an IB before finishing KYC, do their welcome emails wait until KYC is done?',
+    a:'That can\'t happen. BO says a client has to finish KYC before they can become an IB, so the KYC emails are always done before the IB welcome emails start. (Corrected on 16 Nov: we had heard KYC wasn\'t needed to become an IB.)',
+    by:'Sichen, from BO\'s feedback',date:'16 Nov',steps:['n23','n31']}],
+  extra:{title:'We owe Sichen',jump:'We owe Sichen',sub:'A question EDM asked us.',items:[
+   ['What "member status 1141" is, and where Wicky saw it (asked 6 Nov)','We owe an answer','owe']]}}
+];
+var CLM={}, LOGO=(document.querySelector('.ui-rail-head img')||{}).src||'';
+function stageOf(k){ var n=NM[k]; return n?(+String(n.id).charAt(0)||2):2; }
+function optOf(q,v){ for(var i=0;i<q.opts.length;i++){ if(q.opts[i][0]===v) return q.opts[i]; } return null; }
+function stepChip(k){
+  var n=NM[k]; if(!n) return '';
+  return '<button type="button" class="ac-chip" data-step="'+k+'" style="--cc:'+STAGE_C[stageOf(k)][0]+'" title="Open step '+n.id+' on the flowchart">'+n.id+'</button>';
+}
+var LEFT_LAB={suggest:'Our suggestion',know:'What we know so far',asked:'What we asked for'};
+function clCard(c,q,i){
+  var P='cl-'+c.id+'-', col=STAGE_C[stageOf(q.steps[0])], L=q.left, sug=L.kind==='suggest';
+  return '<article class="ag-card ac-q" id="'+P+q.id+'" style="--c1:'+col[0]+';--c2:'+col[1]+'">'
+   +'<div class="ac-qh"><span class="ac-num" aria-hidden="true">'+(i+1)+'</span><h2 id="'+P+'h-'+q.id+'">'+esc(q.q)+'</h2><span class="ac-st">Waiting for '+esc(c.who)+'</span></div>'
+   +'<div class="ac-body"><div class="ac-left"><div class="ac-lab">'+LEFT_LAB[L.kind]+'</div>'
+   +(sug?'<div class="ac-sug"><span class="ac-let">'+L.pick+'</span>'+esc(L.title)+'</div>':'')
+   +'<ul class="ac-pts">'+L.pts.map(function(t){ return '<li>'+esc(t)+'</li>'; }).join('')+'</ul>'
+   +'<div class="ac-foot"><span class="ac-lab">On the flowchart</span>'+q.steps.map(stepChip).join('')
+   +'<details class="ac-why"><summary>Why, and sources</summary><p>'+esc(q.why)+'</p><p class="ac-src">'+esc(q.src)+'</p></details></div></div>'
+   +'<div class="ac-right"><div class="ac-lab">Pick one</div><div class="ac-opts" role="radiogroup" aria-labelledby="'+P+'h-'+q.id+'">'
+   +q.opts.map(function(o){
+      return '<label class="ac-opt" data-v="'+o[0]+'"><input type="radio" name="'+P+q.id+'" value="'+o[0]+'"><span class="ac-let">'+o[0]+'</span>'
+        +'<span class="ac-ot"><b>'+esc(o[1])+'</b><span>'+esc(o[2])+'</span></span>'+(sug&&L.pick===o[0]?'<span class="ac-tag">Our suggestion</span>':'')+'</label>';
+    }).join('')
+   +'</div><div class="ac-other" hidden><label for="'+P+'n-'+q.id+'"></label><textarea id="'+P+'n-'+q.id+'" rows="2" placeholder="A few words is enough"></textarea></div></div></div></article>';
+}
+function clPanel(c){
+  var P='cl-'+c.id+'-', n=c.open.length, one=n===1, s=one?'':'s';
+  var h='<div class="sb ac-sb"><nav class="jn ac-jn" aria-label="Jump to a section"></nav><span class="sb-gap"></span></div><div class="ag-wrap">'
+   +'<header class="ag-card ag-hero" id="'+P+'top"><div class="ag-eb">SEA IB 360 Playbook · <b>'+esc(c.label)+'</b> · Updated '+esc(c.updated)+'</div>'
+   +(LOGO?'<img class="ag-logo" src="'+LOGO+'" alt="TMGM" width="132" height="33">':'')
+   +'<h1 class="ag-title">'+(n?n+' quick question'+s+' for '+esc(c.who):'No open questions for '+esc(c.who))+'</h1>'
+   +'<p class="ag-lead">'+c.lead+'</p>'
+   +(n?'<div class="ac-meta"><div class="ac-prog"><b id="'+P+'pn">0 of '+n+'</b> picked on this page<span class="ac-bar" aria-hidden="true"><i id="'+P+'pb"></i></span></div><span class="ac-asked">'+esc(c.asked)+'</span></div>':'<div class="ac-meta"><span class="ac-asked">'+esc(c.asked)+'</span></div>')
+   +'</header><div class="ac-list">'+c.open.map(function(q,i){ return clCard(c,q,i); }).join('')+'</div>';
+  if(n) h+='<section class="ag-card ac-out" id="'+P+'answers" aria-labelledby="'+P+'oh"><div class="ag-h"><h2 id="'+P+'oh">Your answer'+s+'</h2>'
+   +'<p>Copy '+(one?'it':'them')+' and paste '+(one?'it':'them')+' to Lucas in '+esc(c.where)+'. Your picks are only kept in this browser.</p></div>'
+   +'<ol class="ac-sum" id="'+P+'sum"></ol><div class="ac-out-act"><button type="button" class="ag-btn is-main" id="'+P+'copy">Copy my answer'+s+'</button>'
+   +'<button type="button" class="ag-btn" id="'+P+'clear">Clear my picks</button></div>'
+   +'<textarea class="ac-copybox" id="'+P+'box" readonly hidden aria-label="Your answers as text"></textarea></section>';
+  if(c.extra) h+='<section class="ag-card ac-extra" id="'+P+'extra" aria-labelledby="'+P+'xh"><div class="ag-h"><h2 id="'+P+'xh">'+esc(c.extra.title)+'</h2>'
+   +(c.extra.sub?'<p>'+esc(c.extra.sub)+'</p>':'')+'</div><ul class="ac-ex-list">'
+   +c.extra.items.map(function(x){ return '<li><span class="ac-ex-t">'+esc(x[0])+'</span><span class="ac-exs is-'+x[2]+'">'+esc(x[1])+'</span></li>'; }).join('')+'</ul></section>';
+  if(c.answered.length) h+='<section class="ag-card ac-done" id="'+P+'done" aria-labelledby="'+P+'dh"><div class="ag-h"><h2 id="'+P+'dh">Already answered</h2>'
+   +'<p>For cross-checking. These answers are already in the playbook.</p></div><ul class="ac-done-list">'
+   +c.answered.map(function(a){ return '<li><p class="ac-dq">'+esc(a.q)+'</p><p class="ac-da">'+esc(a.a)+'</p><div class="ac-dm"><span>'+esc(a.by)+' · '+esc(a.date)+'</span>'+a.steps.map(stepChip).join('')+'</div></li>'; }).join('')
+   +'</ul></section>';
+  return h+'</div>';
+}
+CL.forEach(function(c){
+  var panel=$('panel-'+c.id); if(!panel) return;
+  var P='cl-'+c.id+'-', AP={}, paints=[];
+  try{ AP=JSON.parse(localStorage.getItem(c.store)||'{}')||{}; }catch(e){ AP={}; }
+  function save(){ try{ localStorage.setItem(c.store,JSON.stringify(AP)); }catch(e){} }
+  panel.innerHTML=clPanel(c);
+  function text(){
+    var out=['My answers for the SEA IB 360 Playbook ('+c.label+'):'];
+    c.open.forEach(function(q,i){
+      var p=AP[q.id], o=p&&optOf(q,p.pick), nt=p&&p.note&&p.note.trim();
+      out.push('',(i+1)+') '+q.q,o?('   '+o[0]+'. '+o[1]+(nt?': '+nt:'')):'   Not picked yet');
+    });
+    return out.join('\n');
+  }
+  function refresh(){
+    if(!c.open.length) return;
+    var k=c.open.filter(function(q){ return AP[q.id]&&AP[q.id].pick; }).length;
+    $(P+'pn').textContent=k+' of '+c.open.length; $(P+'pb').style.width=(k/c.open.length*100)+'%';
+    $(P+'sum').innerHTML=c.open.map(function(q){
+      var p=AP[q.id], o=p&&optOf(q,p.pick), nt=p&&p.note&&p.note.trim();
+      return '<li><span>'+esc(q.q)+'</span>'+(o?'<b>'+esc(o[0]+'. '+o[1])+(nt?': '+esc(nt):'')+'</b>':'<span class="is-none">Not picked yet</span>')+'</li>';
+    }).join('');
+    var bx=$(P+'box'); if(!bx.hidden) bx.value=text();
+  }
+  c.open.forEach(function(q){
+    var card=$(P+q.id), box=card.querySelector('.ac-other'), lab=box.querySelector('label'), ta=box.querySelector('textarea'), labs=[].slice.call(card.querySelectorAll('.ac-opt'));
+    function paint(){
+      var p=AP[q.id];
+      labs.forEach(function(l){ var on=!!p&&p.pick===l.getAttribute('data-v'); l.classList.toggle('is-picked',on); l.querySelector('input').checked=on; });
+      box.hidden=!(p&&p.pick); lab.textContent=p&&p.pick==='D'?'Tell us what':'Anything to add? (optional)'; ta.value=(p&&p.note)||'';
+    }
+    labs.forEach(function(l){
+      var inp=l.querySelector('input');
+      inp.addEventListener('change',function(){ AP[q.id]={pick:inp.value,note:(AP[q.id]&&AP[q.id].note)||''}; save(); paint(); refresh(); if(inp.value==='D') ta.focus(); });
+      inp.addEventListener('focus',function(){ try{ if(inp.matches(':focus-visible')) l.classList.add('is-focus'); }catch(e){} });
+      inp.addEventListener('blur',function(){ l.classList.remove('is-focus'); });
+    });
+    ta.addEventListener('input',function(){ if(!AP[q.id]) return; AP[q.id].note=ta.value; save(); refresh(); });
+    paints.push(paint); paint();
+  });
+  if(c.open.length){
+    refresh();
+    $(P+'copy').addEventListener('click',function(){
+      var t=text(), bx=$(P+'box');
+      function fallback(){ bx.value=t; bx.hidden=false; bx.focus(); bx.select(); showToast('Press Ctrl+C (or Cmd+C) to copy, then paste it to Lucas in Teams.',4200); }
+      try{ navigator.clipboard.writeText(t).then(function(){ showToast('Copied. Paste it to Lucas in '+c.where+'.',3200); },fallback); }catch(e){ fallback(); }
+    });
+    $(P+'clear').addEventListener('click',function(){ AP={}; save(); paints.forEach(function(f){ f(); }); $(P+'box').hidden=true; refresh(); });
+  }
+  var ch=document.querySelector('#tab-'+c.id+' .ui-chip');
+  if(ch){ ch.textContent=c.open.length?c.open.length:'Done'; ch.classList.toggle('is-red',c.open.length>0); }
+  /* the tab's jump bar */
+  var bar=panel.querySelector('.ac-sb'), nav=panel.querySelector('.ac-jn'), items=[];
+  c.open.forEach(function(q,i){ items.push([P+q.id,(i+1)+' '+q.short,STAGE_C[stageOf(q.steps[0])][1]]); });
+  if(c.open.length) items.push([P+'answers','Your answer'+(c.open.length===1?'':'s'),'#4D9BFF']);
+  if(c.extra) items.push([P+'extra',c.extra.jump,'#FCD34D']);
+  if(c.answered.length) items.push([P+'done','Already answered','#4ADE80']);
+  nav.innerHTML=items.map(function(x){ return '<button type="button" data-to="'+x[0]+'"><i style="background:'+x[2]+'"></i>'+esc(x[1])+'</button>'; }).join('');
+  var BTN=[].slice.call(nav.querySelectorAll('button')), on=-1;
+  nav.addEventListener('click',function(ev){
+    var b=ev.target.closest?ev.target.closest('button'):null; if(!b) return;
+    var el=$(b.getAttribute('data-to')); if(!el) return;
+    var y=el.getBoundingClientRect().top+window.pageYOffset-(bar.getBoundingClientRect().height+12);
+    try{ window.scrollTo({top:Math.max(0,y),behavior:reduce?'auto':'smooth'}); }catch(e){ window.scrollTo(0,Math.max(0,y)); }
+  });
+  function mark(reset){
+    if(reset) on=-1;
+    if(curTab!==c.id) return;
+    var line=bar.getBoundingClientRect().height+92, best=-1;
+    BTN.forEach(function(b,i){ var el=$(b.getAttribute('data-to')); if(el&&el.getBoundingClientRect().top<=line) best=i; });
+    if(window.innerHeight+window.pageYOffset>=document.documentElement.scrollHeight-4) best=BTN.length-1;
+    if(best===on) return;
+    on=best;
+    BTN.forEach(function(b,i){ b.classList.toggle('is-on',i===best); if(i===best) b.setAttribute('aria-current','true'); else b.removeAttribute('aria-current'); });
+  }
+  CLM[c.id]={mark:mark};
+});
+var clT=0;
+window.addEventListener('scroll',function(){ if(CLM[curTab]&&!clT) clT=requestAnimationFrame(function(){ clT=0; if(CLM[curTab]) CLM[curTab].mark(); }); },{passive:true});
+/* the rail: who we're still waiting on, across the checklists */
+(function(){
+  var tot=0, parts=[];
+  CL.forEach(function(c){ tot+=c.open.length; if(c.open.length) parts.push(c.who+' '+c.open.length); });
+  var lab=document.querySelector('.ui-prog-label'), pn=document.querySelector('.ui-prog-n'), ps=document.querySelector('.ui-prog-s'), pb=document.querySelector('.ui-prog-bar');
+  if(lab) lab.textContent='Still waiting on';
+  if(pn) pn.textContent=tot?tot+' open':'All answered';
+  if(ps) ps.textContent=parts.join(' · ');
+  if(pb) pb.hidden=true;
 })();
 
 fit();
