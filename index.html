@@ -502,7 +502,7 @@ button{font:inherit}
 
 /* ---- tab 05, redesigned 18 Nov (v54; the two copies got their own section in v55). The dark hero, then sections on light cards on the grey
    stage, with the clause number beside each point. Everything is in .ia- classes, so tab 06 keeps its own look for now ---- */
-.ia-wrap{container-type:inline-size;max-width:1180px;margin:6px auto 0;display:grid;gap:40px;font-family:var(--f);color:#33405A}
+.ia-wrap{container-type:inline-size;max-width:1180px;margin:6px auto 0;display:grid;gap:34px;font-family:var(--f);color:#33405A;counter-reset:ia-sec}
 .ia-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 24px;margin:26px 0 0}
 .ia-facts div{min-width:0;padding:14px 0 6px;border-top:1px solid rgba(255,255,255,.12)}
 .ia-facts dt{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--s-label)}
@@ -528,11 +528,14 @@ button{font:inherit}
 .ia-btn.is-main{background:var(--blue);border-color:var(--blue);color:#FFFFFF;box-shadow:0 4px 12px rgba(11,92,224,.22)}
 .ia-btn.is-main:hover{background:#0A4FC2;border-color:#0A4FC2;color:#FFFFFF}
 /* sections on the grey stage: heading outside, white card inside */
-.ia-sec{min-width:0;scroll-margin-top:72px}
-.ia-sh{display:grid;gap:6px;margin:0 0 16px;padding:0 4px}
-.ia-sh h2{margin:0;font-size:24px;line-height:1.25;font-weight:800;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
-.ia-sh h2::before{content:"";display:block;width:30px;height:4px;margin-bottom:12px;border-radius:4px;background:#A3E635}
-.ia-sh p{margin:0;max-width:72ch;font-size:15px;line-height:1.55;color:#5D687B}
+/* each section is numbered by the page itself (1, 2, 3...) in a TMGM red circle, with a soft line before every new section */
+.ia-sec{min-width:0;scroll-margin-top:72px;counter-increment:ia-sec}
+.ia-sec + .ia-sec{position:relative;padding-top:34px}
+.ia-sec + .ia-sec::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(180deg,rgba(12,30,69,.24) 50%,rgba(255,255,255,.9) 50%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.ia-sh{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:start;column-gap:14px;row-gap:4px;margin:0 0 16px;padding:0 4px}
+.ia-sh::before{content:counter(ia-sec);grid-row:1;grid-column:1;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#CC1042;color:#FFFFFF;font-size:15px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;box-shadow:0 0 0 4px rgba(204,16,66,.12),0 4px 10px rgba(204,16,66,.22)}
+.ia-sh h2{grid-column:2;margin:0;font-size:24px;line-height:32px;font-weight:800;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+.ia-sh p{grid-column:2;margin:0;max-width:72ch;font-size:15px;line-height:1.55;color:#5D687B}
 .ia-card{min-width:0;padding:26px 28px;border-radius:18px;background:#FFFFFF;border:1px solid #E2E7EF;box-shadow:0 1px 2px rgba(12,30,69,.04),0 8px 24px rgba(12,30,69,.05)}
 /* where it fits: a stepper, with 2.6 lit in the Convert colour */
 .ia-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
@@ -630,11 +633,14 @@ button{font:inherit}
   .ia-nlist p{grid-column:1/-1;margin:4px 0 0}
 }
 @container (max-width:520px){
-  .ia-wrap{gap:32px}
+  .ia-wrap{gap:28px}
+  .ia-sec + .ia-sec{padding-top:28px}
+  .ia-sh{column-gap:12px}
+  .ia-sh::before{width:30px;height:30px;font-size:14px}
   .ia-card{padding:20px 18px;border-radius:16px}
   .ia-topic{padding-top:18px}
   .ia-doc{padding:16px}
-  .ia-sh h2{font-size:21px}
+  .ia-sh h2{font-size:21px;line-height:30px}
   .ia-sh p{font-size:14.5px}
   .ia-th h3{font-size:17px}
   .ia-pts li,.ia-col .ia-pts li{grid-template-columns:58px minmax(0,1fr);gap:10px}
