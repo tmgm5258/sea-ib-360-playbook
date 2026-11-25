@@ -426,7 +426,7 @@ button{font:inherit}
 .fsn button svg{width:14px;height:14px}
 .fsn span{min-width:170px;padding:0 6px;text-align:center;font-size:12.5px;font-weight:700;letter-spacing:.04em;color:#C9D4EE;white-space:nowrap}
 
-/* ---- reading pages in the slides' colours: tab 06, the checklists, and tab 05's dark hero (05's own layout is the .ia- block below) ---- */
+/* ---- reading pages in the slides' colours: the checklists, and the dark headers of tabs 05 and 06 (their own layout is the .ia- block below) ---- */
 .ag-sb{max-width:1180px}
 .ag-jn button i{background:#A3E635}
 .ag-wrap{container-type:inline-size;max-width:1180px;margin:6px auto 0;display:grid;gap:18px;font-family:var(--f)}
@@ -441,12 +441,6 @@ button{font:inherit}
 .ag-stage b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#A3E635;color:#0B1A05;font-size:12px;letter-spacing:0}
 .ag-title{margin:14px 0 0;font-size:clamp(28px,3.4vw,44px);line-height:1.12;font-weight:800;letter-spacing:-.015em;color:var(--s-ink);text-wrap:balance}
 .ag-lead{margin:12px 0 0;max-width:64ch;font-size:17px;line-height:1.6;color:var(--s-text)}
-.ag-glance{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:26px 0 0}
-.ag-glance div{min-width:0;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10)}
-.ag-glance dt{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--s-label)}
-.ag-glance dd{margin:6px 0 0}
-.ag-glance dd b{display:block;font-size:16px;line-height:1.35;font-weight:700;color:var(--s-ink)}
-.ag-glance dd span{display:block;margin-top:4px;font-size:13px;line-height:1.45;color:var(--s-muted)}
 .ag-h{display:grid;gap:6px;margin-bottom:18px}
 .ag-h h2{margin:0;font-size:22px;line-height:1.25;font-weight:800;color:var(--s-ink);text-wrap:balance}
 .ag-h p{margin:0;max-width:72ch;font-size:15px;line-height:1.55;color:var(--s-muted)}
@@ -455,53 +449,16 @@ button{font:inherit}
 .ag-btn:focus-visible{outline:2px solid #8FB8FF;outline-offset:2px}
 .ag-btn.is-main{background:#4D9BFF;border-color:#4D9BFF;color:#05112B}
 .ag-btn.is-main:hover{background:#7DB5FF;border-color:#7DB5FF;color:#05112B}
-.ag-note{margin:16px 0 0;padding:12px 15px;border-radius:12px;border:1px dashed rgba(200,215,255,.3);background:rgba(255,255,255,.035);font-size:14.5px;line-height:1.55;color:#C9D4EE}
-.ag-note b{color:#FFFFFF}
-.ag-flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px}
-.ag-flow li{position:relative;display:flex;flex-direction:column;gap:9px;min-width:0;padding:14px 15px 15px;border-radius:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);font-size:14.5px;line-height:1.45;color:var(--s-text)}
-.ag-flow li b{align-self:flex-start;padding:3px 9px;border-radius:999px;background:rgba(190,242,100,.12);color:#D9F99D;font-size:12px;font-weight:800;letter-spacing:.04em}
-.ag-flow li.is-key{border-color:rgba(190,242,100,.55);background:rgba(163,230,53,.08);color:#F3F6FF}
-.ag-flow li:not(:last-child)::after{content:"";position:absolute;right:-21px;top:50%;width:10px;height:10px;border-top:2px solid rgba(200,215,255,.55);border-right:2px solid rgba(200,215,255,.55);transform:translateY(-50%) rotate(45deg)}
-.ag-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin-top:16px}
-.ag-row .ag-note{flex:1 1 420px;margin:0}
-.ag-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.ag-grp{display:flex;flex-direction:column;min-width:0;padding:20px 22px 18px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10)}
-.ag-grp h3{display:flex;align-items:center;gap:11px;margin:0;font-size:17px;line-height:1.3;font-weight:800;color:var(--s-ink)}
-.ag-gi{display:grid;place-items:center;flex:0 0 auto;width:32px;height:32px;border-radius:9px;background:rgba(77,155,255,.14);color:#9CC3FF}
-.ag-gi svg{width:18px;height:18px}
-.ag-grp ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:9px}
-.ag-grp li{position:relative;padding-left:18px;font-size:14.5px;line-height:1.55;color:var(--s-text)}
-.ag-grp li::before{content:"";position:absolute;left:2px;top:.6em;width:6px;height:6px;border-radius:50%;background:#7C93C7}
-.ag-cl{display:inline-block;padding:0 7px;border-radius:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:#9FB0D6;font-size:11.5px;font-weight:700;line-height:1.6;letter-spacing:.02em;white-space:nowrap;vertical-align:1px}
-.ag-tip{margin:14px 0 0;padding:10px 13px;border-radius:12px;border:1px dashed rgba(200,215,255,.3);background:rgba(255,255,255,.035);font-size:13.5px;line-height:1.5;color:#C9D4EE}
-.ag-tip b{color:#FFFFFF}
-.ag-more{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:auto;padding-top:16px}
-.ag-more:empty{display:none}
-.ag-more > span{margin-right:4px;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7083AE}
-.ag-end{display:grid;gap:12px;padding:22px 28px}
-.ag-end .ag-note{margin:0}
-.ag-src{margin:0;font-size:13px;line-height:1.55;color:var(--s-muted)}
-@container (max-width:980px){
-  .ag-glance{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@container (max-width:760px){
-  .ag-grid{grid-template-columns:minmax(0,1fr)}
-  .ag-flow{grid-template-columns:minmax(0,1fr);gap:20px}
-  .ag-flow li:not(:last-child)::after{right:auto;left:24px;top:auto;bottom:-16px;transform:rotate(135deg)}
-}
 @container (max-width:520px){
   .ag-card{padding:22px 18px;border-radius:16px}
   .ag-hero{padding:22px 18px 22px}
   .ag-logo{position:static;display:block;width:104px;margin:0 0 12px}
   .ag-eb{padding-right:0;font-size:11.5px;letter-spacing:.16em}
-  .ag-glance{grid-template-columns:minmax(0,1fr)}
   .ag-lead{font-size:16px}
-  .ag-grp{padding:18px 16px 16px}
-  .ag-end{padding:18px}
 }
 
 /* ---- tab 05, redesigned 18 Nov (v54; the two copies got their own section in v55). The dark hero, then sections on light cards on the grey
-   stage, with the clause number beside each point. Everything is in .ia- classes, so tab 06 keeps its own look for now ---- */
+   stage, with the clause number beside each point. Everything is in .ia- classes; tab 06 uses the same look since v57 (19 Nov) ---- */
 .ia-wrap{container-type:inline-size;max-width:1180px;margin:6px auto 0;display:grid;gap:34px;font-family:var(--f);color:#33405A;counter-reset:ia-sec}
 .ia-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 24px;margin:26px 0 0}
 .ia-facts div{min-width:0;padding:14px 0 6px;border-top:1px solid rgba(255,255,255,.12)}
@@ -608,6 +565,8 @@ button{font:inherit}
 .ia-col.is-yes .ia-cl{background:#E7F6EC;border-color:#C5E8D1;color:#166534}
 .ia-end{display:grid;gap:12px}
 .ia-src{margin:0;padding:0 4px;font-size:13px;line-height:1.6;color:var(--muted)}
+.ia-src a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+.ia-src a:hover{text-decoration-thickness:2px}
 @container (max-width:900px){
   .ia-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
   .ia-nrow{grid-template-columns:minmax(0,1fr);gap:14px}
@@ -649,66 +608,98 @@ button{font:inherit}
   .ia-nlist b{font-size:21px}
 }
 
-/* ---- tab 06: rebates and payouts. The same reading page as 05, plus rate tables ---- */
+/* ---- tab 06: rebates and payouts. Since v57 (19 Nov) it uses tab 05's look (the .ia- block above). These are the extra pieces it needs:
+   its two stage badges, light rate tables with the volume bands lined up, a stepper with times, and bonus cards ---- */
 .p6 .ag-jn button i{background:#F472B6}
 .p6 .ag-hero{background:radial-gradient(760px 420px at 4% -10%,rgba(56,118,255,.30),transparent 62%),radial-gradient(620px 380px at 104% 112%,rgba(244,114,182,.12),transparent 60%),linear-gradient(165deg,#081437 0%,#060E2A 48%,#040917 100%)}
 .rb-stages{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .rb-stages .ag-stage{margin-top:0}
 .ag-stage.is-s5{background:rgba(249,168,212,.10);border-color:rgba(249,168,212,.30);color:#FBCFE8}
 .ag-stage.is-s5 b{background:#F472B6;color:#2A0618}
-.ag-flow.is-s5 li b{background:rgba(249,168,212,.12);color:#FBCFE8}
-.ag-flow.is-s5 li.is-key{border-color:rgba(249,168,212,.55);background:rgba(244,114,182,.08)}
-.rb-tw{overflow-x:auto;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03);scrollbar-width:thin}
-.rb-tw:focus-visible{outline:2px solid #8FB8FF;outline-offset:2px}
-.rb-tbl{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.45;color:var(--s-text);font-variant-numeric:tabular-nums}
-.rb-tbl thead th{padding:12px 16px;text-align:left;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--s-label);border-bottom:1px solid rgba(255,255,255,.10);white-space:nowrap}
-.rb-tbl tbody th,.rb-tbl td{padding:12px 16px;text-align:left;vertical-align:top;border-bottom:1px solid rgba(255,255,255,.07)}
-.rb-tbl tbody tr:last-child > *{border-bottom:0}
-.rb-tbl tbody th{font-weight:700;color:var(--s-ink)}
-.rb-tbl tbody th span{display:block;max-width:34ch;margin-top:3px;font-size:12.5px;font-weight:500;line-height:1.45;color:var(--s-muted)}
-.rb-tbl td{white-space:nowrap}
-.rb-tbl td b{color:#FFFFFF;font-weight:800}
-.rb-tbl .rb-grp th{padding:10px 16px 8px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#F9A8D4;background:rgba(255,255,255,.035)}
-.rb-main thead th:first-child{width:44%}
-.p6 .ag-flow + .ag-grid{margin-top:16px}
-.rb-full{min-width:600px}
-.rb-cent{min-width:440px}
-.rb-bon td{white-space:normal;min-width:180px}
-.rb-bon tbody th{min-width:150px}
-.rb-key{margin:12px 0 0;max-width:86ch;font-size:13.5px;line-height:1.55;color:var(--s-muted)}
-.rb-key b{color:#FFFFFF}
-.rb-det{margin-top:16px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03)}
-.rb-det summary{display:flex;align-items:center;gap:11px;padding:13px 16px;font-size:14.5px;font-weight:700;color:#DCE7FF;cursor:pointer;list-style:none;border-radius:13px}
-.rb-det summary::-webkit-details-marker{display:none}
-.rb-det summary::before{content:"";flex:0 0 auto;width:7px;height:7px;margin:0 2px 0 3px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .2s}
-.rb-det[open] summary::before{transform:rotate(45deg)}
-.rb-det summary:hover{color:#FFFFFF}
-.rb-det summary:focus-visible{outline:2px solid #8FB8FF;outline-offset:2px}
-.rb-det-b{display:grid;gap:12px;padding:2px 16px 16px}
-.rb-fn{margin:0;font-size:13px;line-height:1.55;color:var(--s-muted)}
-.rb-notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
-.rb-notes .ag-note{margin:0}
-.rb-tc ul{margin:8px 0 0;padding:0 0 0 18px;display:grid;gap:4px}
-.rb-tc li::marker{color:#FCD34D}
-@container (max-width:760px){
-  .rb-notes{grid-template-columns:minmax(0,1fr)}
+/* the rate card: how to read a cell, then light tables. The three band rates sit in fixed slots so they line up row to row */
+.ia-key{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 16px;font-size:14px;line-height:1.55;color:#5D687B}
+.ia-key > span:last-child{flex:1 1 340px;min-width:0}
+.ia-key b{color:var(--ink)}
+.ia-key-eg{flex:0 0 auto;padding:6px 10px;border-radius:10px;background:#F7F9FC;border:1px solid #E4E9F1;color:#A3AEC2;font-size:14.5px;line-height:1.45;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ia-tw{overflow-x:auto;border-radius:14px;border:1px solid #E4E9F1;scrollbar-width:thin}
+.ia-tw:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.ia-tbl{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.45;color:#33405A;font-variant-numeric:tabular-nums}
+.ia-tbl thead th{padding:11px 16px;text-align:left;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#5D687B;background:#F7F9FC;border-bottom:1px solid #E4E9F1;white-space:nowrap}
+.ia-tbl tbody th,.ia-tbl td{padding:12px 16px;text-align:left;vertical-align:top;border-bottom:1px solid #EDF0F5}
+.ia-tbl tbody tr:last-child > *{border-bottom:0}
+.ia-tbl tbody th{font-weight:700;color:var(--ink)}
+.ia-tbl tbody th span{display:block;max-width:34ch;margin-top:3px;font-size:12.5px;font-weight:500;line-height:1.45;color:#5D687B}
+.ia-tbl td{white-space:nowrap;color:#A3AEC2}
+.ia-tbl td i,.ia-key-eg i{display:inline-block;min-width:1.9em;font-style:normal;text-align:center;color:#33405A}
+.ia-tbl td b,.ia-key-eg b{display:inline-block;min-width:1.9em;padding:0 3px;border-radius:6px;background:var(--blue-soft);color:#0B4BC0;font-weight:800;text-align:center}
+.ia-tbl .ia-tg th{padding:9px 16px 8px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#0B4BC0;background:#F5F8FD;border-bottom:1px solid #E4E9F1}
+.ia-tbl tbody tr:not(.ia-tg):hover > *{background:#FAFBFD}
+.ia-rates thead th:first-child{width:44%}
+.ia-full{min-width:600px}
+.ia-cent{min-width:440px}
+.ia-fn{margin:0;font-size:13px;line-height:1.55;color:#5D687B}
+.ia-tw + .ia-fn{margin-top:12px}
+.ia-det-b .ia-tw + .ia-fn{margin-top:0}
+.ia-det{margin-top:16px;border-radius:14px;border:1px solid #E4E9F1;background:#FFFFFF}
+.ia-det summary{display:flex;align-items:center;gap:11px;padding:13px 16px;border-radius:13px;background:#F7F9FC;font-size:14.5px;font-weight:700;color:var(--ink);cursor:pointer;list-style:none}
+.ia-det summary::-webkit-details-marker{display:none}
+.ia-det summary::before{content:"";flex:0 0 auto;width:7px;height:7px;margin:0 2px 0 3px;border-right:2px solid var(--blue);border-bottom:2px solid var(--blue);transform:rotate(-45deg);transition:transform .2s}
+.ia-det[open] summary{border-radius:13px 13px 0 0;border-bottom:1px solid #E4E9F1}
+.ia-det[open] summary::before{transform:rotate(45deg)}
+.ia-det summary:hover{background:#F0F4FA}
+.ia-det summary:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.ia-det-b{display:grid;gap:12px;padding:16px}
+/* two side by side: a pair of notes or a pair of cards */
+.ia-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ia-card + .ia-two,.ia-det + .ia-two,.ia-bons + .ia-two{margin-top:16px}
+/* points without a clause number get a dot; a clause number can also sit at the end of a point */
+.ia-pts.is-dot li{grid-template-columns:8px minmax(0,1fr);gap:12px}
+.ia-pts.is-dot li::before{content:"";width:6px;height:6px;margin-top:9px;border-radius:50%;background:#9AA8C0}
+.ia-pts p .ia-cl{margin:0 0 0 3px;vertical-align:1px;line-height:1.45}
+/* how they get paid: a stepper with times instead of step numbers, the key one in the Retain colour */
+.ia-sr{display:flex;align-items:center;gap:10px}
+.ia-steps.is-time li:not(:last-child)::after{content:none}
+.ia-steps.is-time li:not(:last-child) .ia-sr::after{content:"";flex:1 1 auto;min-width:10px;height:2px;margin-right:-10px;border-radius:2px;background:#D9E0EB}
+.ia-steps.is-time .ia-node{white-space:nowrap}
+.ia-steps.is-s5 li.is-key .ia-node{background:#F472B6;border-color:#EC4899;color:#2A0618;box-shadow:0 0 0 5px rgba(244,114,182,.22)}
+/* bonuses: one card each, who it's for and how it's paid */
+.ia-bons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ia-dl{margin:0}
+.ia-dl > div{padding-top:15px}
+.ia-dl > div + div{margin-top:15px;border-top:1px solid #EDF0F5}
+.ia-dl dt{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#5D687B}
+.ia-dl dd{margin:5px 0 0;font-size:14.5px;line-height:1.6;color:#33405A}
+.ia-dl b{font-weight:700;color:var(--ink)}
+/* a note box that holds a short list (To confirm) */
+.ia-call-b{flex:1 1 auto;min-width:0}
+.ia-call ul{margin:6px 0 0;padding:0 0 0 18px;display:grid;gap:4px;font-size:14px;line-height:1.55;color:#33405A}
+.ia-call.is-amber li::marker{color:#D97706}
+/* a long card title stays beside its icon (38px icon + 14px gap) instead of dropping under it on narrow screens */
+.ia-th h3{max-width:calc(100% - 52px)}
+/* hover words (Max+, Special Groups) on the light cards */
+.ia-wrap .term{color:var(--ink);text-decoration-color:rgba(12,30,69,.45)}
+.ia-wrap .term:hover,.ia-wrap .term:focus-visible{text-decoration-color:var(--blue)}
+.ia-wrap .term:focus-visible{box-shadow:0 0 0 2px rgba(11,92,224,.25)}
+@container (max-width:900px){
+  .ia-steps.is-time{grid-template-columns:minmax(0,1fr);gap:0}
+  .ia-steps.is-time li{display:block;padding-bottom:18px}
+  .ia-steps.is-time li:last-child{padding-bottom:0}
+  .ia-steps.is-time li:not(:last-child) .ia-sr::after{content:none}
+  .ia-steps.is-time li:not(:last-child)::after{content:"";top:38px;bottom:2px;left:17px;right:auto;width:2px;height:auto}
+  .ia-steps.is-time p{margin:8px 0 0 34px;max-width:none}
 }
-@container (max-width:640px){
-  .rb-bon thead{display:none}
-  .rb-bon,.rb-bon tbody,.rb-bon tr,.rb-bon tbody th,.rb-bon td{display:block;width:auto;min-width:0}
-  .rb-bon tr{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.07)}
-  .rb-bon tbody tr:last-child{border-bottom:0}
-  .rb-bon tbody th,.rb-bon td{padding:0;border:0}
-  .rb-bon td{margin-top:9px}
-  .rb-bon td::before{content:attr(data-l);display:block;margin-bottom:2px;font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--s-label)}
+@container (max-width:760px){
+  .ia-two,.ia-bons{grid-template-columns:minmax(0,1fr)}
 }
 @container (max-width:520px){
-  .rb-tbl thead th,.rb-tbl tbody th,.rb-tbl td{padding-left:11px;padding-right:11px}
-  .rb-tbl .rb-grp th{padding-left:11px}
-  .rb-main thead th{white-space:normal}
-  .rb-bon tr{padding:13px 12px}
-  .rb-det summary{padding:12px 13px}
-  .rb-det-b{padding:2px 12px 13px}
+  .ia-tbl{font-size:13.5px}
+  .ia-tbl thead th,.ia-tbl tbody th,.ia-tbl td{padding-left:11px;padding-right:11px}
+  .ia-tbl .ia-tg th{padding-left:11px}
+  .ia-tbl td i,.ia-tbl td b{min-width:1.4em}
+  .ia-rates thead th{white-space:normal}
+  .ia-rates thead th:first-child{width:auto}
+  .ia-det summary{padding:12px 13px}
+  .ia-det-b{padding:12px}
 }
 
 /* ---- Checklists (Anna, Sichen): one card per open question. Our suggestion or what we know on the left, pick one on the right ---- */
@@ -1103,9 +1094,9 @@ button{font:inherit}
           </nav>
           <span class="sb-gap"></span>
         </div>
-        <div class="ag-wrap">
-          <header class="ag-card ag-hero" id="rb-top">
-            <div class="ag-eb">SEA IB 360 Playbook · <b>06 Rebates and payouts</b> · Updated 18 Nov 2026</div>
+        <div class="ia-wrap">
+          <header class="ag-card ag-hero ia-hero" id="rb-top">
+            <div class="ag-eb">SEA IB 360 Playbook · <b>06 Rebates and payouts</b> · Updated 25 Nov 2026</div>
             <img class="ag-logo" src="data:image/png;base64,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" alt="TMGM" width="132" height="33">
             <div class="rb-stages">
               <span class="ag-stage"><b>2</b>Convert · steps 2.3 and 2.5</span>
@@ -1113,169 +1104,192 @@ button{font:inherit}
             </div>
             <h1 class="ag-title">How IBs earn, and how they get paid</h1>
             <p class="ag-lead">An IB earns a rebate on every lot their clients trade. Their AM agrees the rate from Sales Ops' rate sheets, BO sets it up, and the rebates are paid every business day. Here's the rate card, who signs off, and how the money reaches them.</p>
-            <dl class="ag-glance">
-              <div><dt>Forex, per lot</dt><dd><b>USD1 to 7</b><span>On Classic, Edge and Prime accounts. STD accounts pay USD8 to 10</span></dd></div>
+            <dl class="ia-facts">
+              <div><dt>Forex, per lot</dt><dd><b>Up to USD10</b><span>The most on each account: 4 on Classic, 2 on Edge, 7 on Prime and 10 on STD</span></dd></div>
               <div><dt>Above the rate sheets</dt><dd><b>Tom approves</b><span>By email, usually in 2 to 4 days</span></dd></div>
               <div><dt>Paid</dt><dd><b>Next business day</b><span>BO starts the run each day, and our in-house CRM pays it out</span></dd></div>
               <div><dt>Withdrawing</dt><dd><b>Any time, from 100</b><span>In the account's currency</span></dd></div>
             </dl>
           </header>
 
-          <section class="ag-card" id="rb-rates" aria-labelledby="rbRatesH">
-            <div class="ag-h"><h2 id="rbRatesH">The rate card</h2><p>What an IB earns for each lot their clients trade, in USD. It depends on their client's account type, the product and the IB's volume.</p></div>
-            <div class="rb-tw" role="region" aria-label="Rebates for Forex and gold, per lot" tabindex="0">
-              <table class="rb-tbl rb-main">
-                <thead><tr><th scope="col">Client's account</th><th scope="col">Forex</th><th scope="col">Gold and silver</th></tr></thead>
-                <tbody>
-                  <tr class="rb-grp"><th scope="colgroup" colspan="3">SEA rate sheet</th></tr>
-                  <tr><th scope="row">Classic</th><td>2 · 3 · <b>4</b></td><td>2 · 3 · <b>4</b></td></tr>
-                  <tr><th scope="row">Edge</th><td>1 · 1 · <b>2</b></td><td>1 · 1.6 · <b>2</b></td></tr>
-                  <tr><th scope="row">Prime</th><td>5 · 6 · <b>7</b></td><td>6 · 8 · <b>10</b></td></tr>
-                  <tr><th scope="row">DC<span>SEA and Greater China only. One rate, no bands, and switched on for an IB when their AM applies</span></th><td>7</td><td>10</td></tr>
-                  <tr class="rb-grp"><th scope="colgroup" colspan="3">General rate sheet, every region</th></tr>
-                  <tr><th scope="row">STD<span>Where our website's USD10 and our deck's USD8 come from</span></th><td>8 · 9 · <b>10</b></td><td>15 · 18 · <b>20</b></td></tr>
-                  <tr><th scope="row">Premium</th><td>2 · 3 · <b>4</b></td><td>10 · 13 · <b>15</b></td></tr>
-                  <tr><th scope="row">Professional</th><td>1 · 1 · <b>2</b></td><td>5 · 8 · <b>10</b></td></tr>
-                  <tr><th scope="row">Raw</th><td>1 · 1 · <b>2</b></td><td>1 · 1 · <b>2</b></td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="rb-key">Each cell shows the rate in the three volume bands, lowest to highest: 0 to 1,000, 1,000 to 5,000 and over 5,000. <b>The bold one</b> is the most an IB gets on the sheet. SEA clients can also ask for the ST, PRO, PM and ECN groups, which are normal in every region (BO, 10 Nov).</p>
-            <details class="rb-det">
-              <summary>Every product on the SEA rate sheet, and Cent accounts</summary>
-              <div class="rb-det-b">
-                <div class="rb-tw" role="region" aria-label="SEA rate sheet, every product" tabindex="0">
-                  <table class="rb-tbl rb-full">
-                    <thead><tr><th scope="col">Product</th><th scope="col">Classic</th><th scope="col">Edge</th><th scope="col">Prime</th><th scope="col">DC</th></tr></thead>
-                    <tbody>
-                      <tr><th scope="row">Forex</th><td>2 · 3 · <b>4</b></td><td>1 · 1 · <b>2</b></td><td>5 · 6 · <b>7</b></td><td>7</td></tr>
-                      <tr><th scope="row">Gold and silver</th><td>2 · 3 · <b>4</b></td><td>1 · 1.6 · <b>2</b></td><td>6 · 8 · <b>10</b></td><td>10</td></tr>
-                      <tr><th scope="row">Bitcoin</th><td>1.5</td><td>1.5</td><td>1.5</td><td>10</td></tr>
-                      <tr><th scope="row">Other crypto</th><td>1.5</td><td>1.5</td><td>1.5</td><td>1.5</td></tr>
-                      <tr><th scope="row">Oil, per 100 barrels</th><td>1 · 1.3 · <b>1.5</b></td><td>1 · 1.3 · <b>1.5</b></td><td>1 · 1.3 · <b>1.5</b></td><td>1.5</td></tr>
-                      <tr><th scope="row">Indices, in points</th><td>16 · 33 · <b>50</b></td><td>0</td><td>16 · 33 · <b>50</b></td><td>70</td></tr>
-                      <tr><th scope="row">Asian indices, in points</th><td>150 · 300 · <b>500</b></td><td>0</td><td>150 · 300 · <b>500</b></td><td>700</td></tr>
-                      <tr><th scope="row">Shares, in points</th><td>2</td><td>2</td><td>2</td><td>2</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-                <p class="rb-fn">In USD a lot, unless it says points. A point is the smallest price move, the last decimal place of a quote, and it's converted to USD at the live rate.</p>
-                <div class="rb-tw" role="region" aria-label="Cent accounts" tabindex="0">
-                  <table class="rb-tbl rb-cent">
-                    <thead><tr><th scope="col">Cent accounts, in US cents</th><th scope="col">Classic</th><th scope="col">Edge</th><th scope="col">STD</th></tr></thead>
-                    <tbody>
-                      <tr><th scope="row">Forex</th><td>4</td><td>2</td><td>10</td></tr>
-                      <tr><th scope="row">Gold and silver</th><td>4</td><td>2</td><td>20</td></tr>
-                      <tr><th scope="row">Oil, per 100 barrels</th><td>1.5</td><td>1.5</td><td>1.5</td></tr>
-                      <tr><th scope="row">Bitcoin, MT5 only</th><td>1.5</td><td>1.5</td><td>1.5</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-                <p class="rb-fn">The rate sheets have applied since 4 Oct 2025, and Cent accounts since 13 Nov 2025. Cent accounts are open to SEA clients. Vietnam only: since 1 Feb 2024, the highest group a new Vietnam IB can get is ST05, not ST10.</p>
+          <section class="ia-sec" id="rb-rates" aria-labelledby="rbRatesH">
+            <div class="ia-sh"><h2 id="rbRatesH">The rate card</h2><p>What an IB earns for each lot their clients trade, in USD. It depends on their client's account type and the product.</p></div>
+            <div class="ia-card">
+              <p class="ia-key"><span class="ia-key-eg" aria-hidden="true"><i>2</i> · <i>3</i> · <b>4</b></span><span>Each cell shows the rate in the sheet's three volume bands: 0 to 1,000, 1,000 to 5,000 and over 5,000. <b>The bold one</b> is the most an IB can get, and AMs usually ask for it. The bands are for marketing only: BO doesn't check an IB's volume, just that the rate isn't above the bold one (Sales Ops and BO, 23 Nov).</span></p>
+              <div class="ia-tw" role="region" aria-label="Rebates for Forex and gold, per lot" tabindex="0">
+                <table class="ia-tbl ia-rates">
+                  <thead><tr><th scope="col">Client's account</th><th scope="col">Forex</th><th scope="col">Gold and silver</th></tr></thead>
+                  <tbody>
+                    <tr class="ia-tg"><th scope="colgroup" colspan="3">SEA rate sheet</th></tr>
+                    <tr><th scope="row">Classic</th><td><i>2</i> · <i>3</i> · <b>4</b></td><td><i>2</i> · <i>3</i> · <b>4</b></td></tr>
+                    <tr><th scope="row">Edge</th><td><i>1</i> · <i>1</i> · <b>2</b></td><td><i>1</i> · <i>1.6</i> · <b>2</b></td></tr>
+                    <tr><th scope="row">Prime</th><td><i>5</i> · <i>6</i> · <b>7</b></td><td><i>6</i> · <i>8</i> · <b>10</b></td></tr>
+                    <tr><th scope="row">DC<span>SEA and Greater China only. One rate, no bands, and switched on for an IB when their AM applies</span></th><td><i>7</i></td><td><i>10</i></td></tr>
+                    <tr class="ia-tg"><th scope="colgroup" colspan="3">General rate sheet, every region</th></tr>
+                    <tr><th scope="row">STD<span>Where our website's USD10 and our deck's USD8 come from</span></th><td><i>8</i> · <i>9</i> · <b>10</b></td><td><i>15</i> · <i>18</i> · <b>20</b></td></tr>
+                    <tr><th scope="row">Premium</th><td><i>2</i> · <i>3</i> · <b>4</b></td><td><i>10</i> · <i>13</i> · <b>15</b></td></tr>
+                    <tr><th scope="row">Professional</th><td><i>1</i> · <i>1</i> · <b>2</b></td><td><i>5</i> · <i>8</i> · <b>10</b></td></tr>
+                    <tr><th scope="row">Raw</th><td><i>1</i> · <i>1</i> · <b>2</b></td><td><i>1</i> · <i>1</i> · <b>2</b></td></tr>
+                  </tbody>
+                </table>
               </div>
-            </details>
-            <div class="rb-notes">
-              <p class="ag-note"><b>Who keeps them.</b> Sales Ops and BO hold the rate details (Aaron, 10 Nov). Sales Ops shares the rate sheets from the Sales help center, and how our website and deck word the rate is Marketing's call (Jane, Sales Ops, 10 Nov).</p>
-              <p class="ag-note"><b>Our website and deck.</b> The partners website says up to USD10 a lot, and the partner deck uses USD8 as its example. Both are the STD account's Forex rate, which SEA clients can ask for (BO, 10 Nov).</p>
+              <p class="ia-fn">SEA clients can also ask for the ST, PRO, PM and ECN groups, which are normal in every region (BO, 10 Nov).</p>
+              <details class="ia-det">
+                <summary>Every product on the SEA rate sheet, and Cent accounts</summary>
+                <div class="ia-det-b">
+                  <div class="ia-tw" role="region" aria-label="SEA rate sheet, every product" tabindex="0">
+                    <table class="ia-tbl ia-full">
+                      <thead><tr><th scope="col">Product</th><th scope="col">Classic</th><th scope="col">Edge</th><th scope="col">Prime</th><th scope="col">DC</th></tr></thead>
+                      <tbody>
+                        <tr><th scope="row">Forex</th><td><i>2</i> · <i>3</i> · <b>4</b></td><td><i>1</i> · <i>1</i> · <b>2</b></td><td><i>5</i> · <i>6</i> · <b>7</b></td><td><i>7</i></td></tr>
+                        <tr><th scope="row">Gold and silver</th><td><i>2</i> · <i>3</i> · <b>4</b></td><td><i>1</i> · <i>1.6</i> · <b>2</b></td><td><i>6</i> · <i>8</i> · <b>10</b></td><td><i>10</i></td></tr>
+                        <tr><th scope="row">Bitcoin</th><td><i>1.5</i></td><td><i>1.5</i></td><td><i>1.5</i></td><td><i>10</i></td></tr>
+                        <tr><th scope="row">Other crypto</th><td><i>1.5</i></td><td><i>1.5</i></td><td><i>1.5</i></td><td><i>1.5</i></td></tr>
+                        <tr><th scope="row">Oil, per 100 barrels</th><td><i>1</i> · <i>1.3</i> · <b>1.5</b></td><td><i>1</i> · <i>1.3</i> · <b>1.5</b></td><td><i>1</i> · <i>1.3</i> · <b>1.5</b></td><td><i>1.5</i></td></tr>
+                        <tr><th scope="row">Indices, in points</th><td><i>16</i> · <i>33</i> · <b>50</b></td><td><i>0</i></td><td><i>16</i> · <i>33</i> · <b>50</b></td><td><i>70</i></td></tr>
+                        <tr><th scope="row">Asian indices, in points</th><td><i>150</i> · <i>300</i> · <b>500</b></td><td><i>0</i></td><td><i>150</i> · <i>300</i> · <b>500</b></td><td><i>700</i></td></tr>
+                        <tr><th scope="row">Shares, in points</th><td><i>2</i></td><td><i>2</i></td><td><i>2</i></td><td><i>2</i></td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p class="ia-fn">In USD a lot, unless it says points. A point is the smallest price move, the last decimal place of a quote, and it's converted to USD at the live rate.</p>
+                  <div class="ia-tw" role="region" aria-label="Cent accounts" tabindex="0">
+                    <table class="ia-tbl ia-cent">
+                      <thead><tr><th scope="col">Cent accounts, in US cents</th><th scope="col">Classic</th><th scope="col">Edge</th><th scope="col">STD</th></tr></thead>
+                      <tbody>
+                        <tr><th scope="row">Forex</th><td><i>4</i></td><td><i>2</i></td><td><i>10</i></td></tr>
+                        <tr><th scope="row">Gold and silver</th><td><i>4</i></td><td><i>2</i></td><td><i>20</i></td></tr>
+                        <tr><th scope="row">Oil, per 100 barrels</th><td><i>1.5</i></td><td><i>1.5</i></td><td><i>1.5</i></td></tr>
+                        <tr><th scope="row">Bitcoin, MT5 only</th><td><i>1.5</i></td><td><i>1.5</i></td><td><i>1.5</i></td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p class="ia-fn">The rate sheets have applied since 4 Oct 2025, and Cent accounts since 13 Nov 2025. Cent accounts are open to SEA clients. Vietnam only: since 1 Feb 2024, the highest group a new Vietnam IB can get is ST05, not ST10.</p>
+                </div>
+              </details>
+              <div class="ia-two">
+                <div class="ia-call"><svg class="ia-call-ic" viewBox="0 0 20 20" aria-hidden="true"><circle cx="7.5" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 16.5c.6-2.8 2.6-4.3 5-4.3s4.4 1.5 5 4.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="14" cy="7.5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14.2 12.2c1.9.2 3.1 1.5 3.5 3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><p><b>Who keeps them.</b> Sales Ops and BO hold the rate details (Aaron, 10 Nov). Sales Ops shares the rate sheets from the Sales help center, and how our website and deck word the rate is Marketing's call (Jane, Sales Ops, 10 Nov).</p></div>
+                <div class="ia-call"><svg class="ia-call-ic" viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="3.5" width="15" height="10" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 16.8h6M10 13.5v3.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><p><b>Our website and deck.</b> The partners website says up to USD10 a lot, and the partner deck uses USD8 as its example. Both are the STD account's Forex rate, which SEA clients can ask for (BO, 10 Nov).</p></div>
+              </div>
             </div>
           </section>
 
-          <section class="ag-card" id="rb-set" aria-labelledby="rbSetH">
-            <div class="ag-h"><h2 id="rbSetH">Setting a rate, and who signs off</h2><p>The AM agrees the rate with the IB from the rate sheets. Anything above them needs Tom's approval before BO sets it up.</p></div>
-            <ol class="ag-flow">
-              <li><b>2.3</b><span>The AM and the IB agree the rate, one to one</span></li>
-              <li><b>2.4</b><span>The AM puts the account group and the rate in the Zendesk ticket to BO</span></li>
-              <li class="is-key"><b>2.5</b><span>BO sets their rebate rates in our in-house CRM, once KYC is done</span></li>
-              <li><b>Live</b><span>The IB sees their rate in their IB portal, under IB Profile, Rebate Rate Setting</span></li>
-            </ol>
-            <div class="ag-grid rb-grid">
-              <article class="ag-grp">
-                <h3><i class="ag-gi" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 2.5l6 2.3v4.6c0 3.9-2.5 6.7-6 8.1-3.5-1.4-6-4.2-6-8.1V4.8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7.2 10l2 2 3.7-3.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i>What needs Tom's approval</h3>
-                <ul>
-                  <li>Any rate above the rate sheets.</li>
-                  <li><span class="term" role="term" tabindex="0" aria-describedby="termTip" data-term="Special Groups">Special Groups</span>: a non-standard trading group set up for a particular client or IB.</li>
-                  <li><span class="term" role="term" tabindex="0" aria-describedby="termTip" data-term="Max+">Max+</span>: an extra rebate on top of the standard rate for the IB's trading group, such as Max+0.5.</li>
-                </ul>
-                <p class="ag-tip"><b>How it works.</b> Tom, our CEO, approves each one by email before BO sets it up. It usually takes 2 to 4 days, depending on the case (Sales Ops, 3 and 9 Nov).</p>
-              </article>
-              <article class="ag-grp">
-                <h3><i class="ag-gi" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 9v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="10" cy="6.3" r="1.05" fill="currentColor"/></svg></i>Good to know</h3>
-                <ul>
-                  <li>The rate in their IB portal is the one that counts, and we can change it with 10 days' notice. <span class="ag-cl">6c</span></li>
-                  <li>Their client's account type decides the rate. IBs can make referral links that choose which account type their clients open (step 3.3).</li>
-                  <li>DC isn't switched on for every IB. Their AM applies to have it turned on.</li>
-                </ul>
-                <div class="ag-more" data-more="p04 p05"></div>
-              </article>
+          <section class="ia-sec" id="rb-set" aria-labelledby="rbSetH">
+            <div class="ia-sh"><h2 id="rbSetH">Setting a rate, and who signs off</h2><p>The AM agrees the rate with the IB from the rate sheets. Anything above them needs Tom's approval before BO sets it up.</p></div>
+            <div class="ia-card">
+              <ol class="ia-steps">
+                <li><span class="ia-node">2.3</span><p>The AM and the IB agree the rate, one to one, usually the top rate on the sheet</p></li>
+                <li><span class="ia-node">2.4</span><p>The AM puts the account group and the rate in the Zendesk ticket to BO</p></li>
+                <li class="is-key"><span class="ia-node">2.5</span><p>BO sets their rebate rates in our in-house CRM, once KYC is done</p></li>
+                <li class="is-live"><span class="ia-node">Live</span><p>The IB sees their rate in their IB portal, under IB Profile, Rebate Rate Setting</p></li>
+              </ol>
+              <div class="ia-fit-foot">
+                <div class="ia-call"><svg class="ia-call-ic" viewBox="0 0 20 20" aria-hidden="true"><path d="M2.8 6.3A1.5 1.5 0 0 1 4.3 4.8h11.4a1.5 1.5 0 0 1 1.5 1.5v2a2 2 0 0 0 0 3.4v2a1.5 1.5 0 0 1-1.5 1.5H4.3a1.5 1.5 0 0 1-1.5-1.5v-2a2 2 0 0 0 0-3.4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12.2 5.4v9.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="1.4 1.9"/></svg><p><b>The ticket matters.</b> BO sets the rates from the AM's Zendesk ticket, so it has to include the account group and the agreed rate (BO, 10 Nov).</p></div>
+                <button type="button" class="ia-btn" data-step="n23"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2" width="5.5" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="10" width="5.5" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.2 6v3.5A1.5 1.5 0 0 0 5.7 11H9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>See step 2.3 on the flowchart</button>
+              </div>
             </div>
-            <div class="ag-row">
-              <p class="ag-note"><b>The ticket matters.</b> BO sets the rates from the AM's Zendesk ticket, so it has to include the account group and the agreed rate (BO, 10 Nov).</p>
-              <button type="button" class="ag-btn" data-step="n23">See step 2.3 on the flowchart</button>
+            <div class="ia-two">
+              <article class="ia-card ia-topic">
+                <div class="ia-th"><span class="ia-ti" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 2.5l6 2.3v4.6c0 3.9-2.5 6.7-6 8.1-3.5-1.4-6-4.2-6-8.1V4.8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7.2 10l2 2 3.7-3.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>What needs Tom's approval</h3></div>
+                <ul class="ia-pts is-1 is-dot">
+                  <li><p>Any rate <b>above the rate sheets</b>.</p></li>
+                  <li><p><span class="term" role="term" tabindex="0" aria-describedby="termTip" data-term="Special Groups">Special Groups</span>: a non-standard trading group set up for a particular client or IB.</p></li>
+                  <li><p><span class="term" role="term" tabindex="0" aria-describedby="termTip" data-term="Max+">Max+</span>: an extra rebate on top of the standard rate for the IB's trading group, such as Max+0.5.</p></li>
+                </ul>
+                <div class="ia-call"><svg class="ia-call-ic" viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.3 5.6l6.7 5 6.7-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>How it works.</b> Tom, our CEO, approves each one by email before BO sets it up. It usually takes 2 to 4 days, depending on the case (Sales Ops, 3 and 9 Nov).</p></div>
+              </article>
+              <article class="ia-card ia-topic">
+                <div class="ia-th"><span class="ia-ti" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 9v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="10" cy="6.3" r="1.05" fill="currentColor"/></svg></span><h3>Good to know</h3><div class="ia-more" data-more="p04 p05"></div></div>
+                <ul class="ia-pts is-1 is-dot">
+                  <li><p>The rate in their IB portal is <b>the one that counts</b>, and we can change it with 10 days' notice. <span class="ia-cl">6c</span></p></li>
+                  <li><p>Their <b>client's account type</b> decides the rate. IBs can make referral links that choose which account type their clients open (step 3.3).</p></li>
+                  <li><p><b>DC isn't switched on</b> for every IB. Their AM applies to have it turned on.</p></li>
+                  <li><p><b>Sub-IBs are paid out of their main IB's rate.</b> Say BO sets a main IB at USD20 a lot on gold and silver, and their sub-IB at USD18. When the sub-IB's client trades a lot, the sub-IB gets 18 and the main IB keeps 2 (BO, 23 Nov).</p></li>
+                </ul>
+              </article>
             </div>
           </section>
 
-          <section class="ag-card" id="rb-pay" aria-labelledby="rbPayH">
-            <div class="ag-h"><h2 id="rbPayH">How they get paid</h2><p>Rebates are worked out from each day's trading and paid the next business day. It's mostly automatic, but BO starts the run every day.</p></div>
-            <ol class="ag-flow is-s5">
-              <li><b>Trade day</b><span>Their clients trade, and each trade earns the IB a rebate at their rate</span></li>
-              <li><b>Every day</b><span>BO clicks the payment button to start the payout run</span></li>
-              <li class="is-key"><b>Next business day</b><span>Our in-house CRM pays the rebates into their commission account</span></li>
-              <li><b>Any time</b><span>They follow their rebates in their IB portal and withdraw when they like</span></li>
-            </ol>
-            <div class="ag-grid">
-              <article class="ag-grp">
-                <h3><i class="ag-gi" aria-hidden="true"><svg viewBox="0 0 20 20"><rect x="3" y="4.5" width="14" height="12.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 8.5h14M7 2.8v3.4M13 2.8v3.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></i>When the money arrives</h3>
-                <ul>
-                  <li>The next business day after the trade. Friday's rebates arrive on Monday, and a holiday pushes them to the next business day. <span class="ag-cl">6a</span></li>
-                  <li>Amounts are rounded to 2 decimal places, and anything under 0.005 isn't paid. <span class="ag-cl">6b</span></li>
-                  <li>They can withdraw any time. The smallest withdrawal is 100 in the account's currency, unless they're closing the account. <span class="ag-cl">4j</span></li>
-                </ul>
-              </article>
-              <article class="ag-grp">
-                <h3><i class="ag-gi" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 7v6M12 7v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></i>When pay can be held or corrected</h3>
-                <ul>
-                  <li>It's up to the IB to check their client links and rates. We only correct rebates for the last 30 days of trading. <span class="ag-cl">4c</span></li>
-                  <li>We can hold rebates while a client complaint or dispute is open. <span class="ag-cl">6d</span></li>
-                  <li>We can hold back pay or close accounts if we suspect abuse, such as opening and closing trades just to earn rebates. <span class="ag-cl">6e, 6f</span></li>
-                </ul>
-                <div class="ag-more" data-more="p05"></div>
-              </article>
+          <section class="ia-sec" id="rb-pay" aria-labelledby="rbPayH">
+            <div class="ia-sh"><h2 id="rbPayH">How they get paid</h2><p>Rebates are worked out from each day's trading and paid the next business day. It's mostly automatic, but BO starts the run every day.</p></div>
+            <div class="ia-card">
+              <ol class="ia-steps is-time is-s5">
+                <li><div class="ia-sr"><span class="ia-node">Trade day</span></div><p>Their clients trade, and each trade earns the IB a rebate at their rate</p></li>
+                <li><div class="ia-sr"><span class="ia-node">Every day</span></div><p>BO clicks the payment button to start the payout run</p></li>
+                <li class="is-key"><div class="ia-sr"><span class="ia-node">Next business day</span></div><p>Our in-house CRM pays the rebates into their commission account</p></li>
+                <li><div class="ia-sr"><span class="ia-node">Any time</span></div><p>They follow their rebates in their IB portal and withdraw when they like</p></li>
+              </ol>
+              <div class="ia-fit-foot">
+                <div class="ia-call"><svg class="ia-call-ic" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 9v4.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10" cy="6.3" r="1.05" fill="currentColor"/></svg><p><b>Good to know.</b> The payout runs by itself once BO clicks the payment button, which they do every day (Joy, BO, 9 Nov). It all happens in our in-house CRM, not Salesforce (Joy, 10 Nov).</p></div>
+                <button type="button" class="ia-btn" data-step="n51"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2" width="5.5" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="10" width="5.5" height="4" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.2 6v3.5A1.5 1.5 0 0 0 5.7 11H9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>See step 5.1 on the flowchart</button>
+              </div>
             </div>
-            <div class="ag-row">
-              <p class="ag-note"><b>Good to know.</b> The payout runs by itself once BO clicks the payment button, which they do every day (Joy, BO, 9 Nov). It all happens in our in-house CRM, not Salesforce (Joy, 10 Nov).</p>
-              <button type="button" class="ag-btn" data-step="n51">See step 5.1 on the flowchart</button>
+            <div class="ia-two">
+              <article class="ia-card ia-topic">
+                <div class="ia-th"><span class="ia-ti" aria-hidden="true"><svg viewBox="0 0 20 20"><rect x="3" y="4.5" width="14" height="12.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 8.5h14M7 2.8v3.4M13 2.8v3.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><h3>When the money arrives</h3></div>
+                <ul class="ia-pts is-1">
+                  <li><span class="ia-cl">6a</span><p>The <b>next business day</b> after the trade. Friday's rebates arrive on Monday, and a holiday pushes them to the next business day.</p></li>
+                  <li><span class="ia-cl">6b</span><p>Amounts are <b>rounded to 2 decimal places</b>, and anything under 0.005 isn't paid.</p></li>
+                  <li><span class="ia-cl">4j</span><p>They can withdraw any time. The <b>smallest withdrawal is 100</b> in the account's currency, unless they're closing the account.</p></li>
+                </ul>
+              </article>
+              <article class="ia-card ia-topic">
+                <div class="ia-th"><span class="ia-ti" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 7v6M12 7v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><h3>When pay can be held or corrected</h3><div class="ia-more" data-more="p05"></div></div>
+                <ul class="ia-pts is-1">
+                  <li><span class="ia-cl">4c</span><p>It's up to the IB to check their client links and rates. We only correct rebates for the <b>last 30 days</b> of trading.</p></li>
+                  <li><span class="ia-cl">6d</span><p>We can <b>hold rebates</b> while a client complaint or dispute is open.</p></li>
+                  <li><span class="ia-cl">6e, 6f</span><p>We can hold back pay or close accounts if we <b>suspect abuse</b>, such as opening and closing trades just to earn rebates.</p></li>
+                </ul>
+              </article>
             </div>
           </section>
 
-          <section class="ag-card" id="rb-bonus" aria-labelledby="rbBonusH">
-            <div class="ag-h"><h2 id="rbBonusH">Bonuses on top of rebates</h2><p>Promotions pay IBs extra when their clients hit targets. They're separate from the daily rebates and paid on their own timetable. These are the ones running in Q4 2026.</p></div>
-            <div class="rb-tw" role="region" aria-label="IB bonuses in Q4 2026" tabindex="0">
-              <table class="rb-tbl rb-bon">
-                <thead><tr><th scope="col">Bonus</th><th scope="col">Who it's for</th><th scope="col">How it's paid</th></tr></thead>
-                <tbody>
-                  <tr><th scope="row">Deposit and trading bonus</th><td data-l="Who it's for">IBs whose direct clients hit a net deposit and a lots target in the month or the quarter. They need at least 5 enabled and 3 active direct clients. The monthly SEA bonus, for example, starts at USD140 for USD17,000 net deposit and 85 lots.</td><td data-l="How it's paid">Their AM applies by the 7th of the next month, and it's paid within 14 working days.</td></tr>
-                  <tr><th scope="row">Network bonus (MIB)</th><td data-l="Who it's for">IBs with sub-IBs, counting their whole team's clients. It can't be combined with the monthly IB bonus. In SEA, Thailand and Vietnam have one this quarter, and Malaysia doesn't.</td><td data-l="How it's paid">The same: their AM applies by the 7th, and it's paid within 14 working days.</td></tr>
-                  <tr><th scope="row">ECN rebate boost</th><td data-l="Who it's for">IBs whose direct clients trade on ECN accounts. It raises their Forex and metals rebate as their clients' net deposit grows, and it adds to any other bonus.</td><td data-l="How it's paid">No application. It's settled in the first 5 working days of each month.</td></tr>
-                  <tr><th scope="row">Swap share</th><td data-l="Who it's for">Thailand and Vietnam IBs: an extra 30% of their direct clients' swap fees, plus a monthly top-up once net deposit passes USD5,000.</td><td data-l="How it's paid">Weekly on Wednesdays, and the top-up before the 14th of the next month.</td></tr>
-                </tbody>
-              </table>
+          <section class="ia-sec" id="rb-bonus" aria-labelledby="rbBonusH">
+            <div class="ia-sh"><h2 id="rbBonusH">Bonuses on top of rebates</h2><p>Promotions pay IBs extra when their clients hit targets. They're separate from the daily rebates and paid on their own timetable. These are the ones running in Q4 2026.</p></div>
+            <div class="ia-bons">
+              <article class="ia-card ia-topic ia-bon">
+                <div class="ia-th"><span class="ia-ti" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="10" cy="10" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="10" cy="10" r="1.3" fill="currentColor"/></svg></span><h3>Deposit and trading bonus</h3></div>
+                <dl class="ia-dl">
+                  <div><dt>Who it's for</dt><dd>IBs whose direct clients hit a net deposit and a lots target in the month or the quarter. They need <b>at least 5 enabled and 3 active</b> direct clients. The monthly SEA bonus, for example, starts at <b>USD140</b> for USD17,000 net deposit and 85 lots.</dd></div>
+                  <div><dt>How it's paid</dt><dd>Their AM applies <b>by the 7th</b> of the next month, and it's paid within 14 working days.</dd></div>
+                </dl>
+              </article>
+              <article class="ia-card ia-topic ia-bon">
+                <div class="ia-th"><span class="ia-ti" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="10" cy="4.6" r="2.1" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="4.6" cy="15.4" r="2.1" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="15.4" cy="15.4" r="2.1" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 6.7v3.1M4.6 13.3v-1.5a2 2 0 0 1 2-2h6.8a2 2 0 0 1 2 2v1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Network bonus (MIB)</h3></div>
+                <dl class="ia-dl">
+                  <div><dt>Who it's for</dt><dd>IBs with sub-IBs, counting <b>their whole team's clients</b>. It can't be combined with the monthly IB bonus. In SEA, <b>Thailand and Vietnam</b> have one this quarter, and Malaysia doesn't.</dd></div>
+                  <div><dt>How it's paid</dt><dd>The same: their AM applies <b>by the 7th</b>, and it's paid within 14 working days.</dd></div>
+                </dl>
+              </article>
+              <article class="ia-card ia-topic ia-bon">
+                <div class="ia-th"><span class="ia-ti" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M2.8 14.2l4.6-4.6 3.3 3.3 6.3-6.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.6 6.6h4.4V11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>ECN rebate boost</h3></div>
+                <dl class="ia-dl">
+                  <div><dt>Who it's for</dt><dd>IBs whose direct clients trade on <b>ECN accounts</b>. It raises their Forex and metals rebate as their clients' net deposit grows, and it adds to any other bonus.</dd></div>
+                  <div><dt>How it's paid</dt><dd><b>No application.</b> It's settled in the first 5 working days of each month.</dd></div>
+                </dl>
+              </article>
+              <article class="ia-card ia-topic ia-bon">
+                <div class="ia-th"><span class="ia-ti" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M3.5 7.2h12.3M12.6 4l3.2 3.2-3.2 3.2M16.5 12.8H4.2M7.4 9.6l-3.2 3.2 3.2 3.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Swap share</h3></div>
+                <dl class="ia-dl">
+                  <div><dt>Who it's for</dt><dd><b>Thailand and Vietnam</b> IBs: an extra 30% of their direct clients' swap fees, plus a monthly top-up once net deposit passes USD5,000.</dd></div>
+                  <div><dt>How it's paid</dt><dd><b>Weekly on Wednesdays</b>, and the top-up before the 14th of the next month.</dd></div>
+                </dl>
+              </article>
             </div>
-            <div class="rb-notes">
-              <p class="ag-note"><b>Who looks after them.</b> OP sets up and renews the IB promotions each month or quarter, and ACQ is taking them over (Anna, OP, 11 Nov). Each promotion's T&amp;Cs are what count.</p>
-              <p class="ag-note"><b>Planned, not live.</b> Four reward tiers, Active, Growth, Premier and Elite, with better rebates and support as an IB adds active clients and volume. The targets for each tier aren't set yet (Growth Strategy, Jun).</p>
+            <div class="ia-two">
+              <div class="ia-call"><svg class="ia-call-ic" viewBox="0 0 20 20" aria-hidden="true"><circle cx="7.5" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 16.5c.6-2.8 2.6-4.3 5-4.3s4.4 1.5 5 4.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="14" cy="7.5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14.2 12.2c1.9.2 3.1 1.5 3.5 3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><p><b>Who looks after them.</b> OP sets up and renews the IB promotions each month or quarter, and ACQ is taking them over (Anna, OP, 11 Nov). Each promotion's T&amp;Cs are what count.</p></div>
+              <div class="ia-call"><svg class="ia-call-ic" viewBox="0 0 20 20" aria-hidden="true"><path d="M2.5 16.5h4V13h4V9.5h4V6h3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>Planned, not live.</b> Four reward tiers, Active, Growth, Premier and Elite, with better rebates and support as an IB adds active clients and volume. The targets for each tier aren't set yet (Growth Strategy, Jun).</p></div>
             </div>
           </section>
 
-          <section class="ag-card ag-end" aria-label="Still to confirm and sources">
-            <div class="ag-note rb-tc"><b>To confirm</b>
+          <footer class="ia-end" aria-label="Still to confirm and sources">
+            <div class="ia-call is-amber"><svg class="ia-call-ic" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 5.8V10l2.8 1.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="ia-call-b"><p><b>To confirm.</b></p>
               <ul>
-                <li>What the volume bands on the rate sheets count, such as lots a month. The sheets don't say.</li>
-                <li>How rebates are shared between an IB and their sub-IBs.</li>
+                <li>Who decides how a main IB's rate is split with their sub-IB. Joy at BO thinks it's the main IB (23 Nov), and we're confirming with her.</li>
                 <li>Anna's summary of each country's IB promotions, which she said she'd send (11 Nov).</li>
-              </ul>
-            </div>
-            <p class="ag-src">Sources: Sales Ops' rate sheets in the Sales help center ("IB Rebate Payment"), shared by Jane (Sales Ops, 10 Nov); BO (Joy, 9, 10 and 18 Nov); Sales Ops (3 and 9 Nov) and their Max+ and Special Group SOPs (Zoey, 9 and 10 Nov); Aaron (10 Nov); IB agreement, version 2.0 (Apr 2026); Q4 2026 IB promotion T&amp;Cs and sheet (OP, checked 5 Nov); OP (Anna, 11 Nov); Growth Strategy (Jun); partners website and partner deck. If anything here differs from the rate sheets, a promotion's T&amp;Cs or the agreement, those apply.</p>
-          </section>
+              </ul></div></div>
+            <p class="ia-src">Sources: Sales Ops' rate sheets in the Sales help center ("<a href="https://tmgmsales.zendesk.com/hc/en-au/articles/34876684261657-IB-Rebate-Payment" target="_blank" rel="noopener">IB Rebate Payment</a>", staff login needed), shared by Jane (Sales Ops, 10 Nov); BO (Joy, 9, 10, 18 and 23 Nov); Sales Ops (3, 9 and 23 Nov) and their Max+ and Special Group SOPs (Zoey, 9 and 10 Nov); Aaron (10 Nov); IB agreement, version 2.0 (Apr 2026); Q4 2026 IB promotion T&amp;Cs and sheet (OP, checked 5 Nov); OP (Anna, 11 Nov); Growth Strategy (Jun); partners website and partner deck. If anything here differs from the rate sheets, a promotion's T&amp;Cs or the agreement, those apply.</p>
+          </footer>
         </div>
       </section>
     </div>
@@ -1369,8 +1383,8 @@ var NODES=[
   owner:'Sales (Aaron\'s team); Partner Marketing (website, deck)',
   where:'Partners website, partner deck, talks with Sales or Support',
   time:'It varies',
-  cnote:{lead:'Rates:',text:'Classic, Edge and Prime accounts pay USD1 to 7 a lot on Forex in SEA. SEA clients can also open STD accounts, which pay USD8 to 10, the figures on our website and deck (BO confirmed, 10 Nov).'},
-  src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (9 and 10 Nov); BO (10 Nov); Sales Zendesk rate sheets (Oct 2025); partners website and deck',
+  cnote:{lead:'Rates:',text:'On Forex, up to USD4 a lot on Classic accounts, 2 on Edge, 7 on Prime and 10 on STD, the USD10 on our website. AMs usually ask for this top rate, and BO only checks the rate isn\'t above it (Sales Ops and BO, 23 Nov).'},
+  src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (9, 10 and 23 Nov); BO (10 and 23 Nov); Sales Zendesk rate sheets (Oct 2025); partners website and deck',
   /* fuller version for the click-through card */
   pop:{
    what:'Before signing up, a future IB checks what we offer and asks about the rate. Here\'s where they usually go:',
@@ -1381,11 +1395,11 @@ var NODES=[
     {h:'A chat with Sales',t:'Sales explains the IB rebate, current promotions and account details. This quarter, for example, IBs can earn a bonus when their clients hit deposit and trading targets.'},
     {h:'Our Support team',t:'Some ask Support about becoming an IB. Support passes them to Sales Ops, who get them to an AM (step 2.2).'}
    ],
-   note:{lead:'Good to know',t:'Sales Ops\' SEA rate sheet pays USD1 to 7 a lot on Forex (Classic, Edge and Prime). SEA clients can also open STD, PRO, PM and ECN accounts (BO confirmed, 10 Nov), and STD pays USD8 to 10, which matches our website and deck.'},
+   note:{lead:'Good to know',t:'On Forex, Sales Ops\' SEA rate sheet pays up to USD4 a lot on Classic, 2 on Edge and 7 on Prime. SEA clients can also open STD, PRO, PM and ECN accounts (BO confirmed, 10 Nov), and STD pays up to USD10, our website\'s figure. The deck\'s USD8 is STD\'s lowest volume band, but the bands are for marketing only, and AMs usually ask for the top rate (Sales Ops and BO, 23 Nov).'},
    owner:'Sales (Aaron\'s team) talks to them. Partner Marketing looks after the partners website and the partner deck.',
    where:'Our partners website (tmgmpartners.com), the partner deck, and conversations with Sales or our Support team.',
    time:'It varies, from a first chat with Sales to agreeing terms (Aaron, 17 Nov).',
-   src:'IB onboarding flow doc (30 Oct); partners website (Jun); partner deck; Aaron (Nov); Sales Ops (9 and 10 Nov); BO (10 Nov); Sales Zendesk rate sheets (Oct 2025); Q4 IB promotions (Nov)'
+   src:'IB onboarding flow doc (30 Oct); partners website (Jun); partner deck; Aaron (Nov); Sales Ops (9, 10 and 23 Nov); BO (10 and 23 Nov); Sales Zendesk rate sheets (Oct 2025); Q4 IB promotions (Nov)'
   }},
  {k:'n21',more:['p04','p07'],id:'2.1',st:'auto',shape:'box',x:C[1],y:Y1,w:152,h:96,name:'Registers',sub:'Opens a client account first',
   what:'Fills in TMGM\'s one sign-up form and opens a client account, tagged with the code from their link (or the IB page\'s own code). Like every new client, they get our onboarding emails, including reminders to verify their ID. Signing up doesn\'t make them an IB yet. Some talk to Sales first and sign up once terms are agreed.',
@@ -1433,22 +1447,22 @@ var NODES=[
  {k:'n23',more:['p06','p04'],id:'2.3',st:'manual',shape:'box',x:C[3],y:Y1,w:152,h:96,name:'Agrees terms',sub:'Rate and plan, one to one',
   what:'Agrees the program and rate with their AM, one to one. There\'s no minimum deposit or trading, but they must finish KYC before they can become an IB. Sales usually recommends IB, and rates above the normal IB rebate need Tom\'s approval (step 2.5).',
   owner:'AM in the regional sales team',where:'AM\'s Zendesk ticket to BO',time:'It varies',
-  cnote:{lead:'Rates:',text:'Classic, Edge and Prime accounts pay USD1 to 7 a lot on Forex in SEA. SEA clients can also open STD accounts, which pay USD8 to 10, the figures on our website and deck (BO confirmed, 10 Nov).'},
-  src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (9 and 10 Nov); BO (10 and 16 Nov); OP (11 Nov); Sales Zendesk rate sheets (Oct 2025)',
+  cnote:{lead:'Rates:',text:'On Forex, up to USD4 a lot on Classic accounts, 2 on Edge, 7 on Prime and 10 on STD, the USD10 on our website. AMs usually ask for this top rate, and BO only checks the rate isn\'t above it (Sales Ops and BO, 23 Nov).'},
+  src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (9, 10 and 23 Nov); BO (10, 16 and 23 Nov); OP (11 Nov); Sales Zendesk rate sheets (Oct 2025)',
   /* fuller version for the click-through card */
   pop:{
    w:680,
    what:'The future IB and their AM agree, one to one, which program fits and what rate they\'ll get. Three things shape the deal:',
    ways:[
     {h:'Which program',t:'Sales recommends what suits the partner, and that\'s usually IB. Partners can switch later or join more than one program. In SEA we can\'t offer CPA (a fixed payment per new client), so the CPA deals on our website don\'t apply here.'},
-    {h:'The rate',t:'Agreed one to one with the AM, from Sales Ops\' rate sheets. In SEA, Classic, Edge and Prime accounts pay USD1 to 7 a lot on Forex and up to USD10 on gold and silver, and STD accounts pay USD8 to 10, depending on the IB\'s volume. Anything above the sheets is a special request that needs Tom\'s approval (step 2.5).'},
+    {h:'The rate',t:'Agreed one to one with the AM, from Sales Ops\' rate sheets. On Forex in SEA, that\'s up to USD4 a lot on Classic accounts, 2 on Edge, 7 on Prime and 10 on STD. The sheets show volume bands, but they\'re for marketing only: AMs usually ask for the top rate, and BO only checks the rate isn\'t above it (Sales Ops and BO, 23 Nov). Anything above the sheets is a special request that needs Tom\'s approval (step 2.5).'},
     {h:'Who can join',t:'Anyone. There\'s no minimum deposit or trading, but they must finish KYC before they can become an IB, so we know they\'re a real person.'}
    ],
    note:{lead:'Good to know',t:'STD, PRO, PM and ECN are normal account groups in every region, so SEA clients can ask for them too (BO confirmed, 10 Nov). STD is where our website\'s USD10 and the deck\'s USD8 come from.'},
    owner:'Their AM, in the regional sales team.',
    where:'In the AM\'s Zendesk ticket to BO, which has to include the account group and the agreed rate.',
    time:'It varies, from a first chat with Sales to agreed terms (Aaron, 17 Nov).',
-   src:'IB onboarding flow doc (30 Oct); Aaron (Nov); partner deck; Sales Ops (9 and 10 Nov); BO (10 and 16 Nov); OP (11 Nov); Sales Zendesk rate sheets (Oct 2025)'
+   src:'IB onboarding flow doc (30 Oct); Aaron (Nov); partner deck; Sales Ops (9, 10 and 23 Nov); BO (10, 16 and 23 Nov); OP (11 Nov); Sales Zendesk rate sheets (Oct 2025)'
   }},
  {k:'n24',more:['p04'],id:'2.4',st:'manual',shape:'box',x:C[4],y:Y1,w:152,h:96,name:'AM applies for them',sub:'Via Zendesk',
   what:'Only the AM can submit an IB application. Clients can\'t apply themselves, so anyone interested is given to an AM first. The AM sends the request to BO as a Zendesk ticket.',owner:'AM',where:'Zendesk',time:'Straight away',
@@ -1581,7 +1595,7 @@ var NODES=[
  {k:'lk',st:'none',shape:'leak',x:R[3],y:YL,w:196,h:72,name:'IB goes quiet',sub:'Nothing flags it today',rel:'Branch of step 3.4',stage:3,num:'3.4',
   what:'If no client deposits, nothing triggers a nudge today. Their AM looks after the IB, but time to first client isn\'t measured.',owner:'Their AM',where:'Not tracked',time:'Not tracked',src:'Flow doc (30 Oct); Growth Strategy (Jun); Aaron (17 Nov)'},
  {k:'n41',more:['p10','p12'],id:'4.1',st:'manual',shape:'box',x:R[4],y:Y2,w:172,h:96,name:'Adds more clients',sub:'May add sub-⁠IBs',
-  what:'Brings more clients and may add sub-IBs, with AM support. Promotion posters come from their AM, or from the IB portal.',owner:'The IB, supported by their AM',where:'IB links; sub-IBs via their AM and BO',time:'Ongoing',src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (3 Jul); BO (10 Nov); OP (11 Nov); Q4 IB promotions (Nov)',
+  what:'Brings more clients and may add sub-IBs, with AM support. A sub-IB is paid out of the main IB\'s rate. Promotion posters come from their AM, or from the IB portal.',owner:'The IB, supported by their AM',where:'IB links; sub-IBs via their AM and BO',time:'Ongoing',src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (3 Jul); BO (10 and 23 Nov); OP (11 Nov); Q4 IB promotions (Nov)',
   /* fuller version for the click-through card */
   pop:{
    w:680,
@@ -1590,13 +1604,13 @@ var NODES=[
    ways:[
     {h:'Promotion posters',t:'Their AM shares posters for IB and client promotions. Marketing makes them, and Sales sometimes makes its own. Marketing OP also puts posters in the old IB portal, where IBs can download them any time.'},
     {h:'IB promotions',t:'In Q4 2026, IBs can earn a bonus when their direct clients hit deposit and trading targets. They need at least 5 enabled and 3 active direct clients, and their AM applies for the bonus. OP renews the promotions each month or quarter, but nobody reviews how they\'re doing, and ACQ is taking them over.'},
-    {h:'Sub-IBs',t:'An IB can bring in partners under them and earn on those partners\' clients too.'}
+    {h:'Sub-IBs',t:'An IB can bring in partners under them. Each sub-IB is paid out of the main IB\'s rate, and the main IB keeps the difference on those partners\' clients.'}
    ],
-   note:{lead:'Good to know',t:'For now, a sub-IB can\'t be added from the IB portal. Every new IB, sub-IBs included, is raised by their AM to BO for setup.'},
+   note:{lead:'Good to know',t:'For now, a sub-IB can\'t be added from the IB portal. Every new IB, sub-IBs included, is raised by their AM to BO for setup. Say BO sets a main IB at USD20 a lot on gold and silver, and their sub-IB at USD18: when the sub-IB\'s client trades a lot, the sub-IB gets 18 and the main IB keeps 2 (BO, 23 Nov).'},
    owner:'The IB, with support from their AM, who stays with them and applies for their promotion bonuses.',
    where:'They share their IB links (step 3.3). A new sub-IB is raised by their AM to BO for setup, like any new IB.',
    time:'Ongoing, for as long as they\'re an IB.',
-   src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (3 Jul); BO (10 Nov); OP (11 Nov); Q4 IB promotions (Nov); partner deck'
+   src:'IB onboarding flow doc (30 Oct); Aaron (Nov); Sales Ops (3 Jul); BO (10 and 23 Nov); OP (11 Nov); Q4 IB promotions (Nov); partner deck'
   }},
  {k:'n51',more:['p06'],id:'5.1',st:'partly',shape:'box',x:R[5],y:Y2,w:172,h:96,name:'Paid daily',sub:'BO starts it, CRM pays',
   what:'Rebates are paid the next business day after the trade, and the IB can withdraw any time. Each day BO clicks the payment button to start the payout run, then our in-house CRM processes the payouts automatically.',owner:'BO starts it each day; our in-house CRM pays out',where:'Our in-house CRM; the IB sees it in the IB portal',time:'Next business day',src:'IB onboarding flow doc (30 Oct); BO (Nov); IB agreement (Apr 2026)',
